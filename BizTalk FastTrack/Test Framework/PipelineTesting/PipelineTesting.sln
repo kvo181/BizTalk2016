@@ -1,0 +1,86 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Winterdom.BizTalk.PipelineTesting", "Winterdom.BizTalk.PipelineTesting\Winterdom.BizTalk.PipelineTesting.csproj", "{E0249498-3585-4D40-91B6-81B7C5C5F608}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Winterdom.BizTalk.PipelineTesting.Tests", "Winterdom.BizTalk.PipelineTesting.Tests\Winterdom.BizTalk.PipelineTesting.Tests.csproj", "{7993B5F3-51AD-450B-9DE3-6FC0203137AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleSchemas", "SampleSchemas\SampleSchemas.btproj", "{98D98278-EA7E-46D4-8FD8-297D466A9451}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipelineObjects", "PipelineObjects\PipelineObjects.csproj", "{CD31010E-2E1D-4A18-8E44-75CE93BABD3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Release|.NET = Release|.NET
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0249498-3585-4D40-91B6-81B7C5C5F608}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{E0249498-3585-4D40-91B6-81B7C5C5F608}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0249498-3585-4D40-91B6-81B7C5C5F608}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0249498-3585-4D40-91B6-81B7C5C5F608}.Debug|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E0249498-3585-4D40-91B6-81B7C5C5F608}.Debug|Mixed Platforms.Build.0 = Release|Any CPU
+		{E0249498-3585-4D40-91B6-81B7C5C5F608}.Release|.NET.ActiveCfg = Release|Any CPU
+		{E0249498-3585-4D40-91B6-81B7C5C5F608}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0249498-3585-4D40-91B6-81B7C5C5F608}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0249498-3585-4D40-91B6-81B7C5C5F608}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E0249498-3585-4D40-91B6-81B7C5C5F608}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{7993B5F3-51AD-450B-9DE3-6FC0203137AA}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{7993B5F3-51AD-450B-9DE3-6FC0203137AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7993B5F3-51AD-450B-9DE3-6FC0203137AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7993B5F3-51AD-450B-9DE3-6FC0203137AA}.Debug|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7993B5F3-51AD-450B-9DE3-6FC0203137AA}.Release|.NET.ActiveCfg = Release|Any CPU
+		{7993B5F3-51AD-450B-9DE3-6FC0203137AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7993B5F3-51AD-450B-9DE3-6FC0203137AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7993B5F3-51AD-450B-9DE3-6FC0203137AA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{98D98278-EA7E-46D4-8FD8-297D466A9451}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{98D98278-EA7E-46D4-8FD8-297D466A9451}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98D98278-EA7E-46D4-8FD8-297D466A9451}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98D98278-EA7E-46D4-8FD8-297D466A9451}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{98D98278-EA7E-46D4-8FD8-297D466A9451}.Debug|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{98D98278-EA7E-46D4-8FD8-297D466A9451}.Debug|Mixed Platforms.Build.0 = Release|Any CPU
+		{98D98278-EA7E-46D4-8FD8-297D466A9451}.Release|.NET.ActiveCfg = Release|Any CPU
+		{98D98278-EA7E-46D4-8FD8-297D466A9451}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98D98278-EA7E-46D4-8FD8-297D466A9451}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98D98278-EA7E-46D4-8FD8-297D466A9451}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{98D98278-EA7E-46D4-8FD8-297D466A9451}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{98D98278-EA7E-46D4-8FD8-297D466A9451}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{CD31010E-2E1D-4A18-8E44-75CE93BABD3A}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{CD31010E-2E1D-4A18-8E44-75CE93BABD3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD31010E-2E1D-4A18-8E44-75CE93BABD3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD31010E-2E1D-4A18-8E44-75CE93BABD3A}.Debug|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{CD31010E-2E1D-4A18-8E44-75CE93BABD3A}.Debug|Mixed Platforms.Build.0 = Release|Any CPU
+		{CD31010E-2E1D-4A18-8E44-75CE93BABD3A}.Release|.NET.ActiveCfg = Release|Any CPU
+		{CD31010E-2E1D-4A18-8E44-75CE93BABD3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD31010E-2E1D-4A18-8E44-75CE93BABD3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD31010E-2E1D-4A18-8E44-75CE93BABD3A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{CD31010E-2E1D-4A18-8E44-75CE93BABD3A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://kvo.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = PipelineObjects\\PipelineObjects.csproj
+		SccProjectName1 = PipelineObjects
+		SccLocalPath1 = PipelineObjects
+		SccProjectUniqueName2 = SampleSchemas\\SampleSchemas.btproj
+		SccProjectName2 = SampleSchemas
+		SccLocalPath2 = SampleSchemas
+		SccProjectUniqueName3 = Winterdom.BizTalk.PipelineTesting.Tests\\Winterdom.BizTalk.PipelineTesting.Tests.csproj
+		SccProjectName3 = Winterdom.BizTalk.PipelineTesting.Tests
+		SccLocalPath3 = Winterdom.BizTalk.PipelineTesting.Tests
+		SccProjectUniqueName4 = Winterdom.BizTalk.PipelineTesting\\Winterdom.BizTalk.PipelineTesting.csproj
+		SccProjectName4 = Winterdom.BizTalk.PipelineTesting
+		SccLocalPath4 = Winterdom.BizTalk.PipelineTesting
+	EndGlobalSection
+EndGlobal

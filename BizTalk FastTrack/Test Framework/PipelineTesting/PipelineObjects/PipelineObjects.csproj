@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CD31010E-2E1D-4A18-8E44-75CE93BABD3A}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>PipelineObjects</AssemblyName>
+    <AssemblyOriginatorKeyFile>PipelineObjects.snk</AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>PipelineObjects</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.BizTalk.Bam.EventObservation">
+      <Name>Microsoft.BizTalk.Bam.EventObservation</Name>
+      <HintPath>Microsoft.BizTalk.Bam.EventObservation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.BizTalk.FlatFile.Parser, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.BizTalk.FlatFile.Parser\v4.0_3.0.1.0__31bf3856ad364e35\Microsoft.BizTalk.FlatFile.Parser.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.BizTalk.Pipeline">
+      <Name>Microsoft.BizTalk.Pipeline</Name>
+      <HintPath>Microsoft.BizTalk.Pipeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.BizTalk.Streaming, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.XLANGs.RuntimeTypes">
+      <Name>Microsoft.XLANGs.RuntimeTypes</Name>
+      <HintPath>Microsoft.XLANGs.RuntimeTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib">
+      <Name>mscorlib</Name>
+      <HintPath>mscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+      <HintPath>System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.Xml</Name>
+      <HintPath>System.Xml.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.BizTalk.Interop\BTSchemaCache.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.BizTalk.Interop\IBTDocumentSpec.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.BizTalk.Interop\IBTPropertyAnnotationList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.BizTalk.Interop\IBTPropertyInfoList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.BizTalk.Interop\IBTSchemaCache.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.BizTalk.Interop\INamedItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.BizTalk.Interop\INamedItemList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.BizTalk.Interop\PropertyAnnotation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.BizTalk.Interop\PropertyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.Test.BizTalk.PipelineObjects\BTMPropertyBag.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.Test.BizTalk.PipelineObjects\CallEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.Test.BizTalk.PipelineObjects\ChangeTypeDelegate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.Test.BizTalk.PipelineObjects\DocumentSpec.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.Test.BizTalk.PipelineObjects\ExecuteMethod.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.Test.BizTalk.PipelineObjects\GenericPipeline.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.Test.BizTalk.PipelineObjects\ICloneable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.Test.BizTalk.PipelineObjects\IInitializeDocumentSpec.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.Test.BizTalk.PipelineObjects\IInitializePipelineContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.Test.BizTalk.PipelineObjects\IPipeline.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.Test.BizTalk.PipelineObjects\Message.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.Test.BizTalk.PipelineObjects\MessageContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.Test.BizTalk.PipelineObjects\MessageFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.Test.BizTalk.PipelineObjects\MessagePart.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.Test.BizTalk.PipelineObjects\NativeMethods.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.Test.BizTalk.PipelineObjects\PartEntry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.Test.BizTalk.PipelineObjects\PipelineComponentCallEventHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.Test.BizTalk.PipelineObjects\PipelineContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.Test.BizTalk.PipelineObjects\PipelineFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.Test.BizTalk.PipelineObjects\PromotingMap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.Test.BizTalk.PipelineObjects\PropertyAnnotation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.Test.BizTalk.PipelineObjects\PropertyBag.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.Test.BizTalk.PipelineObjects\ReceivePipeline.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.Test.BizTalk.PipelineObjects\SendPipeline.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.Test.BizTalk.PipelineObjects\Stage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Microsoft.Test.BizTalk.PipelineObjects\Utilities.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PipelineObjects.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>xcopy /C /Y "$(TargetDir)$(ProjectName).*" "$(SolutionDir)\bin\"</PostBuildEvent>
+  </PropertyGroup>
+</Project>
