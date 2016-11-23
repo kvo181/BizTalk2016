@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://bizunit.servicecontracts/2011/09/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://bizunit.servicecontracts/2011/09/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://bizunit.servicecontracts/2011/09/Imports">
+      <xsd:import schemaLocation="http://localhost/BizUnitWcfService/BizUnitService.svc?xsd=xsd0" namespace="http://bizunit.servicecontracts/2011/09/" />
+      <xsd:import schemaLocation="http://localhost/BizUnitWcfService/BizUnitService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/BizUnitWcfService/BizUnitService.svc?xsd=xsd2" namespace="http://bizunit.datacontracts/2011/09/" />
+      <xsd:import schemaLocation="http://localhost/BizUnitWcfService/BizUnitService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/BizUnitWcfServiceLibrary" />
+      <xsd:import schemaLocation="http://localhost/BizUnitWcfService/BizUnitService.svc?xsd=xsd4" namespace="http://bizunit.datacontracts/2011/10/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IBizUnitService_HostConductorStep_InputMessage">
+    <wsdl:part name="parameters" element="tns:HostConductorStep" />
+  </wsdl:message>
+  <wsdl:message name="IBizUnitService_HostConductorStep_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HostConductorStepResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBizUnitService_OrchestrationConductorStep_InputMessage">
+    <wsdl:part name="parameters" element="tns:OrchestrationConductorStep" />
+  </wsdl:message>
+  <wsdl:message name="IBizUnitService_OrchestrationConductorStep_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OrchestrationConductorStepResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBizUnitService_ReceiveLocationEnabledStep_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveLocationEnabledStep" />
+  </wsdl:message>
+  <wsdl:message name="IBizUnitService_ReceiveLocationEnabledStep_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReceiveLocationEnabledStepResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBizUnitService_ReceivePortConductorStep_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReceivePortConductorStep" />
+  </wsdl:message>
+  <wsdl:message name="IBizUnitService_ReceivePortConductorStep_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReceivePortConductorStepResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBizUnitService_SendPortConductorStep_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendPortConductorStep" />
+  </wsdl:message>
+  <wsdl:message name="IBizUnitService_SendPortConductorStep_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendPortConductorStepResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBizUnitService_SendPortGroupConductorStep_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendPortGroupConductorStep" />
+  </wsdl:message>
+  <wsdl:message name="IBizUnitService_SendPortGroupConductorStep_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendPortGroupConductorStepResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBizUnitService_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="IBizUnitService_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IBizUnitService">
+    <wsdl:operation name="HostConductorStep">
+      <wsdl:input wsaw:Action="http://bizunit.servicecontracts/2011/09/IBizUnitService/HostConductorStep" message="tns:IBizUnitService_HostConductorStep_InputMessage" />
+      <wsdl:output wsaw:Action="http://bizunit.servicecontracts/2011/09/IBizUnitService/HostConductorStepResponse" message="tns:IBizUnitService_HostConductorStep_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OrchestrationConductorStep">
+      <wsdl:input wsaw:Action="http://bizunit.servicecontracts/2011/09/IBizUnitService/OrchestrationConductorStep" message="tns:IBizUnitService_OrchestrationConductorStep_InputMessage" />
+      <wsdl:output wsaw:Action="http://bizunit.servicecontracts/2011/09/IBizUnitService/OrchestrationConductorStepResponse" message="tns:IBizUnitService_OrchestrationConductorStep_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveLocationEnabledStep">
+      <wsdl:input wsaw:Action="http://bizunit.servicecontracts/2011/09/IBizUnitService/ReceiveLocationEnabledStep" message="tns:IBizUnitService_ReceiveLocationEnabledStep_InputMessage" />
+      <wsdl:output wsaw:Action="http://bizunit.servicecontracts/2011/09/IBizUnitService/ReceiveLocationEnabledStepResponse" message="tns:IBizUnitService_ReceiveLocationEnabledStep_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceivePortConductorStep">
+      <wsdl:input wsaw:Action="http://bizunit.servicecontracts/2011/09/IBizUnitService/ReceivePortConductorStep" message="tns:IBizUnitService_ReceivePortConductorStep_InputMessage" />
+      <wsdl:output wsaw:Action="http://bizunit.servicecontracts/2011/09/IBizUnitService/ReceivePortConductorStepResponse" message="tns:IBizUnitService_ReceivePortConductorStep_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendPortConductorStep">
+      <wsdl:input wsaw:Action="http://bizunit.servicecontracts/2011/09/IBizUnitService/SendPortConductorStep" message="tns:IBizUnitService_SendPortConductorStep_InputMessage" />
+      <wsdl:output wsaw:Action="http://bizunit.servicecontracts/2011/09/IBizUnitService/SendPortConductorStepResponse" message="tns:IBizUnitService_SendPortConductorStep_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendPortGroupConductorStep">
+      <wsdl:input wsaw:Action="http://bizunit.servicecontracts/2011/09/IBizUnitService/SendPortGroupConductorStep" message="tns:IBizUnitService_SendPortGroupConductorStep_InputMessage" />
+      <wsdl:output wsaw:Action="http://bizunit.servicecontracts/2011/09/IBizUnitService/SendPortGroupConductorStepResponse" message="tns:IBizUnitService_SendPortGroupConductorStep_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://bizunit.servicecontracts/2011/09/IBizUnitService/GetData" message="tns:IBizUnitService_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://bizunit.servicecontracts/2011/09/IBizUnitService/GetDataResponse" message="tns:IBizUnitService_GetData_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

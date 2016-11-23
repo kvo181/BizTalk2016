@@ -1,0 +1,20 @@
+﻿<?xml version="1.0"?>
+<AttestationRequest_Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://ACVCSC.BizTalk.Rva.Attestation.Schemas.AttestationRequest_Envelope">
+  <Version>1</Version>
+  <Prefix NetworkReturnCode="DSOR" InternalReference="M01069901324953" UserINSS="59040527962" RequestType="O0L" UnEmployedINSS="62022413870" Form="A820" DateSent="2010-05-27T11:45:45.074176" BeginRepertory="2010-05-27" EndRepertory="2010-05-27" BeginMessage="2010-05-26" EndMessage="2010-05-27" />
+  <A820 processType="L" xmlns="http://ACVCSC.BizTalk.Rva.Attestation.Schemas.A820">
+    <Identifier>DMFAA1000010133</Identifier>
+    <Request>
+      <INSS>62022413870</INSS>
+      <PeriodStart>20102</PeriodStart>
+      <PeriodEnd>20102</PeriodEnd>
+      <WayOfAnswering>1</WayOfAnswering>
+      <WantedSituations>1</WantedSituations>
+    </Request>
+    <Next>
+      <Quarter>20102</Quarter>
+      <NPPID>9</NPPID>
+      <WRVersionNbr>8</WRVersionNbr>
+    </Next>
+  </A820>
+</AttestationRequest_Envelope>

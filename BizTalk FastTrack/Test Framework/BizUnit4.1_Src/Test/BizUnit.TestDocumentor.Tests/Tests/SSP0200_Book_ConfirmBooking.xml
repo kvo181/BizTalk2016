@@ -1,0 +1,109 @@
+﻿<TestCase
+  Name="Book:ConfirmBooking"
+  Description="Validate an Ancillary Booking, single message"
+  Category="SSP Book Service BVTs"
+  Purpose="Test ConfirmBooking"
+  Reference="Use case: 115"
+  Preconditions="ASS Databases should be setup, Book web service should be installed"
+  ExpectedResults="Booking details returned along with a success code"
+  BizUnitVersion="4.0.0.0" 
+  xmlns="clr-namespace:BizUnit.Xaml;assembly=BizUnit" 
+  xmlns:butss="clr-namespace:BizUnit.TestSteps.Soap;assembly=BizUnit.TestSteps" 
+  xmlns:butsdlf="clr-namespace:BizUnit.TestSteps.DataLoaders.File;assembly=BizUnit.TestSteps"
+  xmlns:butsdlx="clr-namespace:BizUnit.TestSteps.DataLoaders.Xml;assembly=BizUnit.TestSteps" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+  xmlns:butsx="clr-namespace:BizUnit.TestSteps.Xml;assembly=BizUnit.TestSteps" 
+  xmlns:butsc="clr-namespace:BizUnit.TestSteps.Common;assembly=BizUnit.TestSteps" 
+  xmlns:vaaassu="clr-namespace:VAA.ASS.Utils;assembly=VAA.ASS.Utils">
+
+  <TestCase.SetupSteps>
+	<ImportTestCaseStep
+	  TestCasePath="..\..\..\Test\VAA.SSP.ASS.BVTs\TestCases\Book\SSP0101_Book_BookAncillary.xml"
+	  RunConcurrently="False"
+	  FailOnError="True" />
+  </TestCase.SetupSteps>
+  <TestCase.ExecutionSteps>
+    <butss:WebServiceStep
+      ServiceUrl="http://localhost/SSP.AncillarySalesBook/AncillarySalesBook.svc"
+      Action="http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/2009/IAncillarySalesBook/ConfirmBooking"
+      Username="localhost\wayne"
+      Password="{x:Null}"
+      RunConcurrently="False"
+      FailOnError="True">
+      <butss:WebServiceStep.RequestBody>
+        <butsdlf:FileDataLoader
+          FilePath="..\..\..\Test\VAA.SSP.ASS.BVTs\Book_TestData\SSP0200_ConfirmBooking_RQ.xml" />
+		  <butsdlx:XmlDataLoader.UpdateXml>
+			  <butsc:XPathDefinition
+				Description="ancillaryBookingReference"
+				XPath="/*[local-name()='ConfirmBooking_RQ' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/ConfirmBooking/2009']/*[local-name()='Message' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/ConfirmBooking/2009']/*[local-name()='AncillaryBooking' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/ConfirmBooking/2009']/*[local-name()='AncillaryBookingReference' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/ConfirmBooking/2009']/@*[local-name()='ancillaryBookingReference' and namespace-uri()='']"
+				Value="{x:Null}"
+				ContextKey="AncillaryBookingReference" />
+		  </butsdlx:XmlDataLoader.UpdateXml>
+	  </butss:WebServiceStep.RequestBody>
+      <butss:WebServiceStep.SubSteps>
+        <butsx:XmlValidationStep>
+          <butsx:XmlValidationStep.XmlSchemas>
+            <butsx:SchemaDefinition
+              XmlSchemaPath="..\..\..\Test\VAA.SSP.ASS.BVTs\Schemas\Result_Type.xsd"
+              XmlSchemaNameSpace="http://schemas.virgin-atlantic.com/Common/2009" />
+            <butsx:SchemaDefinition
+              XmlSchemaPath="..\..\..\Test\VAA.SSP.ASS.BVTs\Schemas\AncillariesCommonTypes.xsd"
+              XmlSchemaNameSpace="http://schemas.virgin-atlantic.com/AncillarySales/Common/2009" />
+            <butsx:SchemaDefinition
+              XmlSchemaPath="..\..\..\Test\VAA.SSP.ASS.BVTs\Schemas\ConfirmBooking_RS.xsd"
+              XmlSchemaNameSpace="http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/ConfirmBooking/2009" />
+          </butsx:XmlValidationStep.XmlSchemas>
+          <butsx:XmlValidationStep.XPathValidations>
+            <butsc:XPathDefinition
+              Description="bookingIsValid"
+              XPath="/*[local-name()='ConfirmBooking_RS' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/ConfirmBooking/2009']/*[local-name()='Message' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/ConfirmBooking/2009']/*[local-name()='Booking' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/ConfirmBooking/2009']/@*[local-name()='bookingIsValid' and namespace-uri()='']"
+              Value="true"
+              ContextKey="{x:Null}" />
+            <butsc:XPathDefinition
+              Description="ValidationResult/success"
+              XPath="/*[local-name()='ConfirmBooking_RS' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/ConfirmBooking/2009']/*[local-name()='Message' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/ConfirmBooking/2009']/*[local-name()='Booking' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/ConfirmBooking/2009']/*[local-name()='ValidationResult' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/ConfirmBooking/2009']/@*[local-name()='success' and namespace-uri()='']"
+              Value="true"
+              ContextKey="{x:Null}" />
+          </butsx:XmlValidationStep.XPathValidations>
+        </butsx:XmlValidationStep>
+      </butss:WebServiceStep.SubSteps>
+      <butss:WebServiceStep.SoapHeaders>
+        <butss:SoapHeader
+          HeaderName="ServiceCallingContext"
+          HeaderNameSpace="http://schemas.virgin-atlantic.com/Services/ServiceCallingContext/2009">
+          <butss:SoapHeader.HeaderInstance>
+            <vaaassu:ServiceCallingContext>
+              <vaaassu:ServiceCallingContext.HeaderVersion>
+                <vaaassu:HeaderVersion_Type
+                  HeaderVersion="1.0" />
+              </vaaassu:ServiceCallingContext.HeaderVersion>
+              <vaaassu:ServiceCallingContext.ServiceCallingCtx>
+                <vaaassu:ServiceCallingContext_Type
+                  LocalTransactionStartDateTime="2010-02-12T15:43:03.258005+00:00"
+                  UTCTransactionStartDateTime="2010-02-12T15:43:03.258005Z"
+                  ApplicationName="SSP BVT Tests:SSP0200_Book_ConfirmBooking"
+                  GUid="{}{1705141E-F530-4657-BA2F-23F0F4A8BCB0}"
+                  VersionId="2009"
+                  GroupId="groupd1" />
+              </vaaassu:ServiceCallingContext.ServiceCallingCtx>
+              <vaaassu:ServiceCallingContext.UserContext>
+                <vaaassu:UserContext_Type
+                  NodeId="001"
+                  RequestId="3ca264f8-9a0c-445b-bc8d-9c211c8c819b"
+                  UserId="kevinsmi" />
+              </vaaassu:ServiceCallingContext.UserContext>
+              <vaaassu:ServiceCallingContext.SharesContext>
+                <vaaassu:SharesContext_Type
+                  AgentSine="12345"
+                  AgentDutyCode="123"
+                  AirportCode="LHR"
+                  ERSP_UserId="123456" />
+              </vaaassu:ServiceCallingContext.SharesContext>
+            </vaaassu:ServiceCallingContext>
+          </butss:SoapHeader.HeaderInstance>
+        </butss:SoapHeader>
+      </butss:WebServiceStep.SoapHeaders>
+    </butss:WebServiceStep>
+  </TestCase.ExecutionSteps>
+</TestCase>

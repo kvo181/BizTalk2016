@@ -1,0 +1,29 @@
+<TestCase testName="Test_06_StringFormatter">
+
+	<TestSetup>
+	</TestSetup>
+	
+	<TestExecution>
+		<!-- Sets Converted value to Context Key OutputString -->
+		<TestStep assemblyPath="BizUnit.Extensions.dll" typeName="BizUnit.Extensions.StringFormatterStep">
+			<BaseString>Update table set fld = '{0}' where fld1 = '{1}'</BaseString>
+			<Delimiter>|</Delimiter>
+			<NumParams>2</NumParams>
+			<ParamString>Smith|10192929239</ParamString>
+			<ContextKey>OutputString</ContextKey>
+
+			<!--check that the context key has been parameterised correctly -->
+			<ValidationStep assemblyPath="" typeName="BizUnit.ContextValidationStep">
+				<Context keyName="OutputString">Update table set fld = 'Smith' where fld1 = '10192929239'</Context>
+			</ValidationStep>
+
+
+		</TestStep>
+	</TestExecution>
+
+	<!-- Test cleanup: test cases should always leave the system in the state they found it -->
+	<TestCleanup>
+	</TestCleanup>	
+	
+</TestCase>
+

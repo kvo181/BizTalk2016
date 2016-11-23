@@ -1,0 +1,135 @@
+﻿<TestCase
+  Name="Book:SSP0101_Book_BookAncillary"
+  Category="SSP Book Service BVTs"
+  Purpose="Test BookAncillary web method"
+  Reference="Use case: 103"
+  Preconditions="ASS Databases should be setup, SSP and ASS Book web service should be installed"
+  Description="BookAncillary for a single product"
+  ExpectedResults="Ancillary product successfully booked in ASS"
+  BizUnitVersion="4.0.0.0" 
+  xmlns="clr-namespace:BizUnit.Xaml;assembly=BizUnit" 
+  xmlns:butss="clr-namespace:BizUnit.TestSteps.Soap;assembly=BizUnit.TestSteps" 
+  xmlns:butsdlf="clr-namespace:BizUnit.TestSteps.DataLoaders.File;assembly=BizUnit.TestSteps" 
+  xmlns:butsdlx="clr-namespace:BizUnit.TestSteps.DataLoaders.Xml;assembly=BizUnit.TestSteps" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+  xmlns:butsx="clr-namespace:BizUnit.TestSteps.Xml;assembly=BizUnit.TestSteps" 
+  xmlns:butsc="clr-namespace:BizUnit.TestSteps.Common;assembly=BizUnit.TestSteps" 
+  xmlns:vaaassu="clr-namespace:VAA.ASS.Utils;assembly=VAA.ASS.Utils">
+  <TestCase.SetupSteps>
+    <ImportTestCaseStep
+      TestCasePath="..\..\..\Test\VAA.SSP.ASS.BVTs\TestCases\Search\SSP0800_Search_GetProducts.xml"
+      RunConcurrently="False"
+      FailOnError="True" />
+  </TestCase.SetupSteps>
+  
+  <TestCase.ExecutionSteps>
+    <butss:WebServiceStep
+      ServiceUrl="http://localhost/SSP.AncillarySalesBook/AncillarySalesBook.svc"
+      Action="http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/2009/IAncillarySalesBook/BookAncillary"
+      Username="localhost\wayne"
+      Password="{x:Null}"
+      RunConcurrently="False"
+      FailOnError="True">
+      <butss:WebServiceStep.RequestBody>
+        
+        <butsdlx:XmlDataLoader
+          FilePath="..\..\..\Test\VAA.SSP.ASS.BVTs\Book_TestData\SSP0101_Book_BookAncillary_RQ.xml">
+          <butsdlx:XmlDataLoader.UpdateXml>
+            <butsc:XPathDefinition
+              Description="departureDate"
+              XPath="/*[local-name()='BookAncillary_RQ' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/BookAncillary/2009']/*[local-name()='Message' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/BookAncillary/2009']/*[local-name()='BookAncillary' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/BookAncillary/2009']/*[local-name()='FlightSectors' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/BookAncillary/2009']/*[local-name()='FlightSectorBooking' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/BookAncillary/2009']/*[local-name()='FlightSector' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/BookAncillary/2009']/@*[local-name()='departureDate' and namespace-uri()='']"
+              Value="{x:Null}"
+              ContextKey="DepartureDate" />
+
+          </butsdlx:XmlDataLoader.UpdateXml>
+        </butsdlx:XmlDataLoader>
+
+      </butss:WebServiceStep.RequestBody>
+      <butss:WebServiceStep.SubSteps>
+        <butsx:XmlValidationStep>
+          <butsx:XmlValidationStep.XmlSchemas>
+            <butsx:SchemaDefinition
+              XmlSchemaPath="..\..\..\Test\VAA.SSP.ASS.BVTs\Schemas\Result_Type.xsd"
+              XmlSchemaNameSpace="http://schemas.virgin-atlantic.com/Common/2009" />
+            <butsx:SchemaDefinition
+              XmlSchemaPath="..\..\..\Test\VAA.SSP.ASS.BVTs\Schemas\AncillariesCommonTypes.xsd"
+              XmlSchemaNameSpace="http://schemas.virgin-atlantic.com/AncillarySales/Common/2009" />
+            <butsx:SchemaDefinition
+              XmlSchemaPath="..\..\..\Test\VAA.SSP.ASS.BVTs\Schemas\BookAncillary_RS.xsd"
+              XmlSchemaNameSpace="http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/BookAncillary/2009" />
+          </butsx:XmlValidationStep.XmlSchemas>
+          <butsx:XmlValidationStep.XPathValidations>
+            <butsc:XPathDefinition
+              Description="Message/messageId"
+              XPath="/*[local-name()='BookAncillary_RS' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/BookAncillary/2009']/*[local-name()='Message' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/BookAncillary/2009']/@*[local-name()='messageId' and namespace-uri()='']"
+              Value="11" />
+
+            <butsc:XPathDefinition
+              Description="ancillaryBookingReference"
+              XPath="/*[local-name()='BookAncillary_RS' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/BookAncillary/2009']/*[local-name()='Message' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/BookAncillary/2009']/*[local-name()='BookAncillary' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/BookAncillary/2009']/@*[local-name()='ancillaryBookingReference' and namespace-uri()='']"
+              ContextKey="AncillaryBookingReference"
+              />
+
+            <butsc:XPathDefinition
+              Description="salesRecordId"
+              XPath="/*[local-name()='BookAncillary_RS' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/BookAncillary/2009']/*[local-name()='Message' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/BookAncillary/2009']/*[local-name()='BookAncillary' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/BookAncillary/2009']/*[local-name()='FlightSectorBookings' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/BookAncillary/2009']/*[local-name()='FlightSectorSale' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Common/2009']/@*[local-name()='salesRecordId' and namespace-uri()='']"
+              ContextKey="SalesRecordId"
+              />
+
+            <butsc:XPathDefinition
+              Description="Message/BookAncillary/FlightSectorBookings/Result/success"
+              XPath="/*[local-name()='BookAncillary_RS' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/BookAncillary/2009']/*[local-name()='Message' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/BookAncillary/2009']/*[local-name()='BookAncillary' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/BookAncillary/2009']/*[local-name()='FlightSectorBookings' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/BookAncillary/2009']/*[local-name()='FlightSectorSale' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Common/2009']/*[local-name()='Result' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Common/2009']/@*[local-name()='success' and namespace-uri()='']"
+              Value="true" />
+
+            <butsc:XPathDefinition
+              Description="Result/messageId"
+              XPath="/*[local-name()='BookAncillary_RS' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/BookAncillary/2009']/*[local-name()='Result' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/BookAncillary/2009']/@*[local-name()='messageId' and namespace-uri()='']"
+              Value="11" />          
+
+            <butsc:XPathDefinition
+              Description="Result/result"
+              XPath="/*[local-name()='BookAncillary_RS' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/BookAncillary/2009']/*[local-name()='Result' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Book/Services/BookAncillary/2009']/@*[local-name()='result' and namespace-uri()='']"
+              Value="Success" />
+            
+          </butsx:XmlValidationStep.XPathValidations>
+        </butsx:XmlValidationStep>
+      </butss:WebServiceStep.SubSteps>
+      <butss:WebServiceStep.SoapHeaders>
+        <butss:SoapHeader
+          HeaderName="ServiceCallingContext"
+          HeaderNameSpace="http://schemas.virgin-atlantic.com/Services/ServiceCallingContext/2009">
+          <butss:SoapHeader.HeaderInstance>
+            <vaaassu:ServiceCallingContext>
+              <vaaassu:ServiceCallingContext.HeaderVersion>
+                <vaaassu:HeaderVersion_Type
+                  HeaderVersion="1.0" />
+              </vaaassu:ServiceCallingContext.HeaderVersion>
+              <vaaassu:ServiceCallingContext.ServiceCallingCtx>
+                <vaaassu:ServiceCallingContext_Type
+                  LocalTransactionStartDateTime="2009-11-16T16:56:16.7813613-08:00"
+                  UTCTransactionStartDateTime="2009-11-17T00:56:16.7813613Z"
+                  ApplicationName="SSP BVT Tests:SSP0101_Book_BookAncillary"
+                  GUid="{}{1705141E-F530-4657-BA2F-23F0F4A8BCB0}"
+                  VersionId="2009"
+                  GroupId="groupd1" />
+              </vaaassu:ServiceCallingContext.ServiceCallingCtx>
+              <vaaassu:ServiceCallingContext.UserContext>
+                <vaaassu:UserContext_Type
+                  NodeId="001"
+                  RequestId="67a313e7-3aff-4902-a573-50ec39d034d9"
+                  UserId="wayne" />
+              </vaaassu:ServiceCallingContext.UserContext>
+              <vaaassu:ServiceCallingContext.SharesContext>
+                <vaaassu:SharesContext_Type
+                  AgentSine="12345"
+                  AgentDutyCode="123"
+                  AirportCode="LHR"
+                  ERSP_UserId="123456" />
+              </vaaassu:ServiceCallingContext.SharesContext>
+            </vaaassu:ServiceCallingContext>
+          </butss:SoapHeader.HeaderInstance>
+        </butss:SoapHeader>
+      </butss:WebServiceStep.SoapHeaders>
+    </butss:WebServiceStep>
+  </TestCase.ExecutionSteps>
+</TestCase>

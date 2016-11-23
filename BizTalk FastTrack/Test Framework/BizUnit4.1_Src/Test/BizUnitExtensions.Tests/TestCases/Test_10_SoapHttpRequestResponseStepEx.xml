@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<TestCase testName="Test_10_SoapHttpRequestResponseStepEx">
+
+	<TestSetup>
+	</TestSetup>
+
+  
+	<TestExecution>
+		<TestStep assemblyPath="BizUnit.Extensions.dll" typeName="BizUnit.Extensions.SoapHttpRequestResponseStepEx">
+			<Url>http://localhost/POWebService/SubmitPOService.asmx</Url>
+			<SoapAction>http://Microsoft.Samples.BizTalk.ConsumeWebService/webservices/submitPO</SoapAction>
+			<InputFile>.\..\..\TestData\PORequest.xml</InputFile>
+			<OutputFile>.\..\..\TestData\out\POResponse.xml</OutputFile>
+	</TestStep>
+
+	</TestExecution>
+    
+    <!-- Test cleanup: test cases should always leave the system in the state they found it -->
+    <TestCleanup>
+    </TestCleanup>    
+
+</TestCase>
+
+

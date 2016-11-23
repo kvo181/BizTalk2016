@@ -1,0 +1,42 @@
+<TestCase testName="Test_05_WaitOnFileEx">
+
+	<TestSetup>
+		<TestStep assemblyPath="" typeName="BizUnit.FileDeleteStep" failOnError="false">
+			<FileToDeletePath>.\..\..\TestData\out\file1.xml</FileToDeletePath>
+		</TestStep>
+
+	</TestSetup>
+	
+	<TestExecution>
+		<!--start the waiting process-->
+		<TestStep assemblyPath="BizUnit.Extensions.dll" failOnError="true" typeName="BizUnit.Extensions.WaitOnFileExStep">
+			<Path>.\..\..\TestData\out\</Path>
+			<FileFilter>*.xml</FileFilter>
+			<TimeOut>5000</TimeOut>
+			<IncludeOldFiles>Y</IncludeOldFiles>
+			
+			<!--check that the context key has the correct value-->
+			<ValidationStep assemblyPath="" typeName="BizUnit.ContextValidationStep">
+			    <Context keyName="DetectedFileName">file.xml</Context>
+			</ValidationStep>
+
+		</TestStep>
+
+		<!--now create the file there (copying a known file) and it should return immediately-->
+		<TestStep assemblyPath="" typeName="BizUnit.FileCreateStep">
+			<SourcePath >.\..\..\TestData\XmlPokeData.xml</SourcePath>
+			<CreationPath>.\..\..\TestData\out\file1.xml</CreationPath>
+		</TestStep>
+	
+			
+		
+
+	</TestExecution>
+
+	<!-- Test cleanup: test cases should always leave the system in the state they found it -->
+	<TestCleanup>
+
+	</TestCleanup>	
+	
+</TestCase>
+

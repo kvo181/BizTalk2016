@@ -1,0 +1,14 @@
+﻿<TestCase Category="{x:Null}" ExpectedResults="{x:Null}" Preconditions="{x:Null}" Purpose="{x:Null}" Reference="{x:Null}" BizUnitVersion="4.0.0.1" Description="Check/Validate the MQSeries related steps" Name="Send and Read operations on a MQSeries queue" xmlns="clr-namespace:BizUnit.Xaml;assembly=BizUnit" xmlns:btdf="clr-namespace:BizUnit.TestSteps.DataLoaders.File;assembly=BizUnit.TestSteps" xmlns:btim="clr-namespace:BizUnit.TestSteps.i8c.MQSeries;assembly=BizUnit.TestSteps.i8c" xmlns:btivf="clr-namespace:BizUnit.TestSteps.i8c.ValidationSteps.File;assembly=BizUnit.TestSteps.i8c" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TestCase.ExecutionSteps>
+    <btim:MQSeriesPutStep SubSteps="{x:Null}" FailOnError="True" Queue="QL_LOC_ACV_CTW_CONS_OUT" QueueManager="QM_ACV_LOC" RunConcurrently="False">
+      <btim:MQSeriesPutStep.MessageBody>
+        <btdf:FileDataLoader FilePath="..\..\..\BizUnit.TestSteps.i8c.Tests\TestData\BizTalk2006.ToBeProcessed.A820.Request.xml" />
+      </btim:MQSeriesPutStep.MessageBody>
+    </btim:MQSeriesPutStep>
+    <btim:MQSeriesGetStep FailOnError="True" Queue="QL_LOC_ACV_CTW_CONS_OUT" QueueManager="QM_ACV_LOC" RunConcurrently="False" WaitTimeout="0">
+      <btim:MQSeriesGetStep.SubSteps>
+        <btivf:BinaryValidationStep ReadAsString="True" ReadAsUnicode="False" />
+      </btim:MQSeriesGetStep.SubSteps>
+    </btim:MQSeriesGetStep>
+  </TestCase.ExecutionSteps>
+</TestCase>

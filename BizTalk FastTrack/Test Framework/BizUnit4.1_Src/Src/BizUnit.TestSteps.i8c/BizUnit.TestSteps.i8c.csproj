@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{44DC0FE6-653A-4BC9-80A3-5D0B0164BAA1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BizUnit.TestSteps.i8c</RootNamespace>
+    <AssemblyName>BizUnit.TestSteps.i8c</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\Bin\BizUnit.TestSteps.i8c.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>BizUnit.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="amqmdnet">
+      <HintPath>..\..\ReferencedAssemblies\amqmdnet.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client">
+      <HintPath>..\..\ReferencedAssemblies\Microsoft.SharePoint.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Runtime">
+      <HintPath>..\..\ReferencedAssemblies\Microsoft.SharePoint.Client.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Common\AssemblyVersionInfo.cs">
+      <Link>Properties\AssemblyVersionInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Services\MSMQWcfServiceLibrary\IMsmqService.cs">
+      <Link>Msmq\IMsmqService.cs</Link>
+    </Compile>
+    <Compile Include="Common\StreamHelper.cs" />
+    <Compile Include="OleDb\OleDbQuerySequenceStepGenerator.cs" />
+    <Compile Include="OleDb\OleDbQueryStepBase.cs" />
+    <Compile Include="OleDb\OleDbQuerySequenceStep.cs" />
+    <Compile Include="OleDb\OleDbCellToContext.cs" />
+    <Compile Include="OleDb\OleDbCellToValidate.cs" />
+    <Compile Include="OleDb\OleDbQueryStep.cs" />
+    <Compile Include="OleDb\OleDbRowToValidate.cs" />
+    <Compile Include="OleDb\OleDbQuery.cs" />
+    <Compile Include="IIS\IISHelper.cs" />
+    <Compile Include="DataLoaders\Sql\SqlBinaryLoader.cs" />
+    <Compile Include="DataLoaders\Sql\SqlDataLoader.cs" />
+    <Compile Include="DataLoaders\String\StringDataLoader.cs" />
+    <Compile Include="File\DeleteStep2.cs" />
+    <Compile Include="File\FileFormattedReadMultipleStep.cs" />
+    <Compile Include="Common\ParameterFromContext.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="Msmq\MSMQHelper.cs" />
+    <Compile Include="Sharepoint\PostDocumentToSharepointStep.cs" />
+    <Compile Include="Sql\SqlQueryExtended.cs" />
+    <Compile Include="IIS\IISStopAppPoolStep.cs" />
+    <Compile Include="IIS\IISStartAppPoolStep.cs" />
+    <Compile Include="IIS\IISRecycleAppPoolStep.cs" />
+    <Compile Include="MQSeries\MQSeriesPeekStep.cs" />
+    <Compile Include="MQSeries\MQSeriesClearQueueStep.cs" />
+    <Compile Include="MQSeries\MQSeriesGetStep.cs" />
+    <Compile Include="MQSeries\MQSeriesHelper.cs" />
+    <Compile Include="MQSeries\MQSeriesPutStep.cs" />
+    <Compile Include="Msmq\ContextProperty.cs" />
+    <Compile Include="Msmq\MSMQQueueExistsStep.cs" />
+    <Compile Include="Msmq\MSMQPeekStep.cs" />
+    <Compile Include="Msmq\MSMQCreateQueueStep.cs" />
+    <Compile Include="Msmq\MSMQDeleteQueueStep.cs" />
+    <Compile Include="Msmq\MSMQQueuePurgeStep.cs" />
+    <Compile Include="Msmq\MSMQReadStep.cs" />
+    <Compile Include="Msmq\MSMQWriteStep.cs" />
+    <Compile Include="Msmq\QueuePathDefinition.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sql\DbCellToContext.cs" />
+    <Compile Include="Sql\DbQueryWaitStep.cs" />
+    <Compile Include="ValidationSteps\File\BinaryValidationStep.cs" />
+    <Compile Include="ValidationSteps\File\PropertyValidation\FileSizeValidationStep.cs" />
+    <Compile Include="ValidationSteps\File\PropertyValidation\NumericPropertyValidationStep.cs" />
+    <Compile Include="ValidationSteps\File\PropertyValidation\PropertyValidationStep.cs" />
+    <Compile Include="ValidationSteps\Sql\BinaryValidationStep.cs" />
+    <Compile Include="WCF\WcfTestStep.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BizUnit.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BizUnit.TestSteps\BizUnit.TestSteps.csproj">
+      <Project>{5BFEF184-0834-4FBA-ADDB-AD798CE0B58D}</Project>
+      <Name>BizUnit.TestSteps</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BizUnit\BizUnit.csproj">
+      <Project>{7C85248A-15D4-4A17-A496-AECF789E0F10}</Project>
+      <Name>BizUnit</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

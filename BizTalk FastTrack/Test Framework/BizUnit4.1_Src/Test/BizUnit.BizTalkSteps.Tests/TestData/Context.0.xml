@@ -1,0 +1,5 @@
+﻿<MessageInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ContextInfo PropertiesCount="3">
+    <Property Name="Property1" Namespace="http://BizUnit.BizTalkTestArtifacts.PropertySchema1" Value="0" Promoted="true" />
+  </ContextInfo>
+</MessageInfo>

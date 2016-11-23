@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/BizUnitWcfServiceLibrary" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/BizUnitWcfServiceLibrary" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="OrchestrationAction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Start" />
+      <xs:enumeration value="Stop" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OrchestrationAction" nillable="true" type="tns:OrchestrationAction" />
+  <xs:simpleType name="ReceivePortAction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Enable" />
+      <xs:enumeration value="Disable" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ReceivePortAction" nillable="true" type="tns:ReceivePortAction" />
+  <xs:simpleType name="SendPortAction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Start" />
+      <xs:enumeration value="Stop" />
+      <xs:enumeration value="Unenlist" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SendPortAction" nillable="true" type="tns:SendPortAction" />
+  <xs:simpleType name="SendPortGroupAction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Start" />
+      <xs:enumeration value="Stop" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SendPortGroupAction" nillable="true" type="tns:SendPortGroupAction" />
+</xs:schema>

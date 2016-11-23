@@ -1,0 +1,35 @@
+﻿<TestCase testName="Test_Setup">
+	<TestSetup>
+	</TestSetup>
+	
+	<TestExecution>
+	
+		<TestStep assemblyPath="" typeName="BizUnit.FileValidateStep">
+			<Timeout>1</Timeout>
+			<Directory>.\..\..\TestData\</Directory>
+			<SearchPattern>XmlContextData.xml</SearchPattern>
+			<DeleteFile>false</DeleteFile>
+
+
+			<ContextLoaderStep assemblyPath="" typeName="BizUnit.XmlContextLoader">
+				<XPath contextKey="sourcefilename">/*[local-name()='Variables']/*[local-name()='sourcefilename']</XPath>
+				<XPath contextKey="targetfilename">/*[local-name()='Variables']/*[local-name()='targetfilename']</XPath>
+				<XPath contextKey="connectionstring">/*[local-name()='Variables']/*[local-name()='connectionstring']</XPath>
+			</ContextLoaderStep>
+		</TestStep>
+		
+		<TestStep assemblyPath="" failOnError="false" typeName="BizUnit.FileCreateStep">
+			<SourcePath>.\..\..\TestData\InDoc1.xml</SourcePath>
+			<CreationPath>.\..\..\Rec_Setup\InDoc1.xml</CreationPath> 
+		</TestStep>
+
+		
+
+	</TestExecution>
+
+	<!-- Test cleanup: test cases should always leave the system in the state they found it -->
+	<TestCleanup>
+	</TestCleanup>	
+	
+</TestCase>
+

@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21107</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AD8A0483-D45F-47DC-96A4-76DA1F80E261}</ProjectGuid>
+    <ProjectTypeGuids>{EF7E3281-CD33-11D4-8326-00C04FA0CE8D};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>library</OutputType>
+    <GenericProcessing>true</GenericProcessing>
+    <RootNamespace>BizUnit.BizTalkTestArtifacts</RootNamespace>
+    <AssemblyName>BizUnit.BizTalkTestArtifacts</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <BpelCompliance>True</BpelCompliance>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.BizTalk.Pipeline.Components, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Microsoft BizTalk Server 2010\Pipeline Components\Microsoft.BizTalk.Pipeline.Components.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Name>System.Configuration</Name>
+    </Reference>
+    <Reference Include="Microsoft.BizTalk.Pipeline">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.BizTalk.DefaultPipelines">
+      <Name>Microsoft.BizTalk.DefaultPipelines</Name>
+    </Reference>
+    <Reference Include="Microsoft.BizTalk.GlobalPropertySchemas">
+      <Name>Microsoft.BizTalk.GlobalPropertySchemas</Name>
+    </Reference>
+    <Reference Include="Microsoft.BizTalk.TestTools">
+      <Name>Microsoft.BizTalk.TestTools</Name>
+    </Reference>
+    <Reference Include="Microsoft.XLANGs.BaseTypes">
+      <Name>Microsoft.XLANGs.BaseTypes</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Schema Include="PropertySchema1.xsd">
+      <TypeName>PropertySchema1</TypeName>
+      <Namespace>BizUnit.BizTalkTestArtifacts</Namespace>
+    </Schema>
+    <Schema Include="Schema0.xsd">
+      <TypeName>Schema0</TypeName>
+      <Namespace>BizUnit.BizTalkTestArtifacts</Namespace>
+    </Schema>
+    <Schema Include="Schema1.xsd">
+      <TypeName>Schema1</TypeName>
+      <Namespace>BizUnit.BizTalkTestArtifacts</Namespace>
+    </Schema>
+    <Schema Include="Schema2.xsd">
+      <TypeName>Schema2</TypeName>
+      <Namespace>BizUnit.BizTalkTestArtifacts</Namespace>
+    </Schema>
+    <Schema Include="Schema3Env.xsd">
+      <TypeName>Schema3Env</TypeName>
+      <Namespace>BizUnit.BizTalkTestArtifacts</Namespace>
+    </Schema>
+  </ItemGroup>
+  <ItemGroup>
+    <XLang Include="Orchestration1.odx">
+      <TypeName>Orchestration1</TypeName>
+      <Namespace>BizUnit.BizTalkTestArtifacts</Namespace>
+    </XLang>
+  </ItemGroup>
+  <ItemGroup>
+    <Map Include="MapSchema1ToSchema2.btm">
+      <TypeName>MapSchema1ToSchema2</TypeName>
+      <Namespace>BizUnit.BizTalkTestArtifacts</Namespace>
+    </Map>
+    <Pipeline Include="ReceivePipeline1.btp">
+      <TypeName>ReceivePipeline1</TypeName>
+      <Namespace>BizUnit.BizTalkTestArtifacts</Namespace>
+    </Pipeline>
+    <Pipeline Include="ReceivePipeline2.btp">
+      <TypeName>ReceivePipeline2</TypeName>
+      <Namespace>BizUnit.BizTalkTestArtifacts</Namespace>
+    </Pipeline>
+    <Pipeline Include="ReceivePipeline3.btp">
+      <TypeName>ReceivePipeline3</TypeName>
+      <Namespace>BizUnit.BizTalkTestArtifacts</Namespace>
+    </Pipeline>
+    <Pipeline Include="SendPipeline1.btp">
+      <TypeName>SendPipeline1</TypeName>
+      <Namespace>BizUnit.BizTalkTestArtifacts</Namespace>
+    </Pipeline>
+    <Pipeline Include="SendPipeline2.btp">
+      <TypeName>SendPipeline2</TypeName>
+      <Namespace>BizUnit.BizTalkTestArtifacts</Namespace>
+    </Pipeline>
+    <Pipeline Include="SendPipeline3.btp">
+      <TypeName>SendPipeline3</TypeName>
+      <Namespace>BizUnit.BizTalkTestArtifacts</Namespace>
+    </Pipeline>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Instances\Child0.xml" />
+    <Content Include="Instances\Child1.xml" />
+    <Content Include="Instances\Child2.xml" />
+    <Content Include="Instances\Schema1.error.xml" />
+    <Content Include="Instances\Schema1.xml" />
+    <Content Include="Instances\Schema2.xml" />
+    <Content Include="Instances\Schema3Env.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\BizTalk\BizTalkC.targets" />
+</Project>

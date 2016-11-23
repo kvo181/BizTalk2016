@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<submitPO xmlns="http://Microsoft.Samples.BizTalk.ConsumeWebService/webservices/">
+	<PODocument>
+		<PO_Num>string</PO_Num>
+		<Date>string</Date>
+	</PODocument>
+</submitPO>
+
+

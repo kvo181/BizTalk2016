@@ -1,0 +1,105 @@
+﻿<TestCase
+  Name="Payment:SSP0800_Search_GetProducts"
+  Description="Gets products for a given search, tests the lazy loading of avaiability"
+  Category="SSP ASS Search Service BVTs"
+  Purpose="Test GetProducts web method"
+  Reference="Use case: 101"
+  Preconditions="ASS Databases should be setup, Search web services should be installed"
+  ExpectedResults="GetProducts succeeds"
+  BizUnitVersion="4.0.0.0" 
+  xmlns="clr-namespace:BizUnit.Xaml;assembly=BizUnit" 
+  xmlns:butss="clr-namespace:BizUnit.TestSteps.Soap;assembly=BizUnit.TestSteps" 
+  xmlns:butsdlf="clr-namespace:BizUnit.TestSteps.DataLoaders.File;assembly=BizUnit.TestSteps" 
+  xmlns:butsdlx="clr-namespace:BizUnit.TestSteps.DataLoaders.Xml;assembly=BizUnit.TestSteps" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+  xmlns:butsx="clr-namespace:BizUnit.TestSteps.Xml;assembly=BizUnit.TestSteps" 
+  xmlns:butsc="clr-namespace:BizUnit.TestSteps.Common;assembly=BizUnit.TestSteps" 
+  xmlns:vaaassu="clr-namespace:VAA.ASS.Utils;assembly=VAA.ASS.Utils">
+  <TestCase.ExecutionSteps>
+    <butss:WebServiceStep
+      ServiceUrl="http://localhost/SSP.AncillarySalesSearch/AncillarySalesSearch.svc"
+      Action="http://schemas.virgin-atlantic.com/AncillarySales/Search/Services/2009/IAncillarySalesSearch/GetProducts"
+      Username="localhost\kevinsmi"
+      Password="{x:Null}"
+      RunConcurrently="False"
+      FailOnError="True">
+      <butss:WebServiceStep.RequestBody>
+
+        <butsdlx:XmlDataLoader
+          FilePath="..\..\..\Test\VAA.SSP.ASS.BVTs\Search_TestData\SSP0800_Search_GetProducts_RQ.xml">
+          <butsdlx:XmlDataLoader.UpdateXml>
+            <butsc:XPathDefinition
+              Description="departureDate"
+              XPath="/*[local-name()='GetProducts_RQ' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Search/Services/GetProducts/2009']/*[local-name()='Message' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Search/Services/GetProducts/2009']/*[local-name()='GetProducts' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Search/Services/GetProducts/2009']/*[local-name()='FlightSectors' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Search/Services/GetProducts/2009']/*[local-name()='FlightSectorDetails' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Search/Services/GetProducts/2009']/*[local-name()='FlightSector' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Search/Services/GetProducts/2009']/@*[local-name()='departureDate' and namespace-uri()='']"
+              Value="{x:Null}"
+              ContextKey="DepartureDate" />
+          </butsdlx:XmlDataLoader.UpdateXml>
+        </butsdlx:XmlDataLoader>
+        
+      </butss:WebServiceStep.RequestBody>
+      <butss:WebServiceStep.SubSteps>
+        <butsx:XmlValidationStep>
+          <butsx:XmlValidationStep.XmlSchemas>
+            <butsx:SchemaDefinition
+              XmlSchemaPath="..\..\..\Test\VAA.SSP.ASS.BVTs\Schemas\Result_Type.xsd"
+              XmlSchemaNameSpace="http://schemas.virgin-atlantic.com/Common/2009" />
+            <butsx:SchemaDefinition
+              XmlSchemaPath="..\..\..\Test\VAA.SSP.ASS.BVTs\Schemas\AncillariesCommonTypes.xsd"
+              XmlSchemaNameSpace="http://schemas.virgin-atlantic.com/AncillarySales/Common/2009" />
+            <butsx:SchemaDefinition
+              XmlSchemaPath="..\..\..\Test\VAA.SSP.ASS.BVTs\Schemas\GetProducts_RS.xsd"
+              XmlSchemaNameSpace="http://schemas.virgin-atlantic.com/AncillarySales/Search/Services/GetProducts/2009" />
+          </butsx:XmlValidationStep.XmlSchemas>
+          <butsx:XmlValidationStep.XPathValidations>
+            <butsc:XPathDefinition
+              Description="GetProducts_RS/Result/result"
+              XPath="/*[local-name()='GetProducts_RS' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Search/Services/GetProducts/2009']/*[local-name()='Result' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Search/Services/GetProducts/2009']/@*[local-name()='result' and namespace-uri()='']"
+              Value="Success"
+              ContextKey="{x:Null}" />
+            <butsc:XPathDefinition
+              Description="Product #1: GetProducts_RS/ProductResults/Result/success"
+              XPath="/*[local-name()='GetProducts_RS' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Search/Services/GetProducts/2009']/*[local-name()='Message' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Search/Services/GetProducts/2009']/*[local-name()='ProductResults' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Search/Services/GetProducts/2009']/*[local-name()='FlightSectors' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Search/Services/GetProducts/2009']/*[local-name()='FlightSector' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Search/Services/GetProducts/2009'][1]/*[local-name()='Result' and namespace-uri()='http://schemas.virgin-atlantic.com/AncillarySales/Search/Services/GetProducts/2009']/@*[local-name()='success' and namespace-uri()='']"
+              Value="true"
+              ContextKey="{x:Null}" />
+          </butsx:XmlValidationStep.XPathValidations>
+        </butsx:XmlValidationStep>
+      </butss:WebServiceStep.SubSteps>
+      <butss:WebServiceStep.SoapHeaders>
+        <butss:SoapHeader
+          HeaderName="ServiceCallingContext"
+          HeaderNameSpace="http://schemas.virgin-atlantic.com/Services/ServiceCallingContext/2009">
+          <butss:SoapHeader.HeaderInstance>
+            <vaaassu:ServiceCallingContext>
+              <vaaassu:ServiceCallingContext.HeaderVersion>
+                <vaaassu:HeaderVersion_Type
+                  HeaderVersion="1.0" />
+              </vaaassu:ServiceCallingContext.HeaderVersion>
+              <vaaassu:ServiceCallingContext.ServiceCallingCtx>
+                <vaaassu:ServiceCallingContext_Type
+                  LocalTransactionStartDateTime="2009-12-11T13:50:27.015625+00:00"
+                  UTCTransactionStartDateTime="2009-12-11T13:50:27.015625Z"
+                  ApplicationName="ASS BVT Tests:SSP0800_Search_GetProducts_MatesPlusBookingNotAllowedForSeating"
+                  GUid="{}{1705141E-F530-4657-BA2F-23F0F4A8BCB0}"
+                  VersionId="2009"
+                  GroupId="groupd1" />
+              </vaaassu:ServiceCallingContext.ServiceCallingCtx>
+              <vaaassu:ServiceCallingContext.UserContext>
+                <vaaassu:UserContext_Type
+                  NodeId="001"
+                  RequestId="8ebadc38-7a30-46bd-9717-b0c2ae92b5a4"
+                  UserId="kevinsmi" />
+              </vaaassu:ServiceCallingContext.UserContext>
+              <vaaassu:ServiceCallingContext.SharesContext>
+                <vaaassu:SharesContext_Type
+                  AgentSine="12345"
+                  AgentDutyCode="123"
+                  AirportCode="LHR"
+                  ERSP_UserId="123456" />
+              </vaaassu:ServiceCallingContext.SharesContext>
+            </vaaassu:ServiceCallingContext>
+          </butss:SoapHeader.HeaderInstance>
+        </butss:SoapHeader>
+      </butss:WebServiceStep.SoapHeaders>
+    </butss:WebServiceStep>
+  </TestCase.ExecutionSteps>
+</TestCase>

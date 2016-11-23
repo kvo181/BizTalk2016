@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://bizunit.datacontracts/2011/09/" elementFormDefault="qualified" targetNamespace="http://bizunit.datacontracts/2011/09/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/BizUnitWcfService/BizUnitService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/BizUnitWcfServiceLibrary" />
+  <xs:complexType name="HostConductorStep">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GrantLogOnAsService" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HostInstanceName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Logon" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PassWord" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Servers" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HostConductorStep" nillable="true" type="tns:HostConductorStep" />
+  <xs:complexType name="OrchestrationConductorStep">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/BizUnitWcfServiceLibrary" minOccurs="0" name="Action" type="q1:OrchestrationAction" />
+      <xs:element minOccurs="0" name="AssemblyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DelayForCompletion" type="xs:int" />
+      <xs:element minOccurs="0" name="OrchestrationName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrchestrationConductorStep" nillable="true" type="tns:OrchestrationConductorStep" />
+  <xs:complexType name="ReceiveLocationEnabledStep">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsDisabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ReceiveLocationName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReceiveLocationEnabledStep" nillable="true" type="tns:ReceiveLocationEnabledStep" />
+  <xs:complexType name="ReceivePortConductorStep">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/BizUnitWcfServiceLibrary" minOccurs="0" name="Action" type="q2:ReceivePortAction" />
+      <xs:element minOccurs="0" name="DelayForCompletion" type="xs:int" />
+      <xs:element minOccurs="0" name="ReceiveLocationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReceivePortName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReceivePortConductorStep" nillable="true" type="tns:ReceivePortConductorStep" />
+</xs:schema>

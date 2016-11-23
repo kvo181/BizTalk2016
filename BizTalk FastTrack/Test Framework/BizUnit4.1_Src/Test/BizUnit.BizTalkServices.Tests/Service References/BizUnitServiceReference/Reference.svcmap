@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5dd50f39-b4a4-42e2-8653-f2e8dc7fc31c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="BizUnit.TestSteps.BizTalk" />
+      <ReferencedAssembly AssemblyName="BizUnitWcfServiceLibrary" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1234/BizUnitServices/BizUnitService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="BizUnitService.xsd" MetadataType="Schema" ID="203c2751-8e01-4b56-8744-b58602cdc4ea" SourceId="1" SourceUrl="http://localhost:1234/BizUnitServices/BizUnitService.svc?xsd=xsd2" />
+    <MetadataFile FileName="BizUnitService.wsdl" MetadataType="Wsdl" ID="44fb7fdd-2325-4954-868c-74fa5d83cbb8" SourceId="1" SourceUrl="http://localhost:1234/BizUnitServices/BizUnitService.svc?wsdl" />
+    <MetadataFile FileName="BizUnitService1.xsd" MetadataType="Schema" ID="571f2973-55c7-4c3c-aa9a-f2d24cfb6536" SourceId="1" SourceUrl="http://localhost:1234/BizUnitServices/BizUnitService.svc?xsd=xsd3" />
+    <MetadataFile FileName="BizUnitService1.wsdl" MetadataType="Wsdl" ID="e7d73e7d-3bec-4fff-a4bd-7dd6d71e3632" SourceId="1" SourceUrl="http://localhost:1234/BizUnitServices/BizUnitService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="BizUnitService2.xsd" MetadataType="Schema" ID="a4513307-7560-48e4-a691-f9c9bb32ddb1" SourceId="1" SourceUrl="http://localhost:1234/BizUnitServices/BizUnitService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BizUnitService3.xsd" MetadataType="Schema" ID="7a429dc6-4a44-4796-ae7d-3b324738aaf8" SourceId="1" SourceUrl="http://localhost:1234/BizUnitServices/BizUnitService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BizUnitService.disco" MetadataType="Disco" ID="c03a7875-e790-469a-98d0-469e47cafa18" SourceId="1" SourceUrl="http://localhost:1234/BizUnitServices/BizUnitService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

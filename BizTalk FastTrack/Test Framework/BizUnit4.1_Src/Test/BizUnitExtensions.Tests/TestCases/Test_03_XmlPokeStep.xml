@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestCase testName="Test_03_XmlPokeStep">
+	<TestSetup>
+		<!--validate the file and load the specified key value indicated by the XPath into the context first-->
+		<TestStep assemblyPath="" typeName="BizUnit.FileValidateStep">
+			<Timeout>1</Timeout>
+			<Directory>.\..\..\TestData</Directory>
+			<SearchPattern>XmlPokeData.xml</SearchPattern>
+			<DeleteFile>false</DeleteFile>
+			
+			<ContextLoaderStep assemblyPath="" typeName="BizUnit.XmlContextLoader">
+				<XPath contextKey="partyid">/PersonObject/partyid</XPath>
+			</ContextLoaderStep>
+		</TestStep>
+	</TestSetup>
+
+	<TestExecution>
+		<!--copy the file to a target file -->
+		<TestStep assemblyPath="" typeName="BizUnit.FileCreateStep">
+			<SourcePath>.\..\..\TestData\XmlPokeData.xml</SourcePath>
+			<CreationPath>.\..\..\TestData\XmlPokeDataOut.xml</CreationPath>
+		</TestStep>
+
+
+		<!--Now poke the value and change it -->
+		<TestStep assemblyPath="BizUnit.Extensions.dll" typeName="BizUnit.Extensions.XmlPokeStep">
+			<InputFileName>.\..\..\TestData\XmlPokeDataOut.xml</InputFileName>
+			<XPathExpressions>
+				<Expression>
+					<XPath>/PersonObject/partyid</XPath>
+					<NewValue>1000</NewValue>
+				</Expression>
+			</XPathExpressions>
+		</TestStep>
+		
+		<!--now load the new value into the context and validate -->
+		<TestStep assemblyPath="" typeName="BizUnit.FileValidateStep">
+			<Timeout>1</Timeout>
+			<Directory>.\..\..\TestData</Directory>
+			<SearchPattern>XmlPokeDataOut.xml</SearchPattern>
+			<DeleteFile>true</DeleteFile>
+			
+			<ContextLoaderStep assemblyPath="" typeName="BizUnit.XmlContextLoader">
+				<XPath contextKey="newpartyid">/PersonObject/partyid</XPath>
+			</ContextLoaderStep>
+			
+			<ValidationStep assemblyPath="" typeName="BizUnit.ContextValidationStep">
+				<Context keyName="newpartyid">1000</Context>
+			</ValidationStep>
+
+			
+	
+		</TestStep>
+
+	</TestExecution>
+
+	<TestCleanup>
+	</TestCleanup>
+</TestCase>

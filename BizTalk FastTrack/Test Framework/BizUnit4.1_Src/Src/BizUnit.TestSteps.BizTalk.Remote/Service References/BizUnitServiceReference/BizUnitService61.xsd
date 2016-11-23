@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://bizunit.datacontracts/2011/10/" elementFormDefault="qualified" targetNamespace="http://bizunit.datacontracts/2011/10/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/BizUnitWcfService/BizUnitService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/BizUnitWcfServiceLibrary" />
+  <xs:complexType name="SendPortConductorStep">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/BizUnitWcfServiceLibrary" minOccurs="0" name="Action" type="q1:SendPortAction" />
+      <xs:element minOccurs="0" name="DelayForCompletion" type="xs:int" />
+      <xs:element minOccurs="0" name="SendPortName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SendPortConductorStep" nillable="true" type="tns:SendPortConductorStep" />
+  <xs:complexType name="SendPortGroupConductorStep">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/BizUnitWcfServiceLibrary" minOccurs="0" name="Action" type="q2:SendPortGroupAction" />
+      <xs:element minOccurs="0" name="DelayForCompletion" type="xs:int" />
+      <xs:element minOccurs="0" name="SendPortGroupName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SendPortGroupConductorStep" nillable="true" type="tns:SendPortGroupConductorStep" />
+</xs:schema>

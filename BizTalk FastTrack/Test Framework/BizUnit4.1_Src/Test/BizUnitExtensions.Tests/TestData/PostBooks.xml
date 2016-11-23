@@ -1,0 +1,12 @@
+﻿<Book xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/BookService.Models">
+  <Author>
+    <Id>1</Id>
+    <Name>sample string 2</Name>
+  </Author>
+  <AuthorId>6</AuthorId>
+  <Genre>sample string 5</Genre>
+  <Id>123</Id>
+  <Price>4</Price>
+  <Title>sample string 2</Title>
+  <Year>3</Year>
+</Book>

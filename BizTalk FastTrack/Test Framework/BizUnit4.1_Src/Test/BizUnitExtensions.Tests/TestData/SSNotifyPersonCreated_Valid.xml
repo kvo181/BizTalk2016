@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SSNotifyPersonCreated xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.contosocouncil.gov.uk/schemas/services/communitysupport/casenotifications/personcreated" xmlns:b="http://schemas.microsoft.com/BizTalk/2003" xmlns:sscmn="http://www.contosocouncil.gov.uk/schemas/services/communitysupport/commondatatypes" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.contosocouncil.gov.uk/schemas/services/communitysupport/casenotifications/personcreated
+SSNotifyPersonCreated.xsd">
+	<NotificationHeader>
+		<Timestamp xmlns="http://www.contosocouncil.gov.uk/schemas/services/communitysupport/commondatatypes">2007-03-13T13:56:54.6603907-00:00</Timestamp>
+		<NotificationType xmlns="http://www.contosocouncil.gov.uk/schemas/services/communitysupport/commondatatypes">INSERT</NotificationType>
+		<ServiceCode xmlns="http://www.contosocouncil.gov.uk/schemas/services/communitysupport/commondatatypes">SSADULT</ServiceCode>
+	</NotificationHeader>
+	<PersonDetails>
+		<NameDetails xmlns="http://www.contosocouncil.gov.uk/schemas/services/communitysupport/commondatatypes">
+			<PersonNameTitle>MR</PersonNameTitle>
+			<PersonGivenName>JOHN</PersonGivenName>
+			<PersonFamilyName>SMITH</PersonFamilyName>
+			<PersonRequestedName>MR JOHN SMITH</PersonRequestedName>
+			<Initials>J</Initials>
+		</NameDetails>
+		<AddressDetails xmlns="http://www.contosocouncil.gov.uk/schemas/services/communitysupport/commondatatypes">
+			<Address>
+				<AddressCategory>HOME</AddressCategory>
+				<AddressInfo>
+					<AddressLine1>275 KING STREET</AddressLine1>
+					<AddressLine2>HAMMERSMITH</AddressLine2>
+					<Postcode>W6 9LZ</Postcode>
+					<UPRN>3002627</UPRN>
+				</AddressInfo>
+			</Address>
+		</AddressDetails>
+		<PersonalDetails xmlns="http://www.contosocouncil.gov.uk/schemas/services/communitysupport/commondatatypes">
+			<DateOfBirth>
+				<PersonBirthDate>1967-11-02</PersonBirthDate>
+				<VerificationLevel>Level 0</VerificationLevel>
+			</DateOfBirth>
+		</PersonalDetails>
+	</PersonDetails>
+</SSNotifyPersonCreated>

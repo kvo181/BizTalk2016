@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C1B07CB8-EB16-494D-9726-277FBE4B52E4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BizUnit.TestSteps.i8c.Tests</RootNamespace>
+    <AssemblyName>BizUnit.TestSteps.i8c.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FileFormattedReadMultipleStepTest.cs" />
+    <Compile Include="FileSizeStepTest.cs" />
+    <Compile Include="IISRecycleAppPoolStepTests.cs" />
+    <Compile Include="MQSeriesStepTests.cs" />
+    <Compile Include="MsmqStepTests.cs" />
+    <Compile Include="DbQueryWaitStepTest.cs" />
+    <Compile Include="OleDbQueryStepMultipleStatementTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReceiveLocationOperatingWindowEnabledStepTest.cs" />
+    <Compile Include="ReceiveLocationTests.cs" />
+    <Compile Include="Service References\ExampleServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SharepointTest.cs" />
+    <Compile Include="WCFUnitTests.cs" />
+    <Compile Include="WebServiceStepTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Src\BizUnit.TestSteps.BizTalk\BizUnit.TestSteps.BizTalk.csproj">
+      <Project>{772A474B-0D95-4002-BF5B-910986D1326B}</Project>
+      <Name>BizUnit.TestSteps.BizTalk</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Src\BizUnit.TestSteps.i8c\BizUnit.TestSteps.i8c.csproj">
+      <Project>{44DC0FE6-653A-4BC9-80A3-5D0B0164BAA1}</Project>
+      <Name>BizUnit.TestSteps.i8c</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Src\BizUnit.TestSteps\BizUnit.TestSteps.csproj">
+      <Project>{5BFEF184-0834-4FBA-ADDB-AD798CE0B58D}</Project>
+      <Name>BizUnit.TestSteps</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Src\BizUnit\BizUnit.csproj">
+      <Project>{7C85248A-15D4-4A17-A496-AECF789E0F10}</Project>
+      <Name>BizUnit</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ExampleServiceReference\BizUnit.TestSteps.i8c.Tests.ExampleServiceReference.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ExampleServiceReference\Service1.disco" />
+    <None Include="Service References\ExampleServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\ExampleServiceReference\configuration.svcinfo" />
+    <None Include="Service References\ExampleServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="TestCases\MsmqInvoke.xml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestData\BizTalk2006.ToBeProcessed.A820.Request.xml" />
+    <Content Include="TestData\Input.xml" />
+    <Content Include="TestData\SubmitRequest.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestCases\MsmqDmfaInvoke.xml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestCases\MsmqDmfaSqlInvoke.xml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestCases\MQSeriesInvoke.xml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Service References\ExampleServiceReference\Service1.wsdl" />
+    <None Include="Service References\ExampleServiceReference\Service1.xsd" />
+    <None Include="Service References\ExampleServiceReference\Service11.xsd" />
+    <None Include="Service References\ExampleServiceReference\Service12.xsd" />
+    <None Include="TestData\CompositeTypeSchema.xsd" />
+    <None Include="TestData\Personeel_small.xlsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ExampleServiceReference\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

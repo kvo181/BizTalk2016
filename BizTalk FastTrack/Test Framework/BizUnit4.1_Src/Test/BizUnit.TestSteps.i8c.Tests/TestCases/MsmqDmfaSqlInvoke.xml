@@ -1,0 +1,28 @@
+﻿<TestCase Category="{x:Null}" ExpectedResults="{x:Null}" Preconditions="{x:Null}" Purpose="{x:Null}" Reference="{x:Null}" BizUnitVersion="4.0.0.1" Description="Check/Validate the MSMQ related steps (test data is retrieved out of a SQL database)" Name="Create, Send, Peek, Read and Delete operations on a MSMQ queue" xmlns="clr-namespace:BizUnit.Xaml;assembly=BizUnit" xmlns:btids="clr-namespace:BizUnit.TestSteps.i8c.DataLoaders.Sql;assembly=BizUnit.TestSteps.i8c" xmlns:btim="clr-namespace:BizUnit.TestSteps.i8c.Msmq;assembly=BizUnit.TestSteps.i8c" xmlns:btivs="clr-namespace:BizUnit.TestSteps.i8c.ValidationSteps.Sql;assembly=BizUnit.TestSteps.i8c" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TestCase.ExecutionSteps>
+    <btim:MsmqQueueExistsStep SubSteps="{x:Null}" DeleteWhenExists="True" FailOnError="True" RunConcurrently="False" ThrowError="False">
+      <btim:MsmqQueueExistsStep.QueuePaths>
+        <sco:Collection x:TypeArguments="btim:QueuePathDefinition" x:Name="__ReferenceID0">
+          <btim:QueuePathDefinition QueuePath=".\Private$\MyTestQueue" ShouldExist="False" Transactional="True" />
+        </sco:Collection>
+      </btim:MsmqQueueExistsStep.QueuePaths>
+    </btim:MsmqQueueExistsStep>
+    <btim:MsmqCreateQueueStep QueuePaths="{x:Reference __ReferenceID0}" SubSteps="{x:Null}" FailOnError="True" RunConcurrently="False" />
+    <btim:MsmqWriteStep CorrelationId="{x:Null}" SubSteps="{x:Null}" AppSpecific="0" BodyType="VT_LPWSTR" FailOnError="True" MessageLabel="Some DMFA Test" QueuePath=".\Private$\MyTestQueue" RunConcurrently="False" UseTransactions="True">
+      <btim:MsmqWriteStep.MessageBody>
+        <btids:SqlDataLoader Command="SELECT [FluxData] FROM [BizTalkFluxDb_ForTesting].[dbo].[FluxData] WHERE [ID] = '970458E6-7F20-4F46-B69D-AA3D952ACA13'" ConnectionString="Data Source=.\btsloc;Initial Catalog=BizTalkFluxDb_ForTesting;Integrated Security=True" />
+      </btim:MsmqWriteStep.MessageBody>
+    </btim:MsmqWriteStep>
+    <btim:MsmqPeekStep ExpectedNumberOfMessages="1" FailOnError="True" QueuePath=".\Private$\MyTestQueue" RunConcurrently="False" TimeOut="100">
+      <btim:MsmqPeekStep.SubSteps>
+        <sco:Collection x:TypeArguments="SubStepBase" />
+      </btim:MsmqPeekStep.SubSteps>
+    </btim:MsmqPeekStep>
+    <btim:MsmqReadStep ContextProperties="{x:Null}" BodyType="VT_LPWSTR" FailOnError="True" QueuePath=".\Private$\MyTestQueue" RunConcurrently="False" TimeOut="100">
+      <btim:MsmqReadStep.SubSteps>
+        <btivs:BinaryValidationStep Command="SELECT [FluxData] FROM [BizTalkFluxDb_ForTesting].[dbo].[FluxData] WHERE [ID] = '970458E6-7F20-4F46-B69D-AA3D952ACA13'" ConnectionString="Data Source=.\btsloc;Initial Catalog=BizTalkFluxDb_ForTesting;Integrated Security=True" ReadAsUnicode="True" />
+      </btim:MsmqReadStep.SubSteps>
+    </btim:MsmqReadStep>
+    <btim:MsmqDeleteQueueStep QueuePaths="{x:Reference __ReferenceID0}" SubSteps="{x:Null}" FailOnError="True" RunConcurrently="False" />
+  </TestCase.ExecutionSteps>
+</TestCase>

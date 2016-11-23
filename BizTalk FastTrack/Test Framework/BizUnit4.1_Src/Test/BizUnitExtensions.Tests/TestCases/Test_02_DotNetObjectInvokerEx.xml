@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestCase testName="Test_02_DotNetObjectInvokerEx">
+
+<!--This test shows how the dotnetobjectinvoker can take parameters from the context and execute any step
+on a CLR class. In previous versions of the core, context was not available for this step but in the latest version (2.3)
+it should be possible to use the context. However there is still a typo where the parameter element is 
+spelt as "Paramter" which can cause a lot of problems when writing scripts.
+The demonstration acts on one of the classes from the BizUnit.Extensions helpers collection
+and executes a select query on sysobjects which is a standard table in the master database of any sql installation.
+this test should run as is, but the local sql connection name should be changed because sqlexpress requires an 
+explicitly named instance but with std sql a (local) directive would usually be enough-->
+	
+	<TestSetup>
+		<TestStep assemblyPath="BizUnit.Extensions.dll" typeName="BizUnit.Extensions.ContextPopulateStep">
+			<ContextLoad contextKey="DBConnString" keyValue="Integrated Security=SSPI;database=master;server=."
+				dataType="String" />
+			<ContextLoad contextKey="DBSelectCommand" keyValue="select * from sys.objects"
+				dataType="String" />
+		</TestStep>
+	</TestSetup>
+	
+	<TestExecution>
+		<!-- Insert DB Row -->
+		<TestStep assemblyPath="BizUnit.Extensions.dll" failOnError="true" typeName="BizUnit.Extensions.DotNetObjectInvokerExStep">
+			<TypeName>BizUnit.Extensions.Utilities.DatabaseHelperEx</TypeName>
+			<AssemblyPath></AssemblyPath>
+			<MethodToInvoke>ExecuteSqlCommand</MethodToInvoke>
+			<Parameter takeFromCtx="DBConnString"></Parameter>
+			<Parameter takeFromCtx="DBSelectCommand"></Parameter>
+			<ReturnParameter></ReturnParameter>
+		</TestStep>
+
+
+	</TestExecution>
+	
+	<TestCleanup>
+	</TestCleanup>
+</TestCase>

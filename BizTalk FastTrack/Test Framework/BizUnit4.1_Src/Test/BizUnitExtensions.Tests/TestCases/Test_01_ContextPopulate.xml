@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<TestCase testName="Test_01_ContextPopulateStep">
+
+	<TestSetup>
+	</TestSetup>
+
+  
+	<TestExecution>
+	<!-- load a value into the context and then check that it is there with the out of the box validation facility -->
+		<TestStep assemblyPath="BizUnit.Extensions.dll" typeName="BizUnit.Extensions.ContextPopulateStep">
+			<ContextLoad contextKey="sourcefilename" keyValue="c:\temp\test.xml" dataType="String" />
+			
+			<ValidationStep assemblyPath="" typeName="BizUnit.ContextValidationStep">
+				<Context keyName="sourcefilename">c:\temp\test.xml</Context>
+			</ValidationStep>
+
+		</TestStep>
+		
+		
+
+    </TestExecution>
+    
+    <!-- Test cleanup: test cases should always leave the system in the state they found it -->
+    <TestCleanup>
+    </TestCleanup>    
+
+</TestCase>
+
+

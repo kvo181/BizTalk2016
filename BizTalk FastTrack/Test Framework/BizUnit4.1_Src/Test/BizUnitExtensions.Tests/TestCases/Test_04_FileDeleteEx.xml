@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestCase testName="Test_04_FileDeleteExStep">
+	<TestSetup>
+		<TestStep assemblyPath="BizUnit.Extensions.dll" typeName="BizUnit.Extensions.ContextPopulateStep">
+	        <ContextLoad contextKey="FileToDelete" keyValue=".\..\..\TestData\BizUnitTestFile.txt" dataType="String" />
+			<ContextLoad contextKey="FileToDelete2" keyValue=".\..\..\TestData\BizUnitTestFile2.txt" dataType="string" />
+		</TestStep>
+	</TestSetup>
+	<TestExecution>
+
+		<!-- Delete the files created when testing permissions -->
+		<TestStep assemblyPath = "BizUnit.Extensions.dll" failOnError = "true" typeName = "BizUnit.Extensions.FileDeleteExStep">
+			<FileToDeletePath takeFromCtx = "FileToDelete"></FileToDeletePath>
+			<FileToDeletePath takeFromCtx = "FileToDelete2"></FileToDeletePath>
+		</TestStep>
+
+	</TestExecution>
+	<TestCleanup>
+	</TestCleanup>
+</TestCase>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Stages>
+    <Stage CategoryId="9d0e4105-4cce-4536-83fa-4a5040674ad6">
+      <Components>
+        <Component Name="Microsoft.BizTalk.Component.XmlDasmComp">
+          <Properties>
+            <EnvelopeSpecNames vt="8">BizUnit.BizTalkTestArtifacts.Schema3Env</EnvelopeSpecNames>
+            <EnvelopeSpecTargetNamespaces vt="8">http://BizUnit.BizTalkTestArtifacts.Schema3Env</EnvelopeSpecTargetNamespaces>
+            <DocumentSpecNames vt="8">BizUnit.BizTalkTestArtifacts.Schema0</DocumentSpecNames>
+            <DocumentSpecTargetNamespaces vt="8">http://BizUnit.BizTalkTestArtifacts.Schema0</DocumentSpecTargetNamespaces>
+            <AllowUnrecognizedMessage vt="11">false</AllowUnrecognizedMessage>
+            <ValidateDocument vt="11">false</ValidateDocument>
+            <RecoverableInterchangeProcessing vt="11">false</RecoverableInterchangeProcessing>
+            <HiddenProperties vt="8">EnvelopeSpecTargetNamespaces,DocumentSpecTargetNamespaces</HiddenProperties>
+          </Properties>
+        </Component>
+      </Components>
+    </Stage>
+  </Stages>
+</Root>

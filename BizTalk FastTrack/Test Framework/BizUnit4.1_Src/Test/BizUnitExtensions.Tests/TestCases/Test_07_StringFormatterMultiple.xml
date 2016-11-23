@@ -1,0 +1,39 @@
+<TestCase testName="Test_07_StringFormatterMultiple">
+
+	<TestSetup>
+	</TestSetup>
+	
+	<TestExecution>
+	<!-- Should comeback when file found or timeout -->
+		<TestStep assemblyPath="BizUnit.Extensions.dll" typeName="BizUnit.Extensions.ContextPopulateStep">
+		 	<ContextLoad contextKey="InputPartyID" keyValue="101000215026" dataType="String" />
+		 	<ContextLoad contextKey="InputForeName" keyValue="JOHN" dataType="String" />
+		</TestStep>
+
+		<!-- Insert prameters into string -->
+		<TestStep assemblyPath="BizUnit.Extensions.dll" typeName="BizUnit.Extensions.StringFormatterMultipleStep">
+			<BaseString>exec NotifyNewCRM '{0}','1'</BaseString>
+			<ParamStringCollection>
+				<ParamString takeFromCtx="InputPartyID"></ParamString>
+			</ParamStringCollection>
+			<ContextKey>OutputString</ContextKey>
+    
+    
+    <!--check that the context key has been parameterised correctly -->
+    <ValidationStep assemblyPath="" typeName="BizUnit.ContextValidationStep">
+      <Context keyName="OutputString">exec NotifyNewCRM '101000215026','1'</Context>
+    </ValidationStep>
+    </TestStep>
+
+
+
+
+  </TestExecution>
+	<!-- Check contents of the context -->
+
+	<!-- Test cleanup: test cases should always leave the system in the state they found it -->
+	<TestCleanup>
+	</TestCleanup>	
+	
+</TestCase>
+

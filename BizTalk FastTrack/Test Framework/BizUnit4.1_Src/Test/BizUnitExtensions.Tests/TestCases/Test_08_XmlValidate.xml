@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestCase testName="Test_08_XmlValidateStep">
+	<TestSetup>
+	</TestSetup>
+	<TestExecution>
+		<TestStep assemblyPath="BizUnit.Extensions.dll" typeName="BizUnit.Extensions.XmlValidateStep">
+			<InputFileName>..\..\TestData\SSNotifyPersonCreated_Valid.xml</InputFileName>
+			<SchemaList>
+				<SchemaFile namespace="http://www.contosocouncil.gov.uk/schemas/services/communitysupport/casenotifications/personcreated">..\..\TestData\SSNotifyPersonCreated.xsd</SchemaFile>
+				<SchemaFile namespace="http://www.contosocouncil.gov.uk/schemas/services/communitysupport/commondatatypes">..\..\TestData\SSCommonDataTypes.xsd</SchemaFile>
+			</SchemaList>
+		
+			<ValidationStep assemblyPath="" typeName="BizUnit.ContextValidationStep">
+				<Context keyName="XmlValidateStepErrorCount">0</Context>
+			</ValidationStep>
+		</TestStep>
+	</TestExecution>
+	<TestCleanup>
+	</TestCleanup>
+</TestCase>

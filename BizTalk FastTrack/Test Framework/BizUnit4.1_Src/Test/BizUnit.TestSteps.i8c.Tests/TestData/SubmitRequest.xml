@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SubmitRequest xmlns="http://ACVCSC.BizTalk.WebServiceInterface">
+  <document>
+    <TestDoc />
+  </document>
+  <fileUID>{E783F1AF-3FE7-4A41-9756-5C1C9BFC75F5}</fileUID>
+</SubmitRequest>
