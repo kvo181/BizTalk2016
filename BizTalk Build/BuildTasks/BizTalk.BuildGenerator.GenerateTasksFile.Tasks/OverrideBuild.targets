@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<UsingTask AssemblyFile="..\Library\BizTalk.BuildGenerator.GenerateTasksFile.Tasks.dll" TaskName="BizTalk.BuildGenerator.Tasks.GenerateTasksFile" />
+	<ItemGroup>
+		<BuildAssembliesFiles Include='bin\$(ConfigurationName)\BizTalk.BuildGenerator.GenerateTasksFile.Tasks.dll'/>
+	</ItemGroup>	
+	<Target Name="AfterBuild">
+    <Message Text="BuildAssembliesFiles: @(BuildAssembliesFiles)" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="..\Library\" Retries="3" />
+    <Exec Command="Del BizTalk.BuildGenerator.GenerateTasksFile.tasks /F /Q" ContinueOnError="true"/>
+		<BizTalk.BuildGenerator.Tasks.GenerateTasksFile
+					AssemblyPaths='@(BuildAssembliesFiles)'
+					TargetsFilePath='BizTalk.BuildGenerator.GenerateTasksFile.tasks'/>
+    <Copy SourceFiles='BizTalk.BuildGenerator.GenerateTasksFile.tasks' DestinationFolder='..\Library\' SkipUnchangedFiles='true' />
+  </Target>
+</Project>
+
+

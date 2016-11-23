@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.VSSDK.BuildTools.14.3.25407\build\Microsoft.VSSDK.BuildTools.props" Condition="Exists('..\packages\Microsoft.VSSDK.BuildTools.14.3.25407\build\Microsoft.VSSDK.BuildTools.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <UseCodebase>true</UseCodebase>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{73D9F957-9C34-42DD-8ECA-ECC4598CBAA9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VSIXBizTalkBuildAndDeploy</RootNamespace>
+    <AssemblyName>BizilanteBuildAndDeploy</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <GeneratePkgDefFile>true</GeneratePkgDefFile>
+    <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
+    <IncludeDebugSymbolsInVSIXContainer>true</IncludeDebugSymbolsInVSIXContainer>
+    <IncludeDebugSymbolsInLocalVSIXDeployment>true</IncludeDebugSymbolsInLocalVSIXDeployment>
+    <CopyBuildOutputToOutputDirectory>true</CopyBuildOutputToOutputDirectory>
+    <CopyOutputSymbolsToOutputDirectory>false</CopyOutputSymbolsToOutputDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CopyVsixExtensionFiles>True</CopyVsixExtensionFiles>
+    <CopyVsixExtensionLocation>bin\VSIX\</CopyVsixExtensionLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="CreateBizTalkBuildAndDeployScript.cs" />
+    <Compile Include="Dialogs\ExportSSO.xaml.cs">
+      <DependentUpon>ExportSSO.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImportSSOWithKey.xaml.cs">
+      <DependentUpon>ImportSSOWithKey.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ImportSSO.xaml.cs">
+      <DependentUpon>ImportSSO.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ExecuteBizTalkBuildAndDeployScript.cs" />
+    <Compile Include="ExportSSO.cs" />
+    <Compile Include="Helpers\BizTalkBuildAndDeployHelper.cs" />
+    <Compile Include="Helpers\BizTalk\ApplicationResourceSorter.cs" />
+    <Compile Include="Helpers\BizTalk\BindingInfoHelper.cs" />
+    <Compile Include="Helpers\BizTalk\BizTalkHelper.cs" />
+    <Compile Include="Helpers\BizTalk\BizTalkRegistryMissingException.cs" />
+    <Compile Include="Helpers\BizTalk\HostsHelper.cs" />
+    <Compile Include="Helpers\BuildProcessController.cs" />
+    <Compile Include="Helpers\CommandBuilders\BizTalk.BuildGenerator\AddApplicationReferencesCommandBuilder.cs" />
+    <Compile Include="Helpers\CommandBuilders\BTSTask\ApplicationResourceCommandBuilder.cs" />
+    <Compile Include="Helpers\CommandBuilders\bizilante.BuildGenerator\AssemblyInfoCommandBuilder.cs" />
+    <Compile Include="Helpers\CommandBuilders\BTSTask\BindingFilesCommandBuilder.cs" />
+    <Compile Include="Helpers\CommandBuilders\BizTalk.BuildGenerator\BizTalkHost\CleanHostBuilder.cs" />
+    <Compile Include="Helpers\CommandBuilders\BizTalk.BuildGenerator\BizTalkHost\CreateHostBuilder.cs" />
+    <Compile Include="Helpers\CommandBuilders\BizTalk.BuildGenerator\BizTalkHost\CreateHostInstanceBuilder.cs" />
+    <Compile Include="Helpers\CommandBuilders\BizTalk.BuildGenerator\BizTalkHost\CreateReceiveHandlerBuilder.cs" />
+    <Compile Include="Helpers\CommandBuilders\BizTalk.BuildGenerator\BizTalkHost\CreateSendHandlerBuilder.cs" />
+    <Compile Include="Helpers\CommandBuilders\BizTalk.BuildGenerator\BizTalkHost\DeleteHostBuilder.cs" />
+    <Compile Include="Helpers\CommandBuilders\BizTalk.BuildGenerator\BizTalkHost\DeleteReceiveHandlerBuilder.cs" />
+    <Compile Include="Helpers\CommandBuilders\BizTalk.BuildGenerator\BizTalkHost\DeleteSendHandlerBuilder.cs" />
+    <Compile Include="Helpers\CommandBuilders\BizTalk.BuildGenerator\BizTalkHost\StartHostBuilder.cs" />
+    <Compile Include="Helpers\CommandBuilders\BizTalk.BuildGenerator\BizTalkHost\StopHostBuilder.cs" />
+    <Compile Include="Helpers\CommandBuilders\bizilante.BuildGenerator\CreateBindingFilesCommandBuilder.cs" />
+    <Compile Include="Helpers\CommandBuilders\bizilante.BuildGenerator\DeployRulesCommandBuilder.cs" />
+    <Compile Include="Helpers\CommandBuilders\ICommandBuilder.cs" />
+    <Compile Include="Helpers\CommandBuilders\InstallInGacCommandBuilder.cs" />
+    <Compile Include="Helpers\CommandBuilders\RemoveFromGacCommandBuilder.cs" />
+    <Compile Include="Helpers\CommandBuilders\bizilante.BuildGenerator\RemoveRulesCommandBuilder.cs" />
+    <Compile Include="Helpers\CommandBuilders\bizilante.BuildGenerator\SSOCommandBuilder.cs" />
+    <Compile Include="Helpers\CommandBuilders\UnitTestsCommandBuilder.cs" />
+    <Compile Include="Helpers\EnvironmentDTE\EnvDTEHelper.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\ApplicationBinding.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\ApplicationBindings.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\ApplicationDeployment.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\ApplicationDescription.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\ApplicationResource.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\ApplicationSetup.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\BizTalkHosts.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\BuildProperties.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\BuildReferences.cs" />
+    <Compile Include="Helpers\GenerationArgs.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\Policy.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\PublishedWebService.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\PublishedWebServices.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\ResourceAdapters\AssemblyResourceAdapter.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\ResourceAdapters\BamResourceAdapter.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\ResourceAdapters\BaseResourceAdapter.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\ResourceAdapters\BindingResourceAdapter.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\ResourceAdapters\BizTalkAssemblyResourceAdapter.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\ResourceAdapters\FileResourceAdapter.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\ResourceAdapters\ScriptResourceAdapter.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\ResourceAdapters\WebDirectoryResourceAdapter.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\ResourceProperty.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\ResourceTypes.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\Rules.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\SSOApplication.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\SSOApplications.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\UnitTestContainer.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\UnitTesting.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\Vocabulary.cs" />
+    <Compile Include="Helpers\BizTalk\MetaData\WebServiceTypes.cs" />
+    <Compile Include="Helpers\FileBuilders\ApplicationPropertiesFileBuilder.cs" />
+    <Compile Include="Helpers\FileBuilders\BuildProjectFileBuilder.cs" />
+    <Compile Include="Helpers\FileBuilders\CommonApplicationTargetsFileBuilder.cs" />
+    <Compile Include="Helpers\FileBuilders\CustomPropertiesFileBuilder.cs" />
+    <Compile Include="Helpers\FileBuilders\CustomTargetsFileBuilder.cs" />
+    <Compile Include="Helpers\FileBuilders\DebugCmdFileBuilder.cs" />
+    <Compile Include="Helpers\FileBuilders\FileHelper.cs" />
+    <Compile Include="Helpers\FileBuilders\GenerateBindingsFileBuilder.cs" />
+    <Compile Include="Helpers\FileBuilders\IFileBuilder.cs" />
+    <Compile Include="Helpers\FileBuilders\QuickBuildDebugCmdFileBuilder.cs" />
+    <Compile Include="Helpers\FileBuilders\ReleaseCmdFileBuilder.cs" />
+    <Compile Include="Helpers\FileBuilders\RemoveFromGacFileBuilder.cs" />
+    <Compile Include="Helpers\FileBuilders\RulesTargetsFileBuilder.cs" />
+    <Compile Include="Helpers\GenerationTags.cs" />
+    <Compile Include="Helpers\IBuildProvider.cs" />
+    <Compile Include="Helpers\Options\MyUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Helpers\Options\MyUserControl.Designer.cs">
+      <DependentUpon>MyUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Options\OptionPageCustom.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Helpers\Options\OptionPageGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Helpers\Options\ProjectStructureTypeEnum.cs" />
+    <Compile Include="Helpers\PathHelper.cs" />
+    <Compile Include="Helpers\RegistrationAttributes\BizTalkBindingToolDb.cs" />
+    <Compile Include="Helpers\RegistrationAttributes\ProjectStructureType.cs" />
+    <Compile Include="Helpers\RegistrationAttributes\TasksPath.cs" />
+    <Compile Include="ImportSSO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="VSPackageBizTalkBuildAndDeploy.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\BuildTasks\MSBuild.ExtensionPack.Tasks\MSBuild.ExtensionPack.Framework.tasks">
+      <Link>MSBuild\MSBuild.ExtensionPack.Framework.tasks</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\BuildTasks\Bizilante.BizTalk.BuildGenerator.Policies.Tasks\bizilante.BuildGenerator.Policies.tasks">
+      <Link>MSBuild\bizilante.BuildGenerator.Policies.tasks</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\BuildTasks\Bizilante.BizTalk.BuildGenerator.SSO.Tasks\bizilante.BuildGenerator.SSO.tasks">
+      <Link>MSBuild\bizilante.BuildGenerator.SSO.tasks</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\BuildTasks\Bizilante.BizTalk.BuildGenerator.Tasks\bizilante.BuildGenerator.tasks">
+      <Link>MSBuild\bizilante.BuildGenerator.tasks</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\BuildTasks\BizTalk.BuildGenerator.Tasks\BizTalk.BuildGenerator.tasks">
+      <Link>MSBuild\BizTalk.BuildGenerator.tasks</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Key.snk" />
+    <Content Include="License.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="source.extension.vsixmanifest">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="index.html" />
+    <Content Include="Resources\App_Build.txt" />
+    <Content Include="Resources\App_Build_Debug.txt" />
+    <Content Include="Resources\App_Build_Release.txt" />
+    <Content Include="Resources\App_Custom_Properties.txt" />
+    <Content Include="Resources\App_GenerateBindings.txt" />
+    <Content Include="Resources\App_properties.txt" />
+    <Content Include="Resources\App_QuickBuild_Debug.txt" />
+    <Content Include="Resources\App_RemoveFromGac.txt" />
+    <Content Include="Resources\App_Rules_targets.txt" />
+    <Content Include="Resources\App_Setup_targets.txt" />
+    <Content Include="Resources\App_targets.txt" />
+    <Resource Include="Resources\bizilante.jpg" />
+    <Content Include="Resources\CreateBizTalkBuildAndDeployScript.png" />
+    <Content Include="Resources\decrypt.jpg" />
+    <Content Include="Resources\encrypt.jpg" />
+    <Content Include="Resources\ExecuteBizTalkBuildAndDeployScript.png" />
+    <Content Include="Resources\ExportSSO.png" />
+    <Content Include="Resources\ImportSSO.png" />
+    <Content Include="Resources\VSPackageBizTalkBuildAndDeploy.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="stylesheet.css" />
+    <VSCTCompile Include="VSPackageBizTalkBuildAndDeploy.vsct">
+      <ResourceName>Menus.ctmenu</ResourceName>
+      <SubType>Designer</SubType>
+    </VSCTCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="EnvDTE100, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="EnvDTE80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="EnvDTE90, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.BizTalk.Admin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="Microsoft.BizTalk.ApplicationDeployment.Engine, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft BizTalk Server 2016\Microsoft.BizTalk.ApplicationDeployment.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.BizTalk.Deployment, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft BizTalk Server 2016\Microsoft.BizTalk.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.BizTalk.ExplorerOM, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft BizTalk Server 2016\Developer Tools\Microsoft.BizTalk.ExplorerOM.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualStudio.BizTalkProject">
+      <HintPath>C:\Program Files (x86)\Microsoft BizTalk Server 2016\Developer Tools\Microsoft.VisualStudio.BizTalkProject.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.CommandBars, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Imaging, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Imaging.14.3.25407\lib\net45\Microsoft.VisualStudio.Imaging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\Microsoft.VisualStudio.OLE.Interop.7.10.6070\lib\Microsoft.VisualStudio.OLE.Interop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.14.0, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Shell.14.0.14.3.25407\lib\Microsoft.VisualStudio.Shell.14.0.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Immutable.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Shell.Immutable.10.0.10.0.30319\lib\net40\Microsoft.VisualStudio.Shell.Immutable.10.0.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Immutable.11.0, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Shell.Immutable.11.0.11.0.50727\lib\net45\Microsoft.VisualStudio.Shell.Immutable.11.0.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Immutable.12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Shell.Immutable.12.0.12.0.21003\lib\net45\Microsoft.VisualStudio.Shell.Immutable.12.0.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Immutable.14.0, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Shell.Immutable.14.0.14.3.25407\lib\net45\Microsoft.VisualStudio.Shell.Immutable.14.0.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\Microsoft.VisualStudio.Shell.Interop.7.10.6071\lib\Microsoft.VisualStudio.Shell.Interop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.VisualStudio.Shell.Interop.10.0.10.0.30319\lib\Microsoft.VisualStudio.Shell.Interop.10.0.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.11.0, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.VisualStudio.Shell.Interop.11.0.11.0.61030\lib\Microsoft.VisualStudio.Shell.Interop.11.0.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.VisualStudio.Shell.Interop.12.0.12.0.30110\lib\Microsoft.VisualStudio.Shell.Interop.12.0.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.8.0, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\Microsoft.VisualStudio.Shell.Interop.8.0.8.0.50727\lib\Microsoft.VisualStudio.Shell.Interop.8.0.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.9.0, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\Microsoft.VisualStudio.Shell.Interop.9.0.9.0.30729\lib\Microsoft.VisualStudio.Shell.Interop.9.0.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TextManager.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\Microsoft.VisualStudio.TextManager.Interop.7.10.6070\lib\Microsoft.VisualStudio.TextManager.Interop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TextManager.Interop.8.0, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\Microsoft.VisualStudio.TextManager.Interop.8.0.8.0.50727\lib\Microsoft.VisualStudio.TextManager.Interop.8.0.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Threading, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Threading.14.1.111\lib\net45\Microsoft.VisualStudio.Threading.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Utilities, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Utilities.14.3.25407\lib\net45\Microsoft.VisualStudio.Utilities.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Validation, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Validation.14.1.111\lib\net45\Microsoft.VisualStudio.Validation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VSLangProj, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="VSLangProj2, Version=7.0.5000.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="VSLangProj80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Helpers\Options\MyUserControl.resx">
+      <DependentUpon>MyUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VSPackage.resx">
+      <MergeWithCTO>true</MergeWithCTO>
+      <ManifestResourceName>VSPackage</ManifestResourceName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\SSO\SSOHelperLibrary\bizilante.SSOHelperLibrary.csproj">
+      <Project>{22ae8140-efd3-43df-94f1-60bd5d00798f}</Project>
+      <Name>bizilante.SSOHelperLibrary</Name>
+      <VSIXSubPath>MSBuild</VSIXSubPath>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BuildTasks\BizTalk.BuildGenerator.Tasks\BizTalk.BuildGenerator.Tasks.csproj">
+      <Project>{1d5651b7-b4c6-4e5a-bdcd-a2b6053553f2}</Project>
+      <Name>BizTalk.BuildGenerator.Tasks</Name>
+      <VSIXSubPath>MSBuild</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIX>
+      <IncludeOutputGroupsInVSIXLocalOnly>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIXLocalOnly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BuildTasks\Bizilante.BizTalk.BuildGenerator.Policies.Tasks\bizilante.BuildGenerator.Policies.Tasks.csproj">
+      <Project>{0ce9c0b1-0993-478b-b725-f1da0f4f7fc8}</Project>
+      <Name>bizilante.BuildGenerator.Policies.Tasks</Name>
+      <VSIXSubPath>MSBuild</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIX>
+      <IncludeOutputGroupsInVSIXLocalOnly>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIXLocalOnly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BuildTasks\Bizilante.BizTalk.BuildGenerator.Tasks\bizilante.BuildGenerator.Tasks.csproj">
+      <Project>{a0e9151e-aac3-4e7d-acfc-2668806ed800}</Project>
+      <Name>bizilante.BuildGenerator.Tasks</Name>
+      <VSIXSubPath>MSBuild</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIXLocalOnly>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIXLocalOnly>
+      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BuildTasks\Bizilante.BizTalk.BuildGenerator.SSO.Tasks\bizilante.BuildGenerator.SSO.Tasks.csproj">
+      <Project>{b66add3d-0c9f-4c4a-a2ee-f6e8fee72013}</Project>
+      <Name>bizilante.BuildGenerator.SSO.Tasks</Name>
+      <VSIXSubPath>MSBuild</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIX>
+      <IncludeOutputGroupsInVSIXLocalOnly>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIXLocalOnly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BuildTasks\MSBuild.ExtensionPack.Tasks\MSBuild.ExtensionPack.Framework.Tasks.csproj">
+      <Project>{6c4ecaef-9a1e-489e-92fd-09134d35ae3e}</Project>
+      <Name>MSBuild.ExtensionPack.Framework.Tasks</Name>
+      <VSIXSubPath>MSBuild</VSIXSubPath>
+      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIX>
+      <IncludeOutputGroupsInVSIXLocalOnly>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIXLocalOnly>
+    </ProjectReference>
+    <ProjectReference Include="..\BizTalkBuildAndDeployLauncherLibrary\BizTalkBuildAndDeployLauncherLibrary.csproj">
+      <Project>{B72F6637-DF79-4DF5-ABEA-2F7FB8CAD085}</Project>
+      <Name>BizTalkBuildAndDeployLauncherLibrary</Name>
+      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIX>
+      <IncludeOutputGroupsInVSIXLocalOnly>BuiltProjectOutputGroup</IncludeOutputGroupsInVSIXLocalOnly>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Dialogs\ExportSSO.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\ImportSSOWithKey.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\ImportSSO.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.VSSDK.BuildTools.14.3.25407\build\Microsoft.VSSDK.BuildTools.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VSSDK.BuildTools.14.3.25407\build\Microsoft.VSSDK.BuildTools.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.VSSDK.BuildTools.14.3.25407\build\Microsoft.VSSDK.BuildTools.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VSSDK.BuildTools.14.3.25407\build\Microsoft.VSSDK.BuildTools.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.VSSDK.BuildTools.14.3.25407\build\Microsoft.VSSDK.BuildTools.targets" Condition="Exists('..\packages\Microsoft.VSSDK.BuildTools.14.3.25407\build\Microsoft.VSSDK.BuildTools.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

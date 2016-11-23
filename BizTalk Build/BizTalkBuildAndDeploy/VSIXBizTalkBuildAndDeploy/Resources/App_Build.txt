@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="Build">	
+	<Import Project="@ApplicationName@.Custom.targets"/>
+	<Import Project="@ApplicationName@.targets"/>
+	<Import Project="@ApplicationName@.Rules.targets"/>
+				
+	<Target Name="Build">
+
+		<!-- Set the new version -->
+		<CallTarget Targets="AssemblyVersioning"/>
+
+		<CallTarget Targets="CleanUp"/>
+		<CallTarget Targets="Setup"/>
+
+		<!-- Create the ReadMe.htm file -->
+		<CallTarget Targets="GenerateReadMe" />
+
+		<!-- Build -->
+		<MSBuild Projects ="$(SourceCodeRootFolder)\$(SolutionName)" Targets="Rebuild" Properties="Configuration=$(ConfigurationName);" />		
+
+		<!-- Deploy -->
+		<CallTarget Targets="Deployment"/>
+		<CallTarget Targets="Publish"/>
+		<CallTarget Targets="ApplyBindings" />			
+		<BizTalk.BuildGenerator.Tasks.StartApplication MessageBoxConnection="$(BizTalkManagementDatabaseConnectionString)" ApplicationName="$(ProductName)"/>
+		<CallTarget Targets="UnitTests" Condition="$(IncludeTests)" />
+	</Target>
+	
+	<Target Name="CleanUp">
+		<CallTarget Targets="BeforeCleanUp" />
+		<RemoveDir Directories="$(PackageDirectory)" ContinueOnError="true" />
+		<CallTarget ContinueOnError="false" Targets="StopApplication"/>
+		<CallTarget Targets="RemoveRules" ContinueOnError="true" />
+		<CallTarget Targets="RemoveApplication" ContinueOnError="true" />
+<!-- @StopHostCommand@ -->
+<!-- @CleanHostQueueCommand@ -->
+<!-- @DeleteReceiveHandlerCommand@ -->
+<!-- @DeleteSendHandlerCommand@ -->		
+<!-- @DeleteHostCommand@ -->
+		<CallTarget Targets="AfterCleanUp" />
+	</Target>
+	
+	<Target Name="Setup">
+		<CallTarget Targets="BeforeSetup" />
+		<MakeDir Directories="$(PackageDirectory)"/>
+<!-- @CreateHostCommand@ -->
+<!-- @CreateHostInstanceCommand@ -->
+<!-- @CreateReceiveHandlerCommand@ -->
+<!-- @CreateSendHandlerCommand@ -->
+<!-- @StartHostCommand@ -->
+		<CallTarget Targets="AfterSetup" />
+	</Target>
+
+	<Target Name="AssemblyVersioning">
+<!-- @AssemblyInfoCommand@ -->
+		<PropertyGroup>		
+			<!-- Deployment Properties-->
+			<PackageLocation>$(PackageDirectory)\$(ProductName)_$(ConfigurationName)_$(ProductDescription)-FULL.msi</PackageLocation>
+		</PropertyGroup>
+		<Message Text="Description: $(ProductDescription)"/>
+	</Target>
+
+	<Target Name="Deployment">
+		<!-- We enable the generation of the bindings files in the BeforeDeployment target. -->
+		<!-- The condition makes this an optional step -->
+		<CallTarget Targets="BeforeDeployment" Condition="$(GenerateBindings)" />
+		<CallTarget Targets="AddApplication" />
+		<CallTarget Targets="DeployApplication" />
+		<!-- We need to be sure everything is in the GAC before starting the application or deploying the rules -->
+		<CallTarget Targets="InstallInGac" />
+		<CallTarget Targets="DeployRules"/>
+		<CallTarget Targets="AfterDeployment" />
+		<!-- ReadMe -->
+	    <Exec Command='BTSTask AddResource /Source:"@ReadMePath@" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:File /Overwrite /Destination:"%BTAD_InstallDir%\ReadMe.htm"' />
+	</Target>
+
+	<Target Name='UnitTests'>
+		<CallTarget Targets="BeforeUnitTests" />
+<!-- @UnitTestCommand@ -->
+		<CallTarget Targets="AfterUnitTests" />
+	</Target>
+
+	<!-- Targets used by Deployment -->
+	<Target Name="StopApplication">
+		<BizTalk.BuildGenerator.Tasks.StopApplication MessageBoxConnection="$(BizTalkManagementDatabaseConnectionString)" ApplicationName="$(ProductName)"/>
+	</Target>
+	
+	<Target Name="RemoveApplication">
+		<Exec Command="BTSTask RemoveApp -ApplicationName:$(ProductName) -Server:$(BizTalkDatabaseServerName) -Database:$(BizTalkManagementDatabaseName)" />
+	</Target>
+	
+	<Target Name="AddApplication">
+		<Exec Command='BTSTask AddApp -ApplicationName:$(ProductName) -Description:"$(ProductDescription)" -Server:$(BizTalkDatabaseServerName) -Database:$(BizTalkManagementDatabaseName)' />
+<!-- @@AddReferencedApplications@@ -->		
+	</Target>
+	
+	<Target Name="DeployApplication">
+<!-- @DeployResourcesCommand@ -->
+<!-- @ImportSSOCommand@ -->
+	</Target>
+	
+	<Target Name="ApplyBindings">
+		<CallTarget Targets="BeforeApplyBindings" />
+<!-- @ApplyBindingsCommand@ -->				
+		<CallTarget Targets="AfterApplyBindings" />
+	</Target>	
+	
+	<Target Name="Publish">
+		<CallTarget Targets="BeforePublish" />
+        <Exec Command='BTSTask ListApp -ApplicationName:$(ProductName) -ResourceSpec:"$(PackageDirectory)\Artifacts.xml"' />
+		<bizilante.BuildGenerator.Tasks.PrepareArtifacts FilePath="$(PackageDirectory)\Artifacts.xml" ApplicationName="$(ProductName)" />
+		<Exec Command='BTSTask ExportApp /ApplicationName:$(ProductName) /Package:"$(PackageLocation)" -ResourceSpec:"$(PackageDirectory)\Artifacts.xml"' />
+		<CallTarget Targets="AfterPublish" />
+	</Target>
+
+	<Target Name="GenerateReadMe">
+		<bizilante.BuildGenerator.Tasks.GenerateReadMe ApplicationName="$(ProductName)" Version="$(ProductDescription)" NotesPath="@ReleaseNotesPath@" ReadMePath="@ReadMePath@" />
+	</Target>
+
+</Project>

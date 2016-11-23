@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<PropertyGroup>
+		<ProgramFiles32>$(MSBuildProgramFiles32)</ProgramFiles32>
+		<ProgramFiles32 Condition=" '' == '$(ProgramFiles32)'">$(ProgramFiles%28x86%29)</ProgramFiles32>
+		<ProgramFiles32 Condition=" '' == '$(ProgramFiles32)'">$(ProgramFiles)</ProgramFiles32>
+		<GacUtilPath>$(ProgramFiles32)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.1 Tools\</GacUtilPath>
+	</PropertyGroup>
+
+	<Target Name="RemoveFromGac">
+<!-- @RemoveFromGacCommand@ -->
+	</Target>
+	<Target Name="InstallInGac">
+<!-- @InstallInGacCommand@ -->
+	</Target>
+
+</Project>

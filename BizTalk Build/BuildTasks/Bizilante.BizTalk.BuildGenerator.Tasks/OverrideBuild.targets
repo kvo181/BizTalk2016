@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<UsingTask AssemblyFile="..\Library\BizTalk.BuildGenerator.Tasks.dll" TaskName="BizTalk.BuildGenerator.Tasks.GenerateTasksFile" />
+	<ItemGroup>
+		<BuildAssembliesFiles Include='bin\x86\$(ConfigurationName)\bizilante.BuildGenerator.Tasks.dll'/>
+	</ItemGroup>	
+	<Target Name="AfterBuild">
+    <Message Text="BuildAssembliesFiles: @(BuildAssembliesFiles)" />
+    <Exec Command="Del bizilante.BuildGenerator.tasks /F /Q" ContinueOnError="true"/>
+		<BizTalk.BuildGenerator.Tasks.GenerateTasksFile
+					AssemblyPaths='@(BuildAssembliesFiles)'
+					TargetsFilePath='bizilante.BuildGenerator.tasks'/>
+	</Target>
+</Project>
+
+

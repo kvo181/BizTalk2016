@@ -1,0 +1,179 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VSIXBizTalkBuildAndDeploy", "VSIXBizTalkBuildAndDeploy\VSIXBizTalkBuildAndDeploy.csproj", "{73D9F957-9C34-42DD-8ECA-ECC4598CBAA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizTalkBuildAndDeployLauncherLibrary", "BizTalkBuildAndDeployLauncherLibrary\BizTalkBuildAndDeployLauncherLibrary.csproj", "{B72F6637-DF79-4DF5-ABEA-2F7FB8CAD085}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build Tasks", "Build Tasks", "{E185A34E-85B7-4F2F-B449-7F693B84A90F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizTalk.BuildGenerator.Tasks", "..\BuildTasks\BizTalk.BuildGenerator.Tasks\BizTalk.BuildGenerator.Tasks.csproj", "{1D5651B7-B4C6-4E5A-BDCD-A2B6053553F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.BuildGenerator.Tasks", "..\BuildTasks\Bizilante.BizTalk.BuildGenerator.Tasks\bizilante.BuildGenerator.Tasks.csproj", "{A0E9151E-AAC3-4E7D-ACFC-2668806ED800}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.BuildGenerator.Policies.Tasks", "..\BuildTasks\Bizilante.BizTalk.BuildGenerator.Policies.Tasks\bizilante.BuildGenerator.Policies.Tasks.csproj", "{0CE9C0B1-0993-478B-B725-F1DA0F4F7FC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.BuildGenerator.SSO.Tasks", "..\BuildTasks\Bizilante.BizTalk.BuildGenerator.SSO.Tasks\bizilante.BuildGenerator.SSO.Tasks.csproj", "{B66ADD3D-0C9F-4C4A-A2EE-F6E8FEE72013}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSBuild.ExtensionPack.Framework.Tasks", "..\BuildTasks\MSBuild.ExtensionPack.Tasks\MSBuild.ExtensionPack.Framework.Tasks.csproj", "{6C4ECAEF-9A1E-489E-92FD-09134D35AE3E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{A212694A-6B3A-4D7A-AFD0-ADFC49A0F640}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizTalk.BuildGenerator.GenerateTasksFile.Tasks", "..\BuildTasks\BizTalk.BuildGenerator.GenerateTasksFile.Tasks\BizTalk.BuildGenerator.GenerateTasksFile.Tasks.csproj", "{374BEA8F-3377-4D42-BCD5-AD52FCAACCC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.SSOHelperLibrary", "..\..\SSO\SSOHelperLibrary\bizilante.SSOHelperLibrary.csproj", "{22AE8140-EFD3-43DF-94F1-60BD5D00798F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HelperLibraries", "HelperLibraries", "{1F8FE042-A312-478E-82B0-FE3A523AB8D0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{23EECA96-1DD7-4305-B33A-924BDD251B93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.RuleHelperLibrary", "..\..\Rules\RuleHelperLibrary\bizilante.RuleHelperLibrary.csproj", "{484AB590-015B-41DD-BF10-4FC3330C288B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73D9F957-9C34-42DD-8ECA-ECC4598CBAA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73D9F957-9C34-42DD-8ECA-ECC4598CBAA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73D9F957-9C34-42DD-8ECA-ECC4598CBAA9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{73D9F957-9C34-42DD-8ECA-ECC4598CBAA9}.Debug|x86.Build.0 = Debug|Any CPU
+		{73D9F957-9C34-42DD-8ECA-ECC4598CBAA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73D9F957-9C34-42DD-8ECA-ECC4598CBAA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73D9F957-9C34-42DD-8ECA-ECC4598CBAA9}.Release|x86.ActiveCfg = Release|Any CPU
+		{73D9F957-9C34-42DD-8ECA-ECC4598CBAA9}.Release|x86.Build.0 = Release|Any CPU
+		{B72F6637-DF79-4DF5-ABEA-2F7FB8CAD085}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B72F6637-DF79-4DF5-ABEA-2F7FB8CAD085}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B72F6637-DF79-4DF5-ABEA-2F7FB8CAD085}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B72F6637-DF79-4DF5-ABEA-2F7FB8CAD085}.Debug|x86.Build.0 = Debug|Any CPU
+		{B72F6637-DF79-4DF5-ABEA-2F7FB8CAD085}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B72F6637-DF79-4DF5-ABEA-2F7FB8CAD085}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B72F6637-DF79-4DF5-ABEA-2F7FB8CAD085}.Release|x86.ActiveCfg = Release|Any CPU
+		{B72F6637-DF79-4DF5-ABEA-2F7FB8CAD085}.Release|x86.Build.0 = Release|Any CPU
+		{1D5651B7-B4C6-4E5A-BDCD-A2B6053553F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D5651B7-B4C6-4E5A-BDCD-A2B6053553F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D5651B7-B4C6-4E5A-BDCD-A2B6053553F2}.Debug|x86.ActiveCfg = Debug|x86
+		{1D5651B7-B4C6-4E5A-BDCD-A2B6053553F2}.Debug|x86.Build.0 = Debug|x86
+		{1D5651B7-B4C6-4E5A-BDCD-A2B6053553F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D5651B7-B4C6-4E5A-BDCD-A2B6053553F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D5651B7-B4C6-4E5A-BDCD-A2B6053553F2}.Release|x86.ActiveCfg = Release|x86
+		{1D5651B7-B4C6-4E5A-BDCD-A2B6053553F2}.Release|x86.Build.0 = Release|x86
+		{A0E9151E-AAC3-4E7D-ACFC-2668806ED800}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0E9151E-AAC3-4E7D-ACFC-2668806ED800}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0E9151E-AAC3-4E7D-ACFC-2668806ED800}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A0E9151E-AAC3-4E7D-ACFC-2668806ED800}.Debug|x86.Build.0 = Debug|Any CPU
+		{A0E9151E-AAC3-4E7D-ACFC-2668806ED800}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0E9151E-AAC3-4E7D-ACFC-2668806ED800}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0E9151E-AAC3-4E7D-ACFC-2668806ED800}.Release|x86.ActiveCfg = Release|Any CPU
+		{A0E9151E-AAC3-4E7D-ACFC-2668806ED800}.Release|x86.Build.0 = Release|Any CPU
+		{0CE9C0B1-0993-478B-B725-F1DA0F4F7FC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CE9C0B1-0993-478B-B725-F1DA0F4F7FC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CE9C0B1-0993-478B-B725-F1DA0F4F7FC8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0CE9C0B1-0993-478B-B725-F1DA0F4F7FC8}.Debug|x86.Build.0 = Debug|Any CPU
+		{0CE9C0B1-0993-478B-B725-F1DA0F4F7FC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CE9C0B1-0993-478B-B725-F1DA0F4F7FC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CE9C0B1-0993-478B-B725-F1DA0F4F7FC8}.Release|x86.ActiveCfg = Release|Any CPU
+		{0CE9C0B1-0993-478B-B725-F1DA0F4F7FC8}.Release|x86.Build.0 = Release|Any CPU
+		{B66ADD3D-0C9F-4C4A-A2EE-F6E8FEE72013}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B66ADD3D-0C9F-4C4A-A2EE-F6E8FEE72013}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B66ADD3D-0C9F-4C4A-A2EE-F6E8FEE72013}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B66ADD3D-0C9F-4C4A-A2EE-F6E8FEE72013}.Debug|x86.Build.0 = Debug|Any CPU
+		{B66ADD3D-0C9F-4C4A-A2EE-F6E8FEE72013}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B66ADD3D-0C9F-4C4A-A2EE-F6E8FEE72013}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B66ADD3D-0C9F-4C4A-A2EE-F6E8FEE72013}.Release|x86.ActiveCfg = Release|Any CPU
+		{B66ADD3D-0C9F-4C4A-A2EE-F6E8FEE72013}.Release|x86.Build.0 = Release|Any CPU
+		{6C4ECAEF-9A1E-489E-92FD-09134D35AE3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C4ECAEF-9A1E-489E-92FD-09134D35AE3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C4ECAEF-9A1E-489E-92FD-09134D35AE3E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6C4ECAEF-9A1E-489E-92FD-09134D35AE3E}.Debug|x86.Build.0 = Debug|Any CPU
+		{6C4ECAEF-9A1E-489E-92FD-09134D35AE3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C4ECAEF-9A1E-489E-92FD-09134D35AE3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C4ECAEF-9A1E-489E-92FD-09134D35AE3E}.Release|x86.ActiveCfg = Release|Any CPU
+		{6C4ECAEF-9A1E-489E-92FD-09134D35AE3E}.Release|x86.Build.0 = Release|Any CPU
+		{374BEA8F-3377-4D42-BCD5-AD52FCAACCC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{374BEA8F-3377-4D42-BCD5-AD52FCAACCC4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{374BEA8F-3377-4D42-BCD5-AD52FCAACCC4}.Debug|x86.Build.0 = Debug|Any CPU
+		{374BEA8F-3377-4D42-BCD5-AD52FCAACCC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{374BEA8F-3377-4D42-BCD5-AD52FCAACCC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{374BEA8F-3377-4D42-BCD5-AD52FCAACCC4}.Release|x86.ActiveCfg = Release|Any CPU
+		{374BEA8F-3377-4D42-BCD5-AD52FCAACCC4}.Release|x86.Build.0 = Release|Any CPU
+		{22AE8140-EFD3-43DF-94F1-60BD5D00798F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22AE8140-EFD3-43DF-94F1-60BD5D00798F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22AE8140-EFD3-43DF-94F1-60BD5D00798F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{22AE8140-EFD3-43DF-94F1-60BD5D00798F}.Debug|x86.Build.0 = Debug|Any CPU
+		{22AE8140-EFD3-43DF-94F1-60BD5D00798F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22AE8140-EFD3-43DF-94F1-60BD5D00798F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22AE8140-EFD3-43DF-94F1-60BD5D00798F}.Release|x86.ActiveCfg = Release|Any CPU
+		{22AE8140-EFD3-43DF-94F1-60BD5D00798F}.Release|x86.Build.0 = Release|Any CPU
+		{484AB590-015B-41DD-BF10-4FC3330C288B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{484AB590-015B-41DD-BF10-4FC3330C288B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{484AB590-015B-41DD-BF10-4FC3330C288B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{484AB590-015B-41DD-BF10-4FC3330C288B}.Debug|x86.Build.0 = Debug|Any CPU
+		{484AB590-015B-41DD-BF10-4FC3330C288B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{484AB590-015B-41DD-BF10-4FC3330C288B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{484AB590-015B-41DD-BF10-4FC3330C288B}.Release|x86.ActiveCfg = Release|Any CPU
+		{484AB590-015B-41DD-BF10-4FC3330C288B}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1D5651B7-B4C6-4E5A-BDCD-A2B6053553F2} = {E185A34E-85B7-4F2F-B449-7F693B84A90F}
+		{A0E9151E-AAC3-4E7D-ACFC-2668806ED800} = {E185A34E-85B7-4F2F-B449-7F693B84A90F}
+		{0CE9C0B1-0993-478B-B725-F1DA0F4F7FC8} = {E185A34E-85B7-4F2F-B449-7F693B84A90F}
+		{B66ADD3D-0C9F-4C4A-A2EE-F6E8FEE72013} = {E185A34E-85B7-4F2F-B449-7F693B84A90F}
+		{6C4ECAEF-9A1E-489E-92FD-09134D35AE3E} = {E185A34E-85B7-4F2F-B449-7F693B84A90F}
+		{374BEA8F-3377-4D42-BCD5-AD52FCAACCC4} = {E185A34E-85B7-4F2F-B449-7F693B84A90F}
+		{22AE8140-EFD3-43DF-94F1-60BD5D00798F} = {1F8FE042-A312-478E-82B0-FE3A523AB8D0}
+		{484AB590-015B-41DD-BF10-4FC3330C288B} = {1F8FE042-A312-478E-82B0-FE3A523AB8D0}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 11
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://kvo.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = BizTalkBuildAndDeployLauncherLibrary\\BizTalkBuildAndDeployLauncherLibrary.csproj
+		SccProjectName1 = BizTalkBuildAndDeployLauncherLibrary
+		SccLocalPath1 = BizTalkBuildAndDeployLauncherLibrary
+		SccProjectUniqueName2 = VSIXBizTalkBuildAndDeploy\\VSIXBizTalkBuildAndDeploy.csproj
+		SccProjectName2 = VSIXBizTalkBuildAndDeploy
+		SccLocalPath2 = VSIXBizTalkBuildAndDeploy
+		SccProjectUniqueName3 = ..\\BuildTasks\\BizTalk.BuildGenerator.GenerateTasksFile.Tasks\\BizTalk.BuildGenerator.GenerateTasksFile.Tasks.csproj
+		SccProjectTopLevelParentUniqueName3 = BizTalkBuildAndDeploy.sln
+		SccProjectName3 = ../BuildTasks/BizTalk.BuildGenerator.GenerateTasksFile.Tasks
+		SccLocalPath3 = ..\\BuildTasks\\BizTalk.BuildGenerator.GenerateTasksFile.Tasks
+		SccProjectUniqueName4 = ..\\BuildTasks\\BizTalk.BuildGenerator.Tasks\\BizTalk.BuildGenerator.Tasks.csproj
+		SccProjectTopLevelParentUniqueName4 = BizTalkBuildAndDeploy.sln
+		SccProjectName4 = ../BuildTasks/BizTalk.BuildGenerator.Tasks
+		SccLocalPath4 = ..\\BuildTasks\\BizTalk.BuildGenerator.Tasks
+		SccProjectUniqueName5 = ..\\BuildTasks\\MSBuild.ExtensionPack.Tasks\\MSBuild.ExtensionPack.Framework.Tasks.csproj
+		SccProjectTopLevelParentUniqueName5 = BizTalkBuildAndDeploy.sln
+		SccProjectName5 = ../BuildTasks/MSBuild.ExtensionPack.Tasks
+		SccLocalPath5 = ..\\BuildTasks\\MSBuild.ExtensionPack.Tasks
+		SccProjectUniqueName6 = ..\\..\\Rules\\RuleHelperLibrary\\bizilante.RuleHelperLibrary.csproj
+		SccProjectTopLevelParentUniqueName6 = BizTalkBuildAndDeploy.sln
+		SccProjectName6 = ../../Rules/RuleHelperLibrary
+		SccLocalPath6 = ..\\..\\Rules\\RuleHelperLibrary
+		SccProjectUniqueName7 = ..\\..\\SSO\\SSOHelperLibrary\\bizilante.SSOHelperLibrary.csproj
+		SccProjectTopLevelParentUniqueName7 = BizTalkBuildAndDeploy.sln
+		SccProjectName7 = ../../SSO/SSOHelperLibrary
+		SccLocalPath7 = ..\\..\\SSO\\SSOHelperLibrary
+		SccProjectUniqueName8 = ..\\BuildTasks\\Bizilante.BizTalk.BuildGenerator.Policies.Tasks\\bizilante.BuildGenerator.Policies.Tasks.csproj
+		SccProjectTopLevelParentUniqueName8 = BizTalkBuildAndDeploy.sln
+		SccProjectName8 = ../BuildTasks/Bizilante.BizTalk.BuildGenerator.Policies.Tasks
+		SccLocalPath8 = ..\\BuildTasks\\Bizilante.BizTalk.BuildGenerator.Policies.Tasks
+		SccProjectUniqueName9 = ..\\BuildTasks\\Bizilante.BizTalk.BuildGenerator.SSO.Tasks\\bizilante.BuildGenerator.SSO.Tasks.csproj
+		SccProjectTopLevelParentUniqueName9 = BizTalkBuildAndDeploy.sln
+		SccProjectName9 = ../BuildTasks/Bizilante.BizTalk.BuildGenerator.SSO.Tasks
+		SccLocalPath9 = ..\\BuildTasks\\Bizilante.BizTalk.BuildGenerator.SSO.Tasks
+		SccProjectUniqueName10 = ..\\BuildTasks\\Bizilante.BizTalk.BuildGenerator.Tasks\\bizilante.BuildGenerator.Tasks.csproj
+		SccProjectTopLevelParentUniqueName10 = BizTalkBuildAndDeploy.sln
+		SccProjectName10 = ../BuildTasks/Bizilante.BizTalk.BuildGenerator.Tasks
+		SccLocalPath10 = ..\\BuildTasks\\Bizilante.BizTalk.BuildGenerator.Tasks
+	EndGlobalSection
+EndGlobal

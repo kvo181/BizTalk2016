@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<SourceCodeRootFolder>@SourceCodeRootFolder@</SourceCodeRootFolder>
+		<BuildGeneratorTasksPath>@BuildGeneratorTasksPath@</BuildGeneratorTasksPath>		
+	</PropertyGroup>
+		
+	<Import Project="$(BuildGeneratorTasksPath)\MSBuild.ExtensionPack.Framework.tasks"/>
+	<Import Project="$(BuildGeneratorTasksPath)\BizTalk.BuildGenerator.tasks"/>	
+	<Import Project="$(BuildGeneratorTasksPath)\bizilante.BuildGenerator.tasks"/>
+	<Import Project="$(BuildGeneratorTasksPath)\bizilante.BuildGenerator.SSO.tasks"/>	
+	<!--<Import Project="$(BuildGeneratorTasksPath)\BizTalkBindingTool\bizilante.BizTalkFastTrackBindingTool.tasks"/>	-->
+	
+	<PropertyGroup>		
+		<!-- Application Properties -->
+		<ProductName>@ApplicationName@</ProductName>
+		<ProductDescription>@ApplicationDescription@</ProductDescription>
+		<SolutionName>@SolutionName@</SolutionName>
+
+		<!-- Version Properties -->
+		<MajorVersion>@MajorVersion@</MajorVersion>
+		<MinorVersion>@MinorVersion@</MinorVersion>
+		<AssemblyInfoFiles>@AssemblyInfoFiles@</AssemblyInfoFiles>
+
+		<!-- Deployment Properties-->
+		<PackageDirectory>@PackageDirectory@</PackageDirectory>
+		<PackageLocation>$(PackageDirectory)\$(ProductName)_$(ConfigurationName)_$(ProductDescription)-NOBINDING.msi</PackageLocation>
+		<PackageLocationWithBindings>$(PackageDirectory)\$(ProductName)_$(ConfigurationName)_$(ProductDescription).msi</PackageLocationWithBindings>
+				
+	</PropertyGroup>
+</Project>

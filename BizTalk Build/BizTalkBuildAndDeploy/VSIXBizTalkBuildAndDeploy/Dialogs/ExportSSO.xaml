@@ -1,0 +1,28 @@
+﻿<ui:DialogWindow x:Class="VSIXBizTalkBuildAndDeploy.Dialogs.ExportSSO"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ui="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.14.0"
+    Title="Export SSO application" Height="265" Width="385" ResizeMode="NoResize" Background="White" FocusManager.FocusedElement="{Binding ElementName=input}" WindowStartupLocation="CenterScreen">
+    <Grid Height="Auto" Width="Auto" VerticalAlignment="Top" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="158*"/>
+            <ColumnDefinition Width="150*"/>
+            <ColumnDefinition Width="77*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.ColumnSpan="3" Background="#FF2BA86F">
+            <Image Source="/BizilanteBuildAndDeploy;component/Resources/bizilante.jpg" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        </Grid>
+        <Label Content="Please validate the export of this SSO application." VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Center" Margin="0,0,0,0" Height="Auto" Grid.ColumnSpan="3" RenderTransformOrigin="0.188,0.626"/>
+        <TextBox TextWrapping="Wrap"  Name="input" AcceptsReturn="True" Grid.Row="2" HorizontalAlignment="Left" Width="340" Margin="15,0,0,0" VerticalContentAlignment="Center" KeyUp="input_KeyUp" Grid.ColumnSpan="3" IsReadOnlyCaretVisible="True" IsEnabled="False"/>
+        <TextBox TextWrapping="NoWrap"  Name="inputName" AcceptsReturn="True" Grid.Row="3" HorizontalAlignment="Left" Width="340" Margin="15,0,0,0" VerticalContentAlignment="Center" KeyUp="input_KeyUp" Grid.ColumnSpan="3" IsReadOnlyCaretVisible="True" IsEnabled="False"/>
+        <Button Content="Not OK" Name="btnNok" Click="btnNok_Click" Height="30" Width="75" HorizontalAlignment="Right" Grid.Row="4" VerticalAlignment="Bottom" Margin="0,5,60,0" Grid.ColumnSpan="1" Grid.Column="0" />
+        <Button Content="OK" Name="btnOk" Click="btnOk_Click" Height="30" Width="75" HorizontalAlignment="Right" Grid.Row="4" VerticalAlignment="Bottom" Margin="0,5,30,0" Grid.ColumnSpan="2" Grid.Column="1" />
+    </Grid>
+</ui:DialogWindow>
