@@ -17,6 +17,7 @@ namespace bizilante.SSO.Helper
     public class SSO
     {
         private static string CONFIG_NAME = "ConfigProperties";
+        private int _timeout = 60; // seconds
 
         private string _secrectServer = "";
         private string _ssoDBServer = "";
@@ -51,6 +52,17 @@ namespace bizilante.SSO.Helper
             }
         }
 
+        public string DBServer
+        {
+            get { return _ssoDBServer; }
+            set { _ssoDBServer = value; }
+        }
+        public string DB
+        {
+            get { return _ssoDB; }
+            set { _ssoDB = value; }
+        }
+
         public SSO()
         {
             _bizTalkEmailAddress = 
@@ -60,6 +72,12 @@ namespace bizilante.SSO.Helper
         {
             _bizTalkEmailAddress =
                 string.Format(_bizTalkEmailAddress, companyName);
+        }
+        public SSO(int timeout)
+        {
+            _timeout = timeout;
+            _bizTalkEmailAddress =
+                string.Format(_bizTalkEmailAddress, ConfigurationManager.AppSettings["CompanyName"]);
         }
 
         public static string Encrypt(string toEncrypt, string key)
@@ -201,14 +219,14 @@ namespace bizilante.SSO.Helper
             try
             {
                 ISSOAdmin2 iSSOAdmin = (ISSOAdmin2)new SSOAdmin();
-                int num;
-                int num2;
-                int num3;
-                int num4;
-                int num5;
-                int num6;
-                int num7;
-                iSSOAdmin.GetGlobalInfo(out num, out num2, out num3, out num4, out num5, out num6, out num7, out _secrectServer, out _ssoAdminGroup, out _affiliateAppMgrGroup);
+                int flags;
+                int auditAppDeleteMax;
+                int auditMappingDeleteMax;
+                int auditNtpLookupMax;
+                int auditXpLookupMax;
+                int ticketTimeout;
+                int credCacheTimeout;
+                iSSOAdmin.GetGlobalInfo(out flags, out auditAppDeleteMax, out auditMappingDeleteMax, out auditNtpLookupMax, out auditXpLookupMax, out ticketTimeout, out credCacheTimeout, out _secrectServer, out _ssoAdminGroup, out _affiliateAppMgrGroup);
                 _ssoDBServer = (Registry.GetValue("HKEY_LOCAL_MACHINE\\Software\\Microsoft\\ENTSSO\\SQL", "Server", "") as string);
                 _ssoDB = (Registry.GetValue("HKEY_LOCAL_MACHINE\\Software\\Microsoft\\ENTSSO\\SQL", "Database", "") as string);
                 DoSsoEvent("GetSecretServerName", string.Format("Server={0}, Database={1}", _ssoDBServer, _ssoDB), false);

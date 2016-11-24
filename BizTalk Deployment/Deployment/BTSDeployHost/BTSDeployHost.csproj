@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{72CFD068-D5C4-481D-94CC-92411D2E9F63}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>bizilante.Deployment.BTSDeployHost</RootNamespace>
+    <AssemblyName>BTSDeployHost</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management.Automation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\System.Management.Automation\1.0.0.0__31bf3856ad364e35\System.Management.Automation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\DeploymentAssemblyInfo.cs">
+      <Link>Properties\DeploymentAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="BTSDeployHostInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BTSDeployHostInstaller.Designer.cs">
+      <DependentUpon>BTSDeployHostInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommandLine\CommandFactory.cs" />
+    <Compile Include="CommandLine\CommandResources.cs" />
+    <Compile Include="CommandLine\BTSDeployCommand.cs" />
+    <Compile Include="CommandLine\HelpCommand.cs" />
+    <Compile Include="CommandLine\StringResources.cs" />
+    <Compile Include="Console\ConsoleSize.cs" />
+    <Compile Include="CommandLine\BTSDeployAppCommand.cs" />
+    <Compile Include="Form\PromptForChoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\PromptForChoice.Designer.cs">
+      <DependentUpon>PromptForChoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIBTSDeployPSHost.cs" />
+    <Compile Include="Host\HostRawUI.cs" />
+    <Compile Include="Host\HostUI.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\ColorAdapter.cs" />
+    <Compile Include="Utils\Extentions.cs" />
+    <Compile Include="Utils\Helper.cs" />
+    <Compile Include="Utils\MethodTracer.cs" />
+    <Compile Include="Utils\NativeUtils.cs" />
+    <Compile Include="Utils\ParameterHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Utilities\CommandHelperLib\bizilante.Tools.CommandHelperLib.csproj">
+      <Project>{64CFC94E-B652-495B-A0C0-E9457CFA3C9B}</Project>
+      <Name>bizilante.Tools.CommandHelperLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BizTalkGroupHelper\bizilante.Helpers.BizTalkGroupHelper.csproj">
+      <Project>{DA021015-1E43-4EF7-A49E-6E06D852A946}</Project>
+      <Name>bizilante.Helpers.BizTalkGroupHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BTSDeployForm\BTSDeployForm.csproj">
+      <Project>{8B9405B8-39D1-4700-ACFD-1B86FE0AAD25}</Project>
+      <Name>BTSDeployForm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogDeployment2\bizilante.Helpers.LogDeployment.csproj">
+      <Project>{3A298B2D-0074-4240-927C-9A5617CC6FF6}</Project>
+      <Name>bizilante.Helpers.LogDeployment</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CommandLine\CommandResources.resx">
+      <DependentUpon>CommandResources.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommandLine\StringResources.resx">
+      <DependentUpon>StringResources.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\PromptForChoice.resx">
+      <DependentUpon>PromptForChoice.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

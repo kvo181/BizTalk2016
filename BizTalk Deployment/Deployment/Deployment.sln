@@ -1,0 +1,396 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ListPackageContent", "ListPackageContent", "{0B5CB5DA-0EA1-473E-AA7F-CE3943632B53}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{65F383E6-4163-4031-BFC2-2588EE8975F0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logging", "Logging", "{01A54610-C3FC-4702-888E-D58673D0E15C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UninstallPackage", "UninstallPackage", "{2F0614D6-0FEC-42CD-98E7-E0644EA9BA07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BTSDeployForm", "BTSDeployForm\BTSDeployForm.csproj", "{8B9405B8-39D1-4700-ACFD-1B86FE0AAD25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BTSDeployHost", "BTSDeployHost\BTSDeployHost.csproj", "{72CFD068-D5C4-481D-94CC-92411D2E9F63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.Helpers.ListPackageHelper", "..\Utilities\ListPackageHelper\bizilante.Helpers.ListPackageHelper.csproj", "{AFCF1B33-AB02-4E89-AEBF-14282E58493A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.Windows.Forms.Controls.ListPackageFormsControlLibrary", "..\Utilities\ListPackageFormsControlLibrary\bizilante.Windows.Forms.Controls.ListPackageFormsControlLibrary.csproj", "{1174E7EF-CC08-42FF-A112-DA6E9A704FFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.Tools.CommandHelperLib", "..\Utilities\CommandHelperLib\bizilante.Tools.CommandHelperLib.csproj", "{64CFC94E-B652-495B-A0C0-E9457CFA3C9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListPackageContentConsole", "..\Utilities\ListPackageContent\ListPackageContentConsole.csproj", "{F2543525-3BA5-4CE6-8A77-840E913E0513}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetUninstallPackage", "GetUninstallPackage\GetUninstallPackage.csproj", "{30A1968E-0679-43E0-81E3-A64E6A357D55}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Forms", "Forms", "{6D466930-7544-46D4-815A-A6CE3B5FD55D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.Windows.Forms.DeploymentDbFormsControlLibrary", "DeploymentDbFormsControlLibrary\bizilante.Windows.Forms.DeploymentDbFormsControlLibrary.csproj", "{58FA1C72-0FED-4998-97DA-21D6A6F5A5B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.Helpers.BizTalkGroupHelper", "BizTalkGroupHelper\bizilante.Helpers.BizTalkGroupHelper.csproj", "{DA021015-1E43-4EF7-A49E-6E06D852A946}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Solution Items", "_Solution Items", "{78F43796-C746-4A7B-9BA8-EF2A55AE3807}"
+	ProjectSection(SolutionItems) = preProject
+		Deployment\BizTalkDeploymentDb.publish.sql = Deployment\BizTalkDeploymentDb.publish.sql
+		DeploymentAssemblyInfo.cs = DeploymentAssemblyInfo.cs
+	EndProjectSection
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BizTalkDeploymentDb", "BizTalkDeploymentDatabase\BizTalkDeploymentDb.sqlproj", "{8CDFE077-0B1B-4A51-BC81-CA3116F365A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InitDeploymentLog", "InitDeploymentLog\InitDeploymentLog.csproj", "{A608D8BC-992E-4CDB-AECF-19257FE32416}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.Helpers.LogDeployment", "LogDeployment2\bizilante.Helpers.LogDeployment.csproj", "{3A298B2D-0074-4240-927C-9A5617CC6FF6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApplicationDependencies", "ApplicationDependencies", "{225B4D30-D30F-4DE0-807C-C8C5949936CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetBTSApplicationDependencies", "..\Utilities\GetBTSApplicationDependencies\GetBTSApplicationDependencies.csproj", "{57EE4C3B-9011-474E-9453-92D61B08357F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeploySSO", "..\Utilities\DeploySSO\DeploySSO.csproj", "{69ED5BF5-AA50-464C-9518-E49896FC7771}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SSO", "SSO", "{803077BF-A6BD-42E2-A111-16F2CB9F6DE6}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupBTSDeployment", "SetupBTSDeployment\SetupBTSDeployment.vdproj", "{4A623A1C-E637-425C-BC91-EBDC605FE23E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities", "Utilities", "{E78C4D0F-7943-4F68-AD31-8490C2D69BBE}"
+	ProjectSection(SolutionItems) = preProject
+		..\Utilities\UtilitiesAssemblyInfo.cs = ..\Utilities\UtilitiesAssemblyInfo.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpers", "Helpers", "{C747756D-549D-41DB-A48F-92D49AB1A61A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.SSOHelperLibrary", "..\..\SSO\SSOHelperLibrary\bizilante.SSOHelperLibrary.csproj", "{22AE8140-EFD3-43DF-94F1-60BD5D00798F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B9405B8-39D1-4700-ACFD-1B86FE0AAD25}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{8B9405B8-39D1-4700-ACFD-1B86FE0AAD25}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{8B9405B8-39D1-4700-ACFD-1B86FE0AAD25}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{8B9405B8-39D1-4700-ACFD-1B86FE0AAD25}.Debug|x86.ActiveCfg = Debug|x86
+		{8B9405B8-39D1-4700-ACFD-1B86FE0AAD25}.Debug|x86.Build.0 = Debug|x86
+		{8B9405B8-39D1-4700-ACFD-1B86FE0AAD25}.Release|Any CPU.ActiveCfg = Release|x86
+		{8B9405B8-39D1-4700-ACFD-1B86FE0AAD25}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{8B9405B8-39D1-4700-ACFD-1B86FE0AAD25}.Release|Mixed Platforms.Build.0 = Release|x86
+		{8B9405B8-39D1-4700-ACFD-1B86FE0AAD25}.Release|x86.ActiveCfg = Release|x86
+		{8B9405B8-39D1-4700-ACFD-1B86FE0AAD25}.Release|x86.Build.0 = Release|x86
+		{72CFD068-D5C4-481D-94CC-92411D2E9F63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72CFD068-D5C4-481D-94CC-92411D2E9F63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72CFD068-D5C4-481D-94CC-92411D2E9F63}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{72CFD068-D5C4-481D-94CC-92411D2E9F63}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{72CFD068-D5C4-481D-94CC-92411D2E9F63}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{72CFD068-D5C4-481D-94CC-92411D2E9F63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72CFD068-D5C4-481D-94CC-92411D2E9F63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72CFD068-D5C4-481D-94CC-92411D2E9F63}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{72CFD068-D5C4-481D-94CC-92411D2E9F63}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{72CFD068-D5C4-481D-94CC-92411D2E9F63}.Release|x86.ActiveCfg = Release|x86
+		{72CFD068-D5C4-481D-94CC-92411D2E9F63}.Release|x86.Build.0 = Release|x86
+		{AFCF1B33-AB02-4E89-AEBF-14282E58493A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFCF1B33-AB02-4E89-AEBF-14282E58493A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFCF1B33-AB02-4E89-AEBF-14282E58493A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{AFCF1B33-AB02-4E89-AEBF-14282E58493A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{AFCF1B33-AB02-4E89-AEBF-14282E58493A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{AFCF1B33-AB02-4E89-AEBF-14282E58493A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFCF1B33-AB02-4E89-AEBF-14282E58493A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFCF1B33-AB02-4E89-AEBF-14282E58493A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{AFCF1B33-AB02-4E89-AEBF-14282E58493A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{AFCF1B33-AB02-4E89-AEBF-14282E58493A}.Release|x86.ActiveCfg = Release|x86
+		{AFCF1B33-AB02-4E89-AEBF-14282E58493A}.Release|x86.Build.0 = Release|x86
+		{1174E7EF-CC08-42FF-A112-DA6E9A704FFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1174E7EF-CC08-42FF-A112-DA6E9A704FFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1174E7EF-CC08-42FF-A112-DA6E9A704FFF}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{1174E7EF-CC08-42FF-A112-DA6E9A704FFF}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{1174E7EF-CC08-42FF-A112-DA6E9A704FFF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1174E7EF-CC08-42FF-A112-DA6E9A704FFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1174E7EF-CC08-42FF-A112-DA6E9A704FFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1174E7EF-CC08-42FF-A112-DA6E9A704FFF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{1174E7EF-CC08-42FF-A112-DA6E9A704FFF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{1174E7EF-CC08-42FF-A112-DA6E9A704FFF}.Release|x86.ActiveCfg = Release|x86
+		{1174E7EF-CC08-42FF-A112-DA6E9A704FFF}.Release|x86.Build.0 = Release|x86
+		{64CFC94E-B652-495B-A0C0-E9457CFA3C9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64CFC94E-B652-495B-A0C0-E9457CFA3C9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64CFC94E-B652-495B-A0C0-E9457CFA3C9B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{64CFC94E-B652-495B-A0C0-E9457CFA3C9B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{64CFC94E-B652-495B-A0C0-E9457CFA3C9B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{64CFC94E-B652-495B-A0C0-E9457CFA3C9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64CFC94E-B652-495B-A0C0-E9457CFA3C9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64CFC94E-B652-495B-A0C0-E9457CFA3C9B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{64CFC94E-B652-495B-A0C0-E9457CFA3C9B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{64CFC94E-B652-495B-A0C0-E9457CFA3C9B}.Release|x86.ActiveCfg = Release|x86
+		{64CFC94E-B652-495B-A0C0-E9457CFA3C9B}.Release|x86.Build.0 = Release|x86
+		{F2543525-3BA5-4CE6-8A77-840E913E0513}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2543525-3BA5-4CE6-8A77-840E913E0513}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2543525-3BA5-4CE6-8A77-840E913E0513}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F2543525-3BA5-4CE6-8A77-840E913E0513}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F2543525-3BA5-4CE6-8A77-840E913E0513}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F2543525-3BA5-4CE6-8A77-840E913E0513}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2543525-3BA5-4CE6-8A77-840E913E0513}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2543525-3BA5-4CE6-8A77-840E913E0513}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F2543525-3BA5-4CE6-8A77-840E913E0513}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F2543525-3BA5-4CE6-8A77-840E913E0513}.Release|x86.ActiveCfg = Release|x86
+		{F2543525-3BA5-4CE6-8A77-840E913E0513}.Release|x86.Build.0 = Release|x86
+		{30A1968E-0679-43E0-81E3-A64E6A357D55}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{30A1968E-0679-43E0-81E3-A64E6A357D55}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{30A1968E-0679-43E0-81E3-A64E6A357D55}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{30A1968E-0679-43E0-81E3-A64E6A357D55}.Debug|x86.ActiveCfg = Debug|x86
+		{30A1968E-0679-43E0-81E3-A64E6A357D55}.Debug|x86.Build.0 = Debug|x86
+		{30A1968E-0679-43E0-81E3-A64E6A357D55}.Release|Any CPU.ActiveCfg = Release|x86
+		{30A1968E-0679-43E0-81E3-A64E6A357D55}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{30A1968E-0679-43E0-81E3-A64E6A357D55}.Release|Mixed Platforms.Build.0 = Release|x86
+		{30A1968E-0679-43E0-81E3-A64E6A357D55}.Release|x86.ActiveCfg = Release|x86
+		{30A1968E-0679-43E0-81E3-A64E6A357D55}.Release|x86.Build.0 = Release|x86
+		{58FA1C72-0FED-4998-97DA-21D6A6F5A5B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58FA1C72-0FED-4998-97DA-21D6A6F5A5B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58FA1C72-0FED-4998-97DA-21D6A6F5A5B9}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{58FA1C72-0FED-4998-97DA-21D6A6F5A5B9}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{58FA1C72-0FED-4998-97DA-21D6A6F5A5B9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{58FA1C72-0FED-4998-97DA-21D6A6F5A5B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58FA1C72-0FED-4998-97DA-21D6A6F5A5B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58FA1C72-0FED-4998-97DA-21D6A6F5A5B9}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{58FA1C72-0FED-4998-97DA-21D6A6F5A5B9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{58FA1C72-0FED-4998-97DA-21D6A6F5A5B9}.Release|x86.ActiveCfg = Release|x86
+		{58FA1C72-0FED-4998-97DA-21D6A6F5A5B9}.Release|x86.Build.0 = Release|x86
+		{DA021015-1E43-4EF7-A49E-6E06D852A946}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA021015-1E43-4EF7-A49E-6E06D852A946}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA021015-1E43-4EF7-A49E-6E06D852A946}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{DA021015-1E43-4EF7-A49E-6E06D852A946}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{DA021015-1E43-4EF7-A49E-6E06D852A946}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DA021015-1E43-4EF7-A49E-6E06D852A946}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA021015-1E43-4EF7-A49E-6E06D852A946}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA021015-1E43-4EF7-A49E-6E06D852A946}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{DA021015-1E43-4EF7-A49E-6E06D852A946}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{DA021015-1E43-4EF7-A49E-6E06D852A946}.Release|x86.ActiveCfg = Release|x86
+		{DA021015-1E43-4EF7-A49E-6E06D852A946}.Release|x86.Build.0 = Release|x86
+		{8CDFE077-0B1B-4A51-BC81-CA3116F365A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CDFE077-0B1B-4A51-BC81-CA3116F365A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CDFE077-0B1B-4A51-BC81-CA3116F365A1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8CDFE077-0B1B-4A51-BC81-CA3116F365A1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8CDFE077-0B1B-4A51-BC81-CA3116F365A1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8CDFE077-0B1B-4A51-BC81-CA3116F365A1}.Debug|Mixed Platforms.Deploy.0 = Debug|Any CPU
+		{8CDFE077-0B1B-4A51-BC81-CA3116F365A1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8CDFE077-0B1B-4A51-BC81-CA3116F365A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CDFE077-0B1B-4A51-BC81-CA3116F365A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CDFE077-0B1B-4A51-BC81-CA3116F365A1}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{8CDFE077-0B1B-4A51-BC81-CA3116F365A1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8CDFE077-0B1B-4A51-BC81-CA3116F365A1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{8CDFE077-0B1B-4A51-BC81-CA3116F365A1}.Release|x86.ActiveCfg = Release|Any CPU
+		{A608D8BC-992E-4CDB-AECF-19257FE32416}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A608D8BC-992E-4CDB-AECF-19257FE32416}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A608D8BC-992E-4CDB-AECF-19257FE32416}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{A608D8BC-992E-4CDB-AECF-19257FE32416}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{A608D8BC-992E-4CDB-AECF-19257FE32416}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A608D8BC-992E-4CDB-AECF-19257FE32416}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A608D8BC-992E-4CDB-AECF-19257FE32416}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A608D8BC-992E-4CDB-AECF-19257FE32416}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{A608D8BC-992E-4CDB-AECF-19257FE32416}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{A608D8BC-992E-4CDB-AECF-19257FE32416}.Release|x86.ActiveCfg = Release|x86
+		{A608D8BC-992E-4CDB-AECF-19257FE32416}.Release|x86.Build.0 = Release|x86
+		{3A298B2D-0074-4240-927C-9A5617CC6FF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A298B2D-0074-4240-927C-9A5617CC6FF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A298B2D-0074-4240-927C-9A5617CC6FF6}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{3A298B2D-0074-4240-927C-9A5617CC6FF6}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{3A298B2D-0074-4240-927C-9A5617CC6FF6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3A298B2D-0074-4240-927C-9A5617CC6FF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A298B2D-0074-4240-927C-9A5617CC6FF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A298B2D-0074-4240-927C-9A5617CC6FF6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{3A298B2D-0074-4240-927C-9A5617CC6FF6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{3A298B2D-0074-4240-927C-9A5617CC6FF6}.Release|x86.ActiveCfg = Release|x86
+		{3A298B2D-0074-4240-927C-9A5617CC6FF6}.Release|x86.Build.0 = Release|x86
+		{57EE4C3B-9011-474E-9453-92D61B08357F}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{57EE4C3B-9011-474E-9453-92D61B08357F}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{57EE4C3B-9011-474E-9453-92D61B08357F}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{57EE4C3B-9011-474E-9453-92D61B08357F}.Debug|x86.ActiveCfg = Debug|x86
+		{57EE4C3B-9011-474E-9453-92D61B08357F}.Debug|x86.Build.0 = Debug|x86
+		{57EE4C3B-9011-474E-9453-92D61B08357F}.Release|Any CPU.ActiveCfg = Release|x86
+		{57EE4C3B-9011-474E-9453-92D61B08357F}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{57EE4C3B-9011-474E-9453-92D61B08357F}.Release|Mixed Platforms.Build.0 = Release|x86
+		{57EE4C3B-9011-474E-9453-92D61B08357F}.Release|x86.ActiveCfg = Release|x86
+		{57EE4C3B-9011-474E-9453-92D61B08357F}.Release|x86.Build.0 = Release|x86
+		{69ED5BF5-AA50-464C-9518-E49896FC7771}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{69ED5BF5-AA50-464C-9518-E49896FC7771}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{69ED5BF5-AA50-464C-9518-E49896FC7771}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{69ED5BF5-AA50-464C-9518-E49896FC7771}.Debug|x86.ActiveCfg = Debug|x86
+		{69ED5BF5-AA50-464C-9518-E49896FC7771}.Debug|x86.Build.0 = Debug|x86
+		{69ED5BF5-AA50-464C-9518-E49896FC7771}.Release|Any CPU.ActiveCfg = Release|x86
+		{69ED5BF5-AA50-464C-9518-E49896FC7771}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{69ED5BF5-AA50-464C-9518-E49896FC7771}.Release|Mixed Platforms.Build.0 = Release|x86
+		{69ED5BF5-AA50-464C-9518-E49896FC7771}.Release|x86.ActiveCfg = Release|x86
+		{69ED5BF5-AA50-464C-9518-E49896FC7771}.Release|x86.Build.0 = Release|x86
+		{4A623A1C-E637-425C-BC91-EBDC605FE23E}.Debug|Any CPU.ActiveCfg = Debug
+		{4A623A1C-E637-425C-BC91-EBDC605FE23E}.Debug|Any CPU.Build.0 = Debug
+		{4A623A1C-E637-425C-BC91-EBDC605FE23E}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{4A623A1C-E637-425C-BC91-EBDC605FE23E}.Debug|Mixed Platforms.Build.0 = Debug
+		{4A623A1C-E637-425C-BC91-EBDC605FE23E}.Debug|x86.ActiveCfg = Debug
+		{4A623A1C-E637-425C-BC91-EBDC605FE23E}.Debug|x86.Build.0 = Debug
+		{4A623A1C-E637-425C-BC91-EBDC605FE23E}.Release|Any CPU.ActiveCfg = Release
+		{4A623A1C-E637-425C-BC91-EBDC605FE23E}.Release|Any CPU.Build.0 = Release
+		{4A623A1C-E637-425C-BC91-EBDC605FE23E}.Release|Mixed Platforms.ActiveCfg = Release
+		{4A623A1C-E637-425C-BC91-EBDC605FE23E}.Release|Mixed Platforms.Build.0 = Release
+		{4A623A1C-E637-425C-BC91-EBDC605FE23E}.Release|x86.ActiveCfg = Release
+		{4A623A1C-E637-425C-BC91-EBDC605FE23E}.Release|x86.Build.0 = Release
+		{22AE8140-EFD3-43DF-94F1-60BD5D00798F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22AE8140-EFD3-43DF-94F1-60BD5D00798F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22AE8140-EFD3-43DF-94F1-60BD5D00798F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{22AE8140-EFD3-43DF-94F1-60BD5D00798F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{22AE8140-EFD3-43DF-94F1-60BD5D00798F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{22AE8140-EFD3-43DF-94F1-60BD5D00798F}.Debug|x86.Build.0 = Debug|Any CPU
+		{22AE8140-EFD3-43DF-94F1-60BD5D00798F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22AE8140-EFD3-43DF-94F1-60BD5D00798F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22AE8140-EFD3-43DF-94F1-60BD5D00798F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{22AE8140-EFD3-43DF-94F1-60BD5D00798F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{22AE8140-EFD3-43DF-94F1-60BD5D00798F}.Release|x86.ActiveCfg = Release|Any CPU
+		{22AE8140-EFD3-43DF-94F1-60BD5D00798F}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0B5CB5DA-0EA1-473E-AA7F-CE3943632B53} = {E78C4D0F-7943-4F68-AD31-8490C2D69BBE}
+		{01A54610-C3FC-4702-888E-D58673D0E15C} = {E78C4D0F-7943-4F68-AD31-8490C2D69BBE}
+		{2F0614D6-0FEC-42CD-98E7-E0644EA9BA07} = {E78C4D0F-7943-4F68-AD31-8490C2D69BBE}
+		{AFCF1B33-AB02-4E89-AEBF-14282E58493A} = {C747756D-549D-41DB-A48F-92D49AB1A61A}
+		{1174E7EF-CC08-42FF-A112-DA6E9A704FFF} = {6D466930-7544-46D4-815A-A6CE3B5FD55D}
+		{64CFC94E-B652-495B-A0C0-E9457CFA3C9B} = {C747756D-549D-41DB-A48F-92D49AB1A61A}
+		{F2543525-3BA5-4CE6-8A77-840E913E0513} = {0B5CB5DA-0EA1-473E-AA7F-CE3943632B53}
+		{30A1968E-0679-43E0-81E3-A64E6A357D55} = {2F0614D6-0FEC-42CD-98E7-E0644EA9BA07}
+		{6D466930-7544-46D4-815A-A6CE3B5FD55D} = {C747756D-549D-41DB-A48F-92D49AB1A61A}
+		{58FA1C72-0FED-4998-97DA-21D6A6F5A5B9} = {6D466930-7544-46D4-815A-A6CE3B5FD55D}
+		{DA021015-1E43-4EF7-A49E-6E06D852A946} = {C747756D-549D-41DB-A48F-92D49AB1A61A}
+		{8CDFE077-0B1B-4A51-BC81-CA3116F365A1} = {65F383E6-4163-4031-BFC2-2588EE8975F0}
+		{A608D8BC-992E-4CDB-AECF-19257FE32416} = {01A54610-C3FC-4702-888E-D58673D0E15C}
+		{3A298B2D-0074-4240-927C-9A5617CC6FF6} = {C747756D-549D-41DB-A48F-92D49AB1A61A}
+		{225B4D30-D30F-4DE0-807C-C8C5949936CF} = {E78C4D0F-7943-4F68-AD31-8490C2D69BBE}
+		{57EE4C3B-9011-474E-9453-92D61B08357F} = {225B4D30-D30F-4DE0-807C-C8C5949936CF}
+		{69ED5BF5-AA50-464C-9518-E49896FC7771} = {803077BF-A6BD-42E2-A111-16F2CB9F6DE6}
+		{803077BF-A6BD-42E2-A111-16F2CB9F6DE6} = {E78C4D0F-7943-4F68-AD31-8490C2D69BBE}
+		{22AE8140-EFD3-43DF-94F1-60BD5D00798F} = {C747756D-549D-41DB-A48F-92D49AB1A61A}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 17
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://kvo.visualstudio.com/defaultcollection
+		SccProjectUniqueName0 = ..\\..\\SSO\\SSOHelperLibrary\\bizilante.SSOHelperLibrary.csproj
+		SccProjectTopLevelParentUniqueName0 = Deployment.sln
+		SccProjectName0 = ../../SSO/SSOHelperLibrary
+		SccLocalPath0 = ..\\..\\SSO\\SSOHelperLibrary
+		SccLocalPath1 = .
+		SccProjectUniqueName2 = BizTalkDeploymentDatabase\\BizTalkDeploymentDb.sqlproj
+		SccProjectTopLevelParentUniqueName2 = Deployment.sln
+		SccProjectName2 = BizTalkDeploymentDatabase
+		SccLocalPath2 = BizTalkDeploymentDatabase
+		SccProjectUniqueName3 = BizTalkGroupHelper\\bizilante.Helpers.BizTalkGroupHelper.csproj
+		SccProjectTopLevelParentUniqueName3 = Deployment.sln
+		SccProjectName3 = BizTalkGroupHelper
+		SccLocalPath3 = BizTalkGroupHelper
+		SccProjectUniqueName4 = BTSDeployForm\\BTSDeployForm.csproj
+		SccProjectName4 = BTSDeployForm
+		SccLocalPath4 = BTSDeployForm
+		SccProjectUniqueName5 = BTSDeployHost\\BTSDeployHost.csproj
+		SccProjectName5 = BTSDeployHost
+		SccLocalPath5 = BTSDeployHost
+		SccProjectUniqueName6 = DeploymentDbFormsControlLibrary\\bizilante.Windows.Forms.DeploymentDbFormsControlLibrary.csproj
+		SccProjectTopLevelParentUniqueName6 = Deployment.sln
+		SccProjectName6 = DeploymentDbFormsControlLibrary
+		SccLocalPath6 = DeploymentDbFormsControlLibrary
+		SccProjectUniqueName7 = GetUninstallPackage\\GetUninstallPackage.csproj
+		SccProjectTopLevelParentUniqueName7 = Deployment.sln
+		SccProjectName7 = GetUninstallPackage
+		SccLocalPath7 = GetUninstallPackage
+		SccProjectUniqueName8 = InitDeploymentLog\\InitDeploymentLog.csproj
+		SccProjectTopLevelParentUniqueName8 = Deployment.sln
+		SccProjectName8 = InitDeploymentLog
+		SccLocalPath8 = InitDeploymentLog
+		SccProjectUniqueName9 = LogDeployment2\\bizilante.Helpers.LogDeployment.csproj
+		SccProjectTopLevelParentUniqueName9 = Deployment.sln
+		SccProjectName9 = LogDeployment2
+		SccLocalPath9 = LogDeployment2
+		SccProjectUniqueName10 = SetupBTSDeployment\\SetupBTSDeployment.vdproj
+		SccProjectName10 = SetupBTSDeployment
+		SccLocalPath10 = SetupBTSDeployment
+		SccProjectUniqueName11 = ..\\Utilities\\ListPackageHelper\\bizilante.Helpers.ListPackageHelper.csproj
+		SccProjectTopLevelParentUniqueName11 = Deployment.sln
+		SccProjectName11 = ../Utilities/ListPackageHelper
+		SccLocalPath11 = ..\\Utilities\\ListPackageHelper
+		SccProjectUniqueName12 = ..\\Utilities\\CommandHelperLib\\bizilante.Tools.CommandHelperLib.csproj
+		SccProjectTopLevelParentUniqueName12 = Deployment.sln
+		SccProjectName12 = ../Utilities/CommandHelperLib
+		SccLocalPath12 = ..\\Utilities\\CommandHelperLib
+		SccProjectUniqueName13 = ..\\Utilities\\ListPackageFormsControlLibrary\\bizilante.Windows.Forms.Controls.ListPackageFormsControlLibrary.csproj
+		SccProjectTopLevelParentUniqueName13 = Deployment.sln
+		SccProjectName13 = ../Utilities/ListPackageFormsControlLibrary
+		SccLocalPath13 = ..\\Utilities\\ListPackageFormsControlLibrary
+		SccProjectUniqueName14 = ..\\Utilities\\GetBTSApplicationDependencies\\GetBTSApplicationDependencies.csproj
+		SccProjectTopLevelParentUniqueName14 = Deployment.sln
+		SccProjectName14 = ../Utilities/GetBTSApplicationDependencies
+		SccLocalPath14 = ..\\Utilities\\GetBTSApplicationDependencies
+		SccProjectUniqueName15 = ..\\Utilities\\ListPackageContent\\ListPackageContentConsole.csproj
+		SccProjectTopLevelParentUniqueName15 = Deployment.sln
+		SccProjectName15 = ../Utilities/ListPackageContent
+		SccLocalPath15 = ..\\Utilities\\ListPackageContent
+		SccProjectUniqueName16 = ..\\Utilities\\DeploySSO\\DeploySSO.csproj
+		SccProjectTopLevelParentUniqueName16 = Deployment.sln
+		SccProjectName16 = ../Utilities/DeploySSO
+		SccLocalPath16 = ..\\Utilities\\DeploySSO
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 16
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://i8c.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = BTSDeployForm\\BTSDeployForm.csproj
+		SccProjectName1 = BTSDeployForm
+		SccLocalPath1 = BTSDeployForm
+		SccProjectUniqueName2 = BTSDeployHost\\BTSDeployHost.csproj
+		SccProjectName2 = BTSDeployHost
+		SccLocalPath2 = BTSDeployHost
+		SccProjectUniqueName3 = GetUninstallPackage\\GetUninstallPackage.csproj
+		SccProjectTopLevelParentUniqueName3 = Deployment.sln
+		SccProjectName3 = GetUninstallPackage
+		SccLocalPath3 = GetUninstallPackage
+		SccProjectUniqueName4 = InitDeploymentLog\\InitDeploymentLog.csproj
+		SccProjectTopLevelParentUniqueName4 = Deployment.sln
+		SccProjectName4 = InitDeploymentLog
+		SccLocalPath4 = InitDeploymentLog
+		SccProjectUniqueName7 = SetupBTSDeployment\\SetupBTSDeployment.vdproj
+		SccProjectName7 = SetupBTSDeployment
+		SccLocalPath7 = SetupBTSDeployment
+		SccProjectUniqueName8 = ..\\Utilities\\ListPackageContent\\ListPackageContentConsole.csproj
+		SccProjectTopLevelParentUniqueName8 = Deployment.sln
+		SccProjectName8 = ../Utilities/ListPackageContent
+		SccLocalPath8 = ..\\Utilities\\ListPackageContent
+		SccProjectUniqueName9 = ..\\Utilities\\ListPackageFormsControlLibrary\\ListPackageFormsControlLibrary.csproj
+		SccProjectTopLevelParentUniqueName9 = Deployment.sln
+		SccProjectName9 = ../Utilities/ListPackageFormsControlLibrary
+		SccLocalPath9 = ..\\Utilities\\ListPackageFormsControlLibrary
+		SccProjectUniqueName10 = ..\\Utilities\\ListPackageHelper\\ListPackageHelper.csproj
+		SccProjectTopLevelParentUniqueName10 = Deployment.sln
+		SccProjectName10 = ../Utilities/ListPackageHelper
+		SccLocalPath10 = ..\\Utilities\\ListPackageHelper
+		SccProjectUniqueName11 = ..\\Utilities\\CommandHelperLib\\CommandHelperLib.csproj
+		SccProjectTopLevelParentUniqueName11 = Deployment.sln
+		SccProjectName11 = ../Utilities/CommandHelperLib
+		SccLocalPath11 = ..\\Utilities\\CommandHelperLib
+		SccProjectUniqueName12 = SetupBTSDeployHost\\SetupBTSDeployHost.vdproj
+		SccProjectName12 = SetupBTSDeployHost
+		SccLocalPath12 = SetupBTSDeployHost
+		SccProjectUniqueName13 = DeploymentDbFormsControlLibrary\\DeploymentDbFormsControlLibrary.csproj
+		SccProjectTopLevelParentUniqueName13 = Deployment.sln
+		SccProjectName13 = DeploymentDbFormsControlLibrary
+		SccLocalPath13 = DeploymentDbFormsControlLibrary
+		SccProjectUniqueName14 = BizTalkGroupHelper\\BizTalkGroupHelper.csproj
+		SccProjectTopLevelParentUniqueName14 = Deployment.sln
+		SccProjectName14 = BizTalkGroupHelper
+		SccLocalPath14 = BizTalkGroupHelper
+		SccProjectUniqueName15 = SetupBTSDeployPatch\\SetupBTSDeployPatch.vdproj
+		SccProjectName15 = SetupBTSDeployPatch
+		SccLocalPath15 = SetupBTSDeployPatch
+	EndGlobalSection
+EndGlobal
