@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.grpDeploy = new System.Windows.Forms.GroupBox();
+            this.chkDeployItineraries = new System.Windows.Forms.CheckBox();
+            this.chkDeploySSO = new System.Windows.Forms.CheckBox();
             this.grpLogging = new System.Windows.Forms.GroupBox();
             this.chkLogging = new System.Windows.Forms.CheckBox();
             this.btnShowMsi = new System.Windows.Forms.Button();
@@ -71,6 +74,7 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.grpDeploy.SuspendLayout();
             this.grpLogging.SuspendLayout();
             this.grpInstallOn.SuspendLayout();
             this.grpAction.SuspendLayout();
@@ -90,6 +94,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.grpDeploy);
             this.splitContainer1.Panel1.Controls.Add(this.grpLogging);
             this.splitContainer1.Panel1.Controls.Add(this.btnShowMsi);
             this.splitContainer1.Panel1.Controls.Add(this.grpInstallOn);
@@ -111,12 +116,47 @@
             this.splitContainer1.SplitterDistance = 182;
             this.splitContainer1.TabIndex = 0;
             // 
+            // grpDeploy
+            // 
+            this.grpDeploy.Controls.Add(this.chkDeployItineraries);
+            this.grpDeploy.Controls.Add(this.chkDeploySSO);
+            this.grpDeploy.Location = new System.Drawing.Point(97, 117);
+            this.grpDeploy.Name = "grpDeploy";
+            this.grpDeploy.Size = new System.Drawing.Size(174, 58);
+            this.grpDeploy.TabIndex = 14;
+            this.grpDeploy.TabStop = false;
+            this.grpDeploy.Text = "Deploy";
+            // 
+            // chkDeployItineraries
+            // 
+            this.chkDeployItineraries.AutoSize = true;
+            this.chkDeployItineraries.Checked = true;
+            this.chkDeployItineraries.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkDeployItineraries.Location = new System.Drawing.Point(99, 26);
+            this.chkDeployItineraries.Name = "chkDeployItineraries";
+            this.chkDeployItineraries.Size = new System.Drawing.Size(71, 17);
+            this.chkDeployItineraries.TabIndex = 1;
+            this.chkDeployItineraries.Text = "Itineraries";
+            this.chkDeployItineraries.UseVisualStyleBackColor = true;
+            // 
+            // chkDeploySSO
+            // 
+            this.chkDeploySSO.AutoSize = true;
+            this.chkDeploySSO.Checked = true;
+            this.chkDeploySSO.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkDeploySSO.Location = new System.Drawing.Point(13, 26);
+            this.chkDeploySSO.Name = "chkDeploySSO";
+            this.chkDeploySSO.Size = new System.Drawing.Size(48, 17);
+            this.chkDeploySSO.TabIndex = 0;
+            this.chkDeploySSO.Text = "SSO";
+            this.chkDeploySSO.UseVisualStyleBackColor = true;
+            // 
             // grpLogging
             // 
             this.grpLogging.Controls.Add(this.chkLogging);
             this.grpLogging.Location = new System.Drawing.Point(10, 117);
             this.grpLogging.Name = "grpLogging";
-            this.grpLogging.Size = new System.Drawing.Size(261, 58);
+            this.grpLogging.Size = new System.Drawing.Size(81, 58);
             this.grpLogging.TabIndex = 13;
             this.grpLogging.TabStop = false;
             this.grpLogging.Text = "Logging";
@@ -462,6 +502,7 @@
             this.rbtnFull.TabStop = true;
             this.rbtnFull.Text = "Full";
             this.rbtnFull.UseVisualStyleBackColor = true;
+            this.rbtnFull.CheckedChanged += new System.EventHandler(this.rbtnFull_CheckedChanged);
             // 
             // lblApps
             // 
@@ -516,7 +557,7 @@
             // 
             this.toolStripStatusLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(98, 17);
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(112, 17);
             this.toolStripStatusLabel.Text = "No logging enabled";
             this.toolStripStatusLabel.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
@@ -540,6 +581,8 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.grpDeploy.ResumeLayout(false);
+            this.grpDeploy.PerformLayout();
             this.grpLogging.ResumeLayout(false);
             this.grpLogging.PerformLayout();
             this.grpInstallOn.ResumeLayout(false);
@@ -599,6 +642,9 @@
         private System.Windows.Forms.CheckBox chkLogging;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnRecycle;
+        private System.Windows.Forms.GroupBox grpDeploy;
+        private System.Windows.Forms.CheckBox chkDeployItineraries;
+        private System.Windows.Forms.CheckBox chkDeploySSO;
     }
 }
 

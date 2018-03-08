@@ -1,11 +1,13 @@
 ﻿using Microsoft.EnterpriseSingleSignOn.Interop;
 using Microsoft.Win32;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
@@ -19,6 +21,7 @@ namespace bizilante.SSO.Helper
         private static string CONFIG_NAME = "ConfigProperties";
         private int _timeout = 60; // seconds
 
+        private BizTalkServerRegistry _registry = null;
         private string _secrectServer = "";
         private string _ssoDBServer = "";
         private string _ssoDB = "";
@@ -65,19 +68,40 @@ namespace bizilante.SSO.Helper
 
         public SSO()
         {
-            _bizTalkEmailAddress = 
+            _bizTalkEmailAddress =
                 string.Format(_bizTalkEmailAddress, ConfigurationManager.AppSettings["CompanyName"]);
+            string username = ConfigurationManager.AppSettings["Username"];
+            if (!string.IsNullOrWhiteSpace(username))
+                _bizTalkEmailAddress =
+                    string.Format("{0}@{1}.com", username, ConfigurationManager.AppSettings["CompanyName"]);
+            _registry = BizTalkHelper.GetMgmtServerInfo();
         }
         public SSO(string companyName)
         {
             _bizTalkEmailAddress =
                 string.Format(_bizTalkEmailAddress, companyName);
+            string username = ConfigurationManager.AppSettings["Username"];
+            if (!string.IsNullOrWhiteSpace(username))
+                _bizTalkEmailAddress =
+                    string.Format("{0}@{1}.com", username, companyName);
+            _registry = BizTalkHelper.GetMgmtServerInfo();
+        }
+        public SSO(string username, string companyName)
+        {
+            _bizTalkEmailAddress =
+                string.Format("{0}@{1}.com", username, companyName);
+            _registry = BizTalkHelper.GetMgmtServerInfo();
         }
         public SSO(int timeout)
         {
             _timeout = timeout;
             _bizTalkEmailAddress =
                 string.Format(_bizTalkEmailAddress, ConfigurationManager.AppSettings["CompanyName"]);
+            string username = ConfigurationManager.AppSettings["Username"];
+            if (!string.IsNullOrWhiteSpace(username))
+                _bizTalkEmailAddress =
+                    string.Format("{0}@{1}.com", username, ConfigurationManager.AppSettings["CompanyName"]);
+            _registry = BizTalkHelper.GetMgmtServerInfo();
         }
 
         public static string Encrypt(string toEncrypt, string key)
@@ -178,7 +202,7 @@ namespace bizilante.SSO.Helper
             string[] result;
             try
             {
-                string commandText = string.Format("Select ai_app_name from SSOX_ApplicationInfo where ai_contact_info='{0}'", _bizTalkEmailAddress);
+                string commandText = string.Format("Select [ai_app_name],[ai_timestamp],[ai_description] from SSOX_ApplicationInfo with (nolock) where ai_contact_info='{0}'", _bizTalkEmailAddress);
                 SqlConnection sqlConnection = new SqlConnection();
                 sqlConnection.ConnectionString = string.Concat(new string[]
                 {
@@ -212,6 +236,55 @@ namespace bizilante.SSO.Helper
                 result = array2;
             }
             return result;
+        }
+        public List<SSOAppInfo> GetListOfApplications()
+        {
+            List<SSOAppInfo> applications = new List<SSOAppInfo>();
+            if (_secrectServer == null || _secrectServer == "")
+            {
+                GetSecretServerName();
+            }
+            SqlConnection sqlConnection = new SqlConnection();
+            try
+            {
+                string commandText = string.Format("Select [ai_app_name],[ai_timestamp],[ai_description] from SSOX_ApplicationInfo with (nolock) where ai_contact_info='{0}'", _bizTalkEmailAddress);
+                sqlConnection.ConnectionString = string.Concat(new string[]
+                {
+                    "Data Source=",
+                    _ssoDBServer,
+                    "; Initial Catalog=",
+                    _ssoDB,
+                    "; Integrated Security=SSPI"
+                });
+                sqlConnection.Open();
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(new SqlCommand
+                {
+                    Connection = sqlConnection,
+                    CommandText = commandText
+                });
+                DataSet dataSet = new DataSet();
+                sqlDataAdapter.Fill(dataSet, "Result");
+                int count = dataSet.Tables[0].Rows.Count;
+                for (int i = 0; i < count; i++)
+                {
+                    applications.Add(new SSOAppInfo
+                    {
+                        Name = dataSet.Tables[0].Rows[i][0].ToString(),
+                        Description = dataSet.Tables[0].Rows[i][2].ToString(),
+                        CreationDate = Convert.ToDateTime(dataSet.Tables[0].Rows[i][1])
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                DoSsoEvent("SSO Helper - GetApplications", ex.Message, true);
+                string[] array2 = new string[10];
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+            return applications;
         }
 
         public void GetSecretServerName()
@@ -313,6 +386,162 @@ namespace bizilante.SSO.Helper
             }
         }
 
+        public void GetKeyValues(string appName, Dictionary<string, string> dict)
+        {
+            try
+            {
+                SSOPropertyBag properties = new SSOPropertyBag();
+                ((ISSOConfigStore)new SSOConfigStore()).GetConfigInfo(appName, CONFIG_NAME, 4, properties);
+                foreach (KeyValuePair<string, object> pair in properties.Dictionary)
+                {
+                    dict.Add(pair.Key, pair.Value.ToString());
+                }
+            }
+            catch (Exception exception)
+            {
+                EventLog.WriteEntry("SSO Helper - GetKeyValues", exception.Message);
+            }
+        }
+        public string GetAdapterConfig(string appName, string appDescription, Dictionary<string, string> dict)
+        {
+            string artefactName = string.Empty;
+
+            string applicationName = appName.Replace("{", "");
+            applicationName = applicationName.Replace("}", "");
+
+            string[] descriptionParts = appDescription.Split(new string[] { "_" }, StringSplitOptions.None);
+
+            ISSOConfigStore iSSOConfigStore = null;
+            DataSet dataSet = new DataSet();
+            SqlConnection connection;
+            try
+            {
+                connection = new SqlConnection(string.Format("SERVER={0};DATABASE={1};Integrated Security=SSPI", _registry.BizTalkMgmtDb, _registry.BizTalkMgmtDbName));
+                connection.Open();
+
+                ExplorerOM.RootSendHandlerData.Instance.SelectSchema(dataSet, connection);
+                ExplorerOM.RootSendPortData.Instance.SelectSchema(dataSet, connection);
+                ExplorerOM.RootReceiveHandlerData.Instance.SelectSchema(dataSet, connection);
+                ExplorerOM.RootReceiveLocationData.Instance.SelectSchema(dataSet, connection);
+
+                connection.Close();
+
+                // What are we looking for?
+                string identifier = null;
+                string transportTypeData = null;
+                if (appDescription.Contains("_TH_"))
+                {
+                    // Transmit handler
+                    string filter = string.Format("uidTransmitLocationSSOAppId = '{0}'", applicationName);
+                    DataRow[] rows1 = dataSet.Tables["SendPort"].Select(filter);
+                    if (rows1.Length == 0)
+                    {
+                        if (descriptionParts.Length > 3)
+                            filter = string.Format("uidCustomCfgID = '{0}'", applicationName);
+                        DataRow[] rows = dataSet.Tables["SendHandler"].Select(filter);
+                        if (rows.Length > 0)
+                        {
+                            identifier = appName;
+                            artefactName = string.Format("What: Send handler {0} for host {1}", rows[0][0], rows[0][1]);
+                        }
+                    }
+                    else
+                    {
+                        identifier = ((Guid)rows1[0][0]).ToString("B");
+                        artefactName = string.Format("What: Send port {0} in application {1}", rows1[0][2], rows1[0][3]);
+                    }
+                }
+                if (appDescription.Contains("_TL_"))
+                {
+                    // Transmit location
+                    string filter = string.Format("uidTransmitLocationSSOAppId = '{0}'", applicationName);
+                    DataRow[] rows1 = dataSet.Tables["SendPort"].Select(filter);
+                    if (rows1.Length == 0)
+                    {
+                        if (descriptionParts.Length > 3)
+                            filter = string.Format("uidCustomCfgID = '{0}'", applicationName);
+                        DataRow[] rows = dataSet.Tables["SendHandler"].Select(filter);
+                        if (rows.Length > 0)
+                        {
+                            identifier = appName;
+                            artefactName = string.Format("What: Send handler {0} for host {1}", rows[0][0], rows[0][1]);
+                            //if (descriptionParts.Length <= 3)
+                            //{
+                            //    identifier = ((Guid)rows[0]["uidCustomCfgID"]).ToString("B");
+                            //    //appName = identifier;
+                            //}
+                        }
+                    }
+                    else
+                    {
+                        identifier = ((Guid)rows1[0][0]).ToString("B");
+                        artefactName = string.Format("What: Send port {0} in application {1}", rows1[0][2], rows1[0][3]);
+                    }
+                }
+                if (appDescription.Contains("_RH_"))
+                {
+                    // Receive handler
+                    string filter = string.Format("uidReceiveLocationSSOAppID = '{0}'", applicationName);
+                    DataRow[] rows1 = dataSet.Tables["ReceiveLocation"].Select(filter);
+                    if (rows1.Length == 0)
+                    {
+                        if (descriptionParts.Length > 3)
+                            filter = string.Format("uidCustomCfgID = '{0}'", applicationName);
+                        DataRow[] rows = dataSet.Tables["ReceiveHandler"].Select(filter);
+                        if (rows.Length > 0)
+                        {
+                            identifier = appName;
+                            artefactName = string.Format("What: Receive handler {0} for host {1}", rows[0][0], rows[0][1]);
+                        }
+                    }
+                    else
+                    {
+                        identifier = ((Guid)rows1[0][0]).ToString("B");
+                        artefactName = string.Format("What: Send port {0} in application {1}", rows1[0][2], rows1[0][3]);
+                    }
+                }
+                if (appDescription.Contains("_RL_"))
+                {
+                    // Receive location
+                    string filter = string.Format("uidReceiveLocationSSOAppID = '{0}'", applicationName);
+                    DataRow[] rows1 = dataSet.Tables["ReceiveLocation"].Select(filter);
+                    if (rows1.Length == 0)
+                    {
+                        if (descriptionParts.Length > 3)
+                            filter = string.Format("uidCustomCfgID = '{0}'", applicationName);
+                        DataRow[] rows = dataSet.Tables["ReceiveHandler"].Select(filter);
+                        if (rows.Length > 0)
+                        {
+                            identifier = appName;
+                            artefactName = string.Format("What: Receive handler {0} for host {1}", rows[0][0], rows[0][1]);
+                        }
+                    }
+                    else
+                    {
+                        identifier = ((Guid)rows1[0][0]).ToString("B");
+                        artefactName = string.Format("What: Receive location {0} of port {1} in application {2}", rows1[0][2], rows1[0][3], rows1[0][4]);
+                    }
+                }
+
+                if (null != identifier)
+                {
+                    AdapterPropertyBag properties = new AdapterPropertyBag(null, "CustomProps");
+                    iSSOConfigStore = (new SSOConfigStore() as ISSOConfigStore);
+                    iSSOConfigStore.GetConfigInfo(appName.ToUpper(), identifier.ToUpper(), 0, properties);
+                    foreach (DictionaryEntry pair in properties.Properties)
+                    {
+                        dict.Add(pair.Key.ToString(), pair.Value.ToString());
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                dict.Add("No entry found", exception.Message);
+                //EventLog.WriteEntry("SSO Helper - GetAdapterConfig", exception.Message);
+            }
+            return artefactName;
+        }
+
         public string[] GetKeys(string appName)
         {
             string[] result;
@@ -367,6 +596,16 @@ namespace bizilante.SSO.Helper
                 };
             }
             return result;
+        }
+
+        public void GetVoyagerProperties(string ssoAppName, Hashtable targetTable)
+        {
+            ISSOMapper mapper = (ISSOMapper)new SSOMapper();
+            string[] labels = null;
+            int[] flags = null;
+            mapper.GetFieldInfo(ssoAppName, out labels, out flags);
+            for (int i = 0; i < labels.Length; i++)
+                targetTable.Add(labels[i], flags[i]);
         }
 
         public bool ImportSSOApplication(string encryptionKey, string appName, string encryptedText)
@@ -432,6 +671,7 @@ namespace bizilante.SSO.Helper
         }
         public bool ImportSSOApplication(string appName, string filename)
         {
+            // New of known SSO application
             bool flag = true;
             string[] applications = GetApplications();
             for (int i = 0; i < applications.Length; i++)
@@ -441,6 +681,7 @@ namespace bizilante.SSO.Helper
                     flag = false;
                 }
             }
+            // Load XML document
             XmlDocument xmlDocument = new XmlDocument();
             try
             {
@@ -455,8 +696,7 @@ namespace bizilante.SSO.Helper
             finally
             {
             }
-            XmlElement documentElement = xmlDocument.DocumentElement;
-            XmlNodeList xmlNodeList = documentElement.SelectNodes("applicationData/add");
+            // Get a reference to the values found in SSO
             List<string> list = new List<string>();
             List<string> list2 = new List<string>();
             if (!flag)
@@ -464,14 +704,32 @@ namespace bizilante.SSO.Helper
                 list.AddRange(GetKeys(appName));
                 list2.AddRange(GetValues(appName));
             }
+
+            // Get the values found in XML
+            XmlElement documentElement = xmlDocument.DocumentElement;
+            XmlNodeList xmlNodeList = documentElement.SelectNodes("applicationData/add");
             foreach (XmlNode xmlNode in xmlNodeList)
             {
                 string value = xmlNode.SelectSingleNode("@key").Value;
                 string value2 = xmlNode.SelectSingleNode("@value").Value;
-                if (!string.IsNullOrEmpty(value) && !string.IsNullOrEmpty(value2) && !list.Contains(value))
+                if (!string.IsNullOrEmpty(value) && !string.IsNullOrEmpty(value2))
                 {
-                    list.Add(value);
-                    list2.Add(value2);
+                    if (!list.Contains(value))
+                    {
+                        // New
+                        list.Add(value);
+                        list2.Add(value2);
+                    }
+                    else
+                    {
+                        // Existing
+                        int idx = list.IndexOf(value);
+                        if (idx >= 0)
+                        {
+                            if (list2[idx].CompareTo(value2) != 0)
+                                list2[idx] = value2;
+                        }
+                    }
                 }
             }
             DoSsoEvent("ImportSSOApplication", string.Format("{0}", appName), false);
@@ -490,5 +748,6 @@ namespace bizilante.SSO.Helper
             SSOEventArgs args = new SSOEventArgs(source, message, isError);
             SsoEvent(this, args);
         }
+
     }
 }

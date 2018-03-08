@@ -115,6 +115,10 @@
       <Project>{1174E7EF-CC08-42FF-A112-DA6E9A704FFF}</Project>
       <Name>bizilante.Windows.Forms.Controls.ListPackageFormsControlLibrary</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Utilities\ListPackageHelper\bizilante.Helpers.ListPackageHelper.csproj">
+      <Project>{afcf1b33-ab02-4e89-aebf-14282e58493a}</Project>
+      <Name>bizilante.Helpers.ListPackageHelper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DeploymentDbFormsControlLibrary\bizilante.Windows.Forms.DeploymentDbFormsControlLibrary.csproj">
       <Project>{58FA1C72-0FED-4998-97DA-21D6A6F5A5B9}</Project>
       <Name>bizilante.Windows.Forms.DeploymentDbFormsControlLibrary</Name>

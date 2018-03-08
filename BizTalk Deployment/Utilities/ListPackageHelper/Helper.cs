@@ -92,8 +92,13 @@ namespace bizilante.Helpers.ListPackageHelper
 
         public static string[] ListPackageContent(string msiPath)
         {
+            return ListPackageContentAsList(msiPath).ToArray();
+        }
+        public static List<string> ListPackageContentAsList(string msiPath)
+        {
             IInstallPackage package = null;
             List<string> packageInfo = new List<string>();
+            if (string.IsNullOrWhiteSpace(msiPath)) return packageInfo;
             try
             {
                 Dictionary<string, string> properties;
@@ -152,7 +157,7 @@ namespace bizilante.Helpers.ListPackageHelper
             {
                 throw new Exception(string.Format("ListPackageContent: Error occured: {0}", exception.Message), exception);
             }
-            return packageInfo.ToArray();
+            return packageInfo;
         }
 
         public static string[] GetFilesFromMSI(string msiPath)

@@ -27,7 +27,7 @@ namespace bizilante.Deployment.BTSDeployForm
         #region Public interfaces
         public Form Form
         {
-            get { return this;  }
+            get { return this; }
         }
         public RichTextBox OutputTextBox
         {
@@ -581,6 +581,16 @@ namespace bizilante.Deployment.BTSDeployForm
             if (rbtnPrd.Checked) return rbtnPrd.Text;
             return rbtnLoc.Text;
         }
+        public string GetDeploySSO()
+        {
+            if (chkDeploySSO.Checked) return "true";
+            return "false";
+        }
+        public string GetDeployItinerary()
+        {
+            if (chkDeployItineraries.Checked) return "true";
+            return "false";
+        }
         public bool IsPatch()
         {
             return rbtnPatch.Checked;
@@ -686,6 +696,12 @@ namespace bizilante.Deployment.BTSDeployForm
                 }
                 //string filename;
                 //GetLogFilename(out filename);
+
+                // Does the patch include a SSO and/or Itinerary file?
+                // Use this info to enable/disable the corresponding checkBox controls.
+                List<string> deployFiles = Helpers.ListPackageHelper.Helper.ListPackageContentAsList(fi.FullName);
+                chkDeploySSO.Checked = deployFiles.Any(f => f.Contains("System.BizTalk:File;") && f.Contains("SSO"));
+                chkDeployItineraries.Checked = deployFiles.Any(f => f.Contains("System.BizTalk:File;") && f.ToLower().Contains("itinerary"));
             }
             else
             {
@@ -805,6 +821,17 @@ namespace bizilante.Deployment.BTSDeployForm
             }
             else
             {
+                if (rbtnPatch.Checked)
+                {
+                    chkDeploySSO.Checked = false;
+                    chkDeployItineraries.Checked = false;
+                }
+                else
+                {
+                    chkDeploySSO.Checked = true;
+                    chkDeployItineraries.Checked = true;
+                }
+
                 if (lblApps.Text != "Application")
                 {
                     lblApps.Text = "Application";

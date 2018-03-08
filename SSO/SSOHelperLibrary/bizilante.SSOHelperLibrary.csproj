@@ -41,6 +41,10 @@
     <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.BizTalk.ExplorerOM, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft BizTalk Server 2016\Developer Tools\Microsoft.BizTalk.ExplorerOM.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.EnterpriseSingleSignOn.Interop, Version=10.0.1000.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files\Common Files\Enterprise Single Sign-On\Microsoft.EnterpriseSingleSignOn.Interop.dll</HintPath>
@@ -57,10 +61,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdapterPropertyBag.cs" />
+    <Compile Include="BizTalk\BizTalkHelper.cs" />
+    <Compile Include="BizTalk\BizTalkRegistryMissingException.cs" />
+    <Compile Include="ExplorerOM\RootSendPortData.cs" />
+    <Compile Include="ExplorerOM\RootSendHandlerData.cs" />
+    <Compile Include="ExplorerOM\RootReceiveLocationData.cs" />
+    <Compile Include="ExplorerOM\RootReceiveHandlerData.cs" />
     <Compile Include="SSO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SSOAppInfo.cs" />
     <Compile Include="SSOEventArgs.cs" />
+    <Compile Include="SSOKeyValue.cs" />
     <Compile Include="SSOPropertyBag.cs" />
+    <Compile Include="VariantHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Key.snk" />

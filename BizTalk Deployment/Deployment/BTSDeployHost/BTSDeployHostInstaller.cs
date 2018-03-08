@@ -13,15 +13,17 @@ namespace bizilante.Deployment.BTSDeployHost
     {
         public BTSDeployHostInstaller()
         {
+            MessageBox.Show("Init custom install");
             InitializeComponent();
         }
 
         public override void Install(IDictionary stateSaver)
         {
-            base.Install(stateSaver);
-
+            MessageBox.Show("Start custom install");
             try
             {
+                base.Install(stateSaver);
+
                 // Get the configuration xml file
                 string targetDirectory = Context.Parameters["targetdir"];
                 string exePath = string.Format("{0}BTSDeployHost.exe", targetDirectory);
@@ -29,12 +31,19 @@ namespace bizilante.Deployment.BTSDeployHost
 
                 // Set the DeploymentDb connection string
                 string deploymentDb = Context.Parameters["DeploymentDb"];
-                if (deploymentDb == "1")
+                string deploymentDbName = Context.Parameters["DeploymentDbName"];
+                if (string.IsNullOrWhiteSpace(deploymentDbName))
+                    deploymentDbName = "BizTalkDeploymentDb";
+                if (string.IsNullOrWhiteSpace(deploymentDb))
+                {
                     config.ConnectionStrings.ConnectionStrings["LogDeployment.Properties.Settings.DeploymentDb"].ConnectionString =
-                        "Data Source=dboprod.biztalk2010.acv-csc.intranet;Initial Catalog=BizTalkDeploymentDb;Integrated Security=True";
+                        string.Format("Data Source=.;Initial Catalog={0};Integrated Security=True", deploymentDbName);
+                }
                 else
+                {
                     config.ConnectionStrings.ConnectionStrings["LogDeployment.Properties.Settings.DeploymentDb"].ConnectionString =
-                        "Data Source=dboloc.biztalk2010.acv-csc.intranet;Initial Catalog=BizTalkDeploymentDb;Integrated Security=True";
+                        string.Format("Data Source={0};Initial Catalog={1};Integrated Security=True", deploymentDb, deploymentDbName);
+                }
 
                 // Set the PowerShell info
                 string psRootPath = Context.Parameters["PSRootPath"];
@@ -52,28 +61,35 @@ namespace bizilante.Deployment.BTSDeployHost
                 config.AppSettings.Settings["BizTalkTmpInstall"].Value = bizTalkTmpInstall;
 
                 // Set the BizTalk groups
-                string biztalk_loc = Context.Parameters["BTSEnv1"];
-                string biztalk_dev = Context.Parameters["BTSEnv2"];
-                string biztalk_tst = Context.Parameters["BTSEnv3"];
-                string biztalk_edu = Context.Parameters["BTSEnv4"];
-                string biztalk_hfx = Context.Parameters["BTSEnv5"];
-                string biztalk_prd = Context.Parameters["BTSEnv6"];
-                if (string.IsNullOrEmpty(biztalk_loc))
-                    config.AppSettings.Settings.Remove("BizTalk_LOC");
+                string biztalk_env1 = Context.Parameters["BTSEnv1"];
+                string biztalk_env2 = Context.Parameters["BTSEnv2"];
+                string biztalk_env3 = Context.Parameters["BTSEnv3"];
+                string biztalk_env4 = Context.Parameters["BTSEnv4"];
+                string biztalk_env5 = Context.Parameters["BTSEnv5"];
+                string biztalk_env6 = Context.Parameters["BTSEnv6"];
+                config.AppSettings.Settings.Remove("BizTalk_LOC");
+                if (string.IsNullOrEmpty(biztalk_env1))
+                    config.AppSettings.Settings.Remove("BizTalk_DEV");
                 else
-                    config.AppSettings.Settings["BizTalk_LOC"].Value = biztalk_loc;
-                config.AppSettings.Settings["BizTalk_DEV"].Value = biztalk_dev;
-                config.AppSettings.Settings["BizTalk_TST"].Value = biztalk_tst;
-                config.AppSettings.Settings["BizTalk_EDU"].Value = biztalk_edu;
-                config.AppSettings.Settings["BizTalk_HFX"].Value = biztalk_hfx;
-                config.AppSettings.Settings["BizTalk_PRD"].Value = biztalk_prd;
+                    config.AppSettings.Settings["BizTalk_DEV"].Value = biztalk_env1;
+                config.AppSettings.Settings.Remove("BizTalk_TST");
+                config.AppSettings.Settings.Remove("BizTalk_EDU");
+                config.AppSettings.Settings.Remove("BizTalk_HFX");
+                if (string.IsNullOrEmpty(biztalk_env2))
+                    config.AppSettings.Settings.Remove("BizTalk_PRD");
+                else
+                    config.AppSettings.Settings["BizTalk_PRD"].Value = biztalk_env2;
 
                 // Save the config
                 config.Save();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                if (null != ex.InnerException)
+                    MessageBox.Show(ex.InnerException.Message);
+                else
+                    MessageBox.Show(ex.Message);
+
             }
 
         }
