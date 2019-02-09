@@ -8,3 +8,6 @@ using System.Reflection;
 [assembly: AssemblyCopyright("Copyright © bizilante 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
+
+[assembly: AssemblyVersion("3.2.0.0")]
+[assembly: AssemblyFileVersion("3.2.0.0")]
