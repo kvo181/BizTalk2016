@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleSchemas", "SampleSche
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipelineObjects", "PipelineObjects\PipelineObjects.csproj", "{CD31010E-2E1D-4A18-8E44-75CE93BABD3A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bizilante.PipelineTesting.Helper", "Bizilante.PipelineTesting.Helper\Bizilante.PipelineTesting.Helper.csproj", "{2763D72F-F0D4-4150-BDF6-BC853E8574FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
@@ -61,12 +63,24 @@ Global
 		{CD31010E-2E1D-4A18-8E44-75CE93BABD3A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CD31010E-2E1D-4A18-8E44-75CE93BABD3A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{CD31010E-2E1D-4A18-8E44-75CE93BABD3A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{2763D72F-F0D4-4150-BDF6-BC853E8574FE}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{2763D72F-F0D4-4150-BDF6-BC853E8574FE}.Debug|.NET.Build.0 = Debug|Any CPU
+		{2763D72F-F0D4-4150-BDF6-BC853E8574FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2763D72F-F0D4-4150-BDF6-BC853E8574FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2763D72F-F0D4-4150-BDF6-BC853E8574FE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2763D72F-F0D4-4150-BDF6-BC853E8574FE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2763D72F-F0D4-4150-BDF6-BC853E8574FE}.Release|.NET.ActiveCfg = Release|Any CPU
+		{2763D72F-F0D4-4150-BDF6-BC853E8574FE}.Release|.NET.Build.0 = Release|Any CPU
+		{2763D72F-F0D4-4150-BDF6-BC853E8574FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2763D72F-F0D4-4150-BDF6-BC853E8574FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2763D72F-F0D4-4150-BDF6-BC853E8574FE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2763D72F-F0D4-4150-BDF6-BC853E8574FE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 5
+		SccNumberOfProjects = 6
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://kvo.visualstudio.com/defaultcollection
 		SccLocalPath0 = .
@@ -82,5 +96,8 @@ Global
 		SccProjectUniqueName4 = Winterdom.BizTalk.PipelineTesting\\Winterdom.BizTalk.PipelineTesting.csproj
 		SccProjectName4 = Winterdom.BizTalk.PipelineTesting
 		SccLocalPath4 = Winterdom.BizTalk.PipelineTesting
+		SccProjectUniqueName5 = Bizilante.PipelineTesting.Helper\\Bizilante.PipelineTesting.Helper.csproj
+		SccProjectName5 = Bizilante.PipelineTesting.Helper
+		SccLocalPath5 = Bizilante.PipelineTesting.Helper
 	EndGlobalSection
 EndGlobal
