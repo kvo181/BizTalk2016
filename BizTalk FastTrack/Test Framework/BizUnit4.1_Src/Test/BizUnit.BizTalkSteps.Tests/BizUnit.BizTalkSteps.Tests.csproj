@@ -67,10 +67,6 @@
       <HintPath>..\..\ReferencedAssemblies\Microsoft.BizTalk.Pipeline.Components.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="PipelineObjects, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ReferencedAssemblies\PipelineObjects.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -96,6 +92,10 @@
     <Content Include="TestData\SendPipeline3.InstanceConfig.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\PipelineTesting\PipelineObjects\PipelineObjects.csproj">
+      <Project>{cd31010e-2e1d-4a18-8e44-75ce93babd3a}</Project>
+      <Name>PipelineObjects</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Src\BizUnit.TestSteps.BizTalk\BizUnit.TestSteps.BizTalk.csproj">
       <Project>{772A474B-0D95-4002-BF5B-910986D1326B}</Project>
       <Name>BizUnit.TestSteps.BizTalk</Name>

@@ -112,6 +112,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizUnit.Extensions.Tests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.BizTalk.CAT.BestPractices.Framework", "..\..\Project Structure\Tools\Microsoft.BizTalk.CAT.BestPractices.Framework\Microsoft.BizTalk.CAT.BestPractices.Framework.csproj", "{13E20AE8-9515-4B37-B71B-3DFC70C9B831}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bizilante.PipelineTesting.Helper", "..\PipelineTesting\Bizilante.PipelineTesting.Helper\Bizilante.PipelineTesting.Helper.csproj", "{2763D72F-F0D4-4150-BDF6-BC853E8574FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -504,6 +506,18 @@ Global
 		{13E20AE8-9515-4B37-B71B-3DFC70C9B831}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{13E20AE8-9515-4B37-B71B-3DFC70C9B831}.Release|x86.ActiveCfg = Release|Any CPU
 		{13E20AE8-9515-4B37-B71B-3DFC70C9B831}.Release|x86.Build.0 = Release|Any CPU
+		{2763D72F-F0D4-4150-BDF6-BC853E8574FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2763D72F-F0D4-4150-BDF6-BC853E8574FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2763D72F-F0D4-4150-BDF6-BC853E8574FE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2763D72F-F0D4-4150-BDF6-BC853E8574FE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2763D72F-F0D4-4150-BDF6-BC853E8574FE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2763D72F-F0D4-4150-BDF6-BC853E8574FE}.Debug|x86.Build.0 = Debug|Any CPU
+		{2763D72F-F0D4-4150-BDF6-BC853E8574FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2763D72F-F0D4-4150-BDF6-BC853E8574FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2763D72F-F0D4-4150-BDF6-BC853E8574FE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2763D72F-F0D4-4150-BDF6-BC853E8574FE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{2763D72F-F0D4-4150-BDF6-BC853E8574FE}.Release|x86.ActiveCfg = Release|Any CPU
+		{2763D72F-F0D4-4150-BDF6-BC853E8574FE}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -552,20 +566,21 @@ Global
 		{5B50899D-0EE9-4915-943D-9C9BDB1D65C9} = {1080D171-00B5-472F-A97E-CE66080F898D}
 		{D269002D-DDCF-4D1D-A0AF-E77DC13B09F0} = {1080D171-00B5-472F-A97E-CE66080F898D}
 		{13E20AE8-9515-4B37-B71B-3DFC70C9B831} = {440CA47C-25F0-41AB-86E6-AB36909520C4}
+		{2763D72F-F0D4-4150-BDF6-BC853E8574FE} = {440CA47C-25F0-41AB-86E6-AB36909520C4}
 	EndGlobalSection
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 39
+		SccNumberOfProjects = 40
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://kvo.visualstudio.com/defaultcollection
-		SccProjectUniqueName0 = ..\\PipelineTesting\\PipelineObjects\\PipelineObjects.csproj
-		SccProjectTopLevelParentUniqueName0 = BizUnit.sln
-		SccProjectName0 = ../PipelineTesting/PipelineObjects
-		SccLocalPath0 = ..\\PipelineTesting\\PipelineObjects
-		SccProjectUniqueName1 = ..\\PipelineTesting\\Winterdom.BizTalk.PipelineTesting\\Winterdom.BizTalk.PipelineTesting.csproj
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ..\\PipelineTesting\\PipelineObjects\\PipelineObjects.csproj
 		SccProjectTopLevelParentUniqueName1 = BizUnit.sln
-		SccProjectName1 = ../PipelineTesting/Winterdom.BizTalk.PipelineTesting
-		SccLocalPath1 = ..\\PipelineTesting\\Winterdom.BizTalk.PipelineTesting
-		SccLocalPath2 = .
+		SccProjectName1 = ../PipelineTesting/PipelineObjects
+		SccLocalPath1 = ..\\PipelineTesting\\PipelineObjects
+		SccProjectUniqueName2 = ..\\PipelineTesting\\Winterdom.BizTalk.PipelineTesting\\Winterdom.BizTalk.PipelineTesting.csproj
+		SccProjectTopLevelParentUniqueName2 = BizUnit.sln
+		SccProjectName2 = ../PipelineTesting/Winterdom.BizTalk.PipelineTesting
+		SccLocalPath2 = ..\\PipelineTesting\\Winterdom.BizTalk.PipelineTesting
 		SccProjectUniqueName3 = Setup\\SetupBizUnit\\SetupBizUnit.vdproj
 		SccProjectTopLevelParentUniqueName3 = BizUnit.sln
 		SccProjectName3 = Setup/SetupBizUnit
@@ -710,6 +725,10 @@ Global
 		SccProjectTopLevelParentUniqueName38 = BizUnit.sln
 		SccProjectName38 = ../../Project\u0020Structure/Tools/Microsoft.BizTalk.CAT.BestPractices.Framework
 		SccLocalPath38 = ..\\..\\Project\u0020Structure\\Tools\\Microsoft.BizTalk.CAT.BestPractices.Framework
+		SccProjectUniqueName39 = ..\\PipelineTesting\\Bizilante.PipelineTesting.Helper\\Bizilante.PipelineTesting.Helper.csproj
+		SccProjectTopLevelParentUniqueName39 = BizUnit.sln
+		SccProjectName39 = ../PipelineTesting/Bizilante.PipelineTesting.Helper
+		SccLocalPath39 = ..\\PipelineTesting\\Bizilante.PipelineTesting.Helper
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = BizUnit.vsmdi

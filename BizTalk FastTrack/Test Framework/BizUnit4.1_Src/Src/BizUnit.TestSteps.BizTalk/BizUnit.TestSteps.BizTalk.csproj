@@ -91,10 +91,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft BizTalk Server 2006\Microsoft.XLANGs.BaseTypes.dll</HintPath>
     </Reference>
-    <Reference Include="PipelineObjects, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\..\..\..\Program Files (x86)\BizUnit\BizUnit 4.1\Bins\PipelineObjects.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -176,6 +172,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\PipelineTesting\PipelineObjects\PipelineObjects.csproj">
+      <Project>{cd31010e-2e1d-4a18-8e44-75ce93babd3a}</Project>
+      <Name>PipelineObjects</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BizUnit.TestSteps\BizUnit.TestSteps.csproj">
       <Project>{5bfef184-0834-4fba-addb-ad798ce0b58d}</Project>
       <Name>BizUnit.TestSteps</Name>
