@@ -1,0 +1,93 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6B781E32-74CC-4E99-B54B-C515F379A4A1}"
+	ProjectSection(SolutionItems) = preProject
+		LoopBack.reg = LoopBack.reg
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.BizTalk.Adapters.LoopBackAdapterManagement", "Design-Time\bizilante.BizTalk.Adapters.LoopBackAdapterManagement.csproj", "{DFA80E2B-43A8-4858-B973-6CFEC5AF03F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.BizTalk.Adapters.LoopBackAdapter", "Run-Time\LoopBackTransmit\bizilante.BizTalk.Adapters.LoopBackAdapter.csproj", "{588B9E93-15A5-408E-8DD3-68ADFA19D387}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Samples.BizTalk.Adapter.Common", "..\BaseAdapter\v1.0.2\Microsoft.Samples.BizTalk.Adapter.Common.csproj", "{44B780E7-6D79-4BAF-9994-28CFFA1172A6}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "LoopBackAdapterSetup", "LoopBackAdapterSetup\LoopBackAdapterSetup.vdproj", "{ED0F39EC-96AD-47FE-A047-053CEC45FD1A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFA80E2B-43A8-4858-B973-6CFEC5AF03F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFA80E2B-43A8-4858-B973-6CFEC5AF03F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFA80E2B-43A8-4858-B973-6CFEC5AF03F8}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{DFA80E2B-43A8-4858-B973-6CFEC5AF03F8}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{DFA80E2B-43A8-4858-B973-6CFEC5AF03F8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DFA80E2B-43A8-4858-B973-6CFEC5AF03F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFA80E2B-43A8-4858-B973-6CFEC5AF03F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFA80E2B-43A8-4858-B973-6CFEC5AF03F8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{DFA80E2B-43A8-4858-B973-6CFEC5AF03F8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{DFA80E2B-43A8-4858-B973-6CFEC5AF03F8}.Release|x86.ActiveCfg = Release|Any CPU
+		{588B9E93-15A5-408E-8DD3-68ADFA19D387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{588B9E93-15A5-408E-8DD3-68ADFA19D387}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{588B9E93-15A5-408E-8DD3-68ADFA19D387}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{588B9E93-15A5-408E-8DD3-68ADFA19D387}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{588B9E93-15A5-408E-8DD3-68ADFA19D387}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{588B9E93-15A5-408E-8DD3-68ADFA19D387}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{588B9E93-15A5-408E-8DD3-68ADFA19D387}.Release|Any CPU.Build.0 = Release|Any CPU
+		{588B9E93-15A5-408E-8DD3-68ADFA19D387}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{588B9E93-15A5-408E-8DD3-68ADFA19D387}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{588B9E93-15A5-408E-8DD3-68ADFA19D387}.Release|x86.ActiveCfg = Release|Any CPU
+		{44B780E7-6D79-4BAF-9994-28CFFA1172A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44B780E7-6D79-4BAF-9994-28CFFA1172A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44B780E7-6D79-4BAF-9994-28CFFA1172A6}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{44B780E7-6D79-4BAF-9994-28CFFA1172A6}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{44B780E7-6D79-4BAF-9994-28CFFA1172A6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{44B780E7-6D79-4BAF-9994-28CFFA1172A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44B780E7-6D79-4BAF-9994-28CFFA1172A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44B780E7-6D79-4BAF-9994-28CFFA1172A6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{44B780E7-6D79-4BAF-9994-28CFFA1172A6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{44B780E7-6D79-4BAF-9994-28CFFA1172A6}.Release|x86.ActiveCfg = Release|Any CPU
+		{ED0F39EC-96AD-47FE-A047-053CEC45FD1A}.Debug|Any CPU.ActiveCfg = Debug
+		{ED0F39EC-96AD-47FE-A047-053CEC45FD1A}.Debug|Any CPU.Build.0 = Debug
+		{ED0F39EC-96AD-47FE-A047-053CEC45FD1A}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{ED0F39EC-96AD-47FE-A047-053CEC45FD1A}.Debug|Mixed Platforms.Build.0 = Debug
+		{ED0F39EC-96AD-47FE-A047-053CEC45FD1A}.Debug|x86.ActiveCfg = Debug
+		{ED0F39EC-96AD-47FE-A047-053CEC45FD1A}.Debug|x86.Build.0 = Debug
+		{ED0F39EC-96AD-47FE-A047-053CEC45FD1A}.Release|Any CPU.ActiveCfg = Release
+		{ED0F39EC-96AD-47FE-A047-053CEC45FD1A}.Release|Any CPU.Build.0 = Release
+		{ED0F39EC-96AD-47FE-A047-053CEC45FD1A}.Release|Mixed Platforms.ActiveCfg = Release
+		{ED0F39EC-96AD-47FE-A047-053CEC45FD1A}.Release|Mixed Platforms.Build.0 = Release
+		{ED0F39EC-96AD-47FE-A047-053CEC45FD1A}.Release|x86.ActiveCfg = Release
+		{ED0F39EC-96AD-47FE-A047-053CEC45FD1A}.Release|x86.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://kvo.visualstudio.com/defaultcollection
+		SccProjectUniqueName0 = ..\\BaseAdapter\\v1.0.2\\Microsoft.Samples.BizTalk.Adapter.Common.csproj
+		SccProjectName0 = ../BaseAdapter/v1.0.2
+		SccLocalPath0 = ..\\BaseAdapter\\v1.0.2
+		SccLocalPath1 = .
+		SccProjectUniqueName2 = Design-Time\\bizilante.BizTalk.Adapters.LoopBackAdapterManagement.csproj
+		SccProjectName2 = Design-Time
+		SccLocalPath2 = Design-Time
+		SccProjectUniqueName3 = LoopBackAdapterSetup\\LoopBackAdapterSetup.vdproj
+		SccProjectName3 = LoopBackAdapterSetup
+		SccLocalPath3 = LoopBackAdapterSetup
+		SccProjectUniqueName4 = Run-Time\\LoopBackTransmit\\bizilante.BizTalk.Adapters.LoopBackAdapter.csproj
+		SccProjectName4 = Run-Time/LoopBackTransmit
+		SccLocalPath4 = Run-Time\\LoopBackTransmit
+	EndGlobalSection
+EndGlobal

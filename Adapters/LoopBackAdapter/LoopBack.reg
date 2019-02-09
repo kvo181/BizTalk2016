@@ -1,0 +1,60 @@
+Windows Registry Editor Version 5.00
+[HKEY_CLASSES_ROOT\CLSID\{D44A2A6E-3B4F-452A-8007-CAB27D2D0B95}]
+@="LoopBack Adapter"
+[HKEY_CLASSES_ROOT\CLSID\{D44A2A6E-3B4F-452A-8007-CAB27D2D0B95}\BizTalk]
+@="BizTalk"
+"TransportType"="LoopBack"
+"Constraints"=dword:0000250A
+"OutboundProtocol_PageProv"="{2DE93EE6-CB01-4007-93E9-C3D71689A283}"
+"TransmitLocation_PageProv"="{2DE93EE6-CB01-4007-93E9-C3D71689A282}"
+"OutboundEngineCLSID"="{01F122B8-A093-4C81-886A-0B986A94CF39}"
+"OutboundTypeName"="bizilante.BizTalk.Adapters.Runtime.Adapters.LoopBackAdapter.LoopBackTransmitAdapter"
+"OutboundAssemblyPath"="C:\\BizTalk\\Adapters\\LoopBackAdapter\\bizilante.BizTalk.Adapters.LoopBackAdapter.dll"
+"AliasesXML"="<AdapterAliasList><AdapterAlias>loopback://</AdapterAlias></AdapterAliasList>"
+"SendHandlerPropertiesXML"="<CustomProps><AdapterConfig vt=\"8\"/></CustomProps>"
+"SendLocationPropertiesXML"="<CustomProps><AdapterConfig vt=\"8\"/></CustomProps>"
+"PropertyNameSpace"="http://bizilante.BizTalk.Adapters.LoopBack"
+"AdapterMgmtTypeName"="bizilante.BizTalk.Adapters.LoopBackDesignTime.AdapterManagement"
+"AdapterMgmtAssemblyPath"="C:\\BizTalk\\Adapters\\LoopBackAdapter\\bizilante.BizTalk.Adapters.LoopBackAdapterManagement.dll"
+[HKEY_CLASSES_ROOT\CLSID\{D44A2A6E-3B4F-452A-8007-CAB27D2D0B95}\Implemented Categories]
+[HKEY_CLASSES_ROOT\CLSID\{D44A2A6E-3B4F-452A-8007-CAB27D2D0B95}\Implemented Categories\{7F46FC3E-3C2C-405B-A47F-8D17942BA8F9}]
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\CLSID\{D44A2A6E-3B4F-452A-8007-CAB27D2D0B95}]
+@="LoopBack Adapter"
+[HKEY_CURRENT_USER\SOFTWARE\Classes\CLSID\{D44A2A6E-3B4F-452A-8007-CAB27D2D0B95}\BizTalk]
+@="BizTalk"
+"TransportType"="LoopBack"
+"Constraints"=dword:0000250A
+"OutboundProtocol_PageProv"="{2DE93EE6-CB01-4007-93E9-C3D71689A283}"
+"TransmitLocation_PageProv"="{2DE93EE6-CB01-4007-93E9-C3D71689A282}"
+"OutboundEngineCLSID"="{01F122B8-A093-4C81-886A-0B986A94CF39}"
+"OutboundTypeName"="bizilante.BizTalk.Adapters.Runtime.Adapters.LoopBackAdapter.LoopBackTransmitAdapter"
+"OutboundAssemblyPath"="C:\\BizTalk\\Adapters\\LoopBackAdapter\\bizilante.BizTalk.Adapters.LoopBackAdapter.dll"
+"AliasesXML"="<AdapterAliasList><AdapterAlias>loopback://</AdapterAlias></AdapterAliasList>"
+"SendHandlerPropertiesXML"="<CustomProps><AdapterConfig vt=\"8\"/></CustomProps>"
+"SendLocationPropertiesXML"="<CustomProps><AdapterConfig vt=\"8\"/></CustomProps>"
+"PropertyNameSpace"="http://bizilante.BizTalk.Adapters.LoopBack"
+"AdapterMgmtTypeName"="bizilante.BizTalk.Adapters.LoopBackDesignTime.AdapterManagement"
+"AdapterMgmtAssemblyPath"="C:\\BizTalk\\Adapters\\LoopBackAdapter\\bizilante.BizTalk.Adapters.LoopBackAdapterManagement.dll"
+[HKEY_CURRENT_USER\SOFTWARE\Classes\CLSID\{D44A2A6E-3B4F-452A-8007-CAB27D2D0B95}\Implemented Categories]
+[HKEY_CURRENT_USER\SOFTWARE\Classes\CLSID\{D44A2A6E-3B4F-452A-8007-CAB27D2D0B95}\Implemented Categories\{7F46FC3E-3C2C-405B-A47F-8D17942BA8F9}]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{D44A2A6E-3B4F-452A-8007-CAB27D2D0B95}]
+@="LoopBack Adapter"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{D44A2A6E-3B4F-452A-8007-CAB27D2D0B95}\BizTalk]
+@="BizTalk"
+"TransportType"="LoopBack"
+"Constraints"=dword:0000250A
+"OutboundProtocol_PageProv"="{2DE93EE6-CB01-4007-93E9-C3D71689A283}"
+"TransmitLocation_PageProv"="{2DE93EE6-CB01-4007-93E9-C3D71689A282}"
+"OutboundEngineCLSID"="{01F122B8-A093-4C81-886A-0B986A94CF39}"
+"OutboundTypeName"="bizilante.BizTalk.Adapters.Runtime.Adapters.LoopBackAdapter.LoopBackTransmitAdapter"
+"OutboundAssemblyPath"="C:\\BizTalk\\Adapters\\LoopBackAdapter\\bizilante.BizTalk.Adapters.LoopBackAdapter.dll"
+"AliasesXML"="<AdapterAliasList><AdapterAlias>loopback://</AdapterAlias></AdapterAliasList>"
+"SendHandlerPropertiesXML"="<CustomProps><AdapterConfig vt=\"8\"/></CustomProps>"
+"SendLocationPropertiesXML"="<CustomProps><AdapterConfig vt=\"8\"/></CustomProps>"
+"PropertyNameSpace"="http://bizilante.BizTalk.Adapters.LoopBack"
+"AdapterMgmtTypeName"="bizilante.BizTalk.Adapters.LoopBackDesignTime.AdapterManagement"
+"AdapterMgmtAssemblyPath"="C:\\BizTalk\\Adapters\\LoopBackAdapter\\bizilante.BizTalk.Adapters.LoopBackAdapterManagement.dll"
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{D44A2A6E-3B4F-452A-8007-CAB27D2D0B95}\Implemented Categories]
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{D44A2A6E-3B4F-452A-8007-CAB27D2D0B95}\Implemented Categories\{7F46FC3E-3C2C-405B-A47F-8D17942BA8F9}]
