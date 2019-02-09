@@ -1,0 +1,69 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipelineComponentWizard", "PipelineComponentWizard\PipelineComponentWizard.csproj", "{628BA2B0-D5D3-4BCC-925E-C1EF60B76021}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PipelineComponentWizard Setup", "PipelineComponentWizard Setup\PipelineComponentWizard Setup.vdproj", "{689E7BED-57D5-420D-AE72-08136F04B3B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomAction", "CustomAction\CustomAction.csproj", "{D6160604-3ADB-4737-8BEF-2C953750A100}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Any CPU = CD_ROM|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		DVD-5|Any CPU = DVD-5|Any CPU
+		Release|Any CPU = Release|Any CPU
+		SingleImage|Any CPU = SingleImage|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{628BA2B0-D5D3-4BCC-925E-C1EF60B76021}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{628BA2B0-D5D3-4BCC-925E-C1EF60B76021}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{628BA2B0-D5D3-4BCC-925E-C1EF60B76021}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{628BA2B0-D5D3-4BCC-925E-C1EF60B76021}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{628BA2B0-D5D3-4BCC-925E-C1EF60B76021}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{628BA2B0-D5D3-4BCC-925E-C1EF60B76021}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{628BA2B0-D5D3-4BCC-925E-C1EF60B76021}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{628BA2B0-D5D3-4BCC-925E-C1EF60B76021}.Release|Any CPU.Build.0 = Release|Any CPU
+		{628BA2B0-D5D3-4BCC-925E-C1EF60B76021}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{628BA2B0-D5D3-4BCC-925E-C1EF60B76021}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{689E7BED-57D5-420D-AE72-08136F04B3B6}.CD_ROM|Any CPU.ActiveCfg = Release
+		{689E7BED-57D5-420D-AE72-08136F04B3B6}.CD_ROM|Any CPU.Build.0 = Release
+		{689E7BED-57D5-420D-AE72-08136F04B3B6}.Debug|Any CPU.ActiveCfg = Debug
+		{689E7BED-57D5-420D-AE72-08136F04B3B6}.Debug|Any CPU.Build.0 = Debug
+		{689E7BED-57D5-420D-AE72-08136F04B3B6}.DVD-5|Any CPU.ActiveCfg = Debug
+		{689E7BED-57D5-420D-AE72-08136F04B3B6}.DVD-5|Any CPU.Build.0 = Debug
+		{689E7BED-57D5-420D-AE72-08136F04B3B6}.Release|Any CPU.ActiveCfg = Release
+		{689E7BED-57D5-420D-AE72-08136F04B3B6}.Release|Any CPU.Build.0 = Release
+		{689E7BED-57D5-420D-AE72-08136F04B3B6}.SingleImage|Any CPU.ActiveCfg = Release
+		{689E7BED-57D5-420D-AE72-08136F04B3B6}.SingleImage|Any CPU.Build.0 = Release
+		{D6160604-3ADB-4737-8BEF-2C953750A100}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{D6160604-3ADB-4737-8BEF-2C953750A100}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{D6160604-3ADB-4737-8BEF-2C953750A100}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6160604-3ADB-4737-8BEF-2C953750A100}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6160604-3ADB-4737-8BEF-2C953750A100}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6160604-3ADB-4737-8BEF-2C953750A100}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{D6160604-3ADB-4737-8BEF-2C953750A100}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6160604-3ADB-4737-8BEF-2C953750A100}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6160604-3ADB-4737-8BEF-2C953750A100}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{D6160604-3ADB-4737-8BEF-2C953750A100}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://kvo.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CustomAction\\CustomAction.csproj
+		SccProjectName1 = CustomAction
+		SccLocalPath1 = CustomAction
+		SccProjectUniqueName2 = PipelineComponentWizard\u0020Setup\\PipelineComponentWizard\u0020Setup.vdproj
+		SccProjectName2 = PipelineComponentWizard\u0020Setup
+		SccLocalPath2 = PipelineComponentWizard\u0020Setup
+		SccProjectUniqueName3 = PipelineComponentWizard\\PipelineComponentWizard.csproj
+		SccProjectName3 = PipelineComponentWizard
+		SccLocalPath3 = PipelineComponentWizard
+	EndGlobalSection
+EndGlobal
