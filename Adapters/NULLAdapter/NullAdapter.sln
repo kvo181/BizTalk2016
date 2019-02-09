@@ -1,0 +1,43 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B73F7D4A-AA42-45B6-B3AC-8048AA5791F7}"
+	ProjectSection(SolutionItems) = preProject
+		NullAdapter\NullAdapter.reg = NullAdapter\NullAdapter.reg
+		NullAdapter.snk = NullAdapter.snk
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NullAdapter", "NullAdapter\NullAdapter.csproj", "{65EDA1FE-D7BF-43D1-A5A4-59309EDAAB00}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupNullAdapter", "SetupNullAdapter\SetupNullAdapter.vdproj", "{7877E3F2-934A-4CB7-99BA-B50074E65560}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65EDA1FE-D7BF-43D1-A5A4-59309EDAAB00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65EDA1FE-D7BF-43D1-A5A4-59309EDAAB00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65EDA1FE-D7BF-43D1-A5A4-59309EDAAB00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65EDA1FE-D7BF-43D1-A5A4-59309EDAAB00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7877E3F2-934A-4CB7-99BA-B50074E65560}.Debug|Any CPU.ActiveCfg = Debug
+		{7877E3F2-934A-4CB7-99BA-B50074E65560}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://kvo.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = NullAdapter\\NullAdapter.csproj
+		SccProjectName1 = NullAdapter
+		SccLocalPath1 = NullAdapter
+		SccProjectUniqueName2 = SetupNullAdapter\\SetupNullAdapter.vdproj
+		SccProjectName2 = SetupNullAdapter
+		SccLocalPath2 = SetupNullAdapter
+	EndGlobalSection
+EndGlobal
