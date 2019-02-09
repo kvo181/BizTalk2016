@@ -1,0 +1,9 @@
+<br />2016-10-19 kvo 4.0 BizTalk 2016 migration
+<br />2015-12-14 kvo 3.0 Release 3.0.151215.00 - Archive extended with zip functionality
+<br />2015-01-28 kvo 3.0 Release 3.0.150128.00 (Added some pipeline components)
+<br />2014-10-11 kvo 3.0 Release 3.0.141011.00 (First BizTalk 2013 R2 Build)
+<br />2014-04-23 kvo 2.1 Release 2.1.140423.00
+<br />2014-04-23 kvo 2.1 SSOClientHelper takes multiple environments into account.
+<br />2014-02-21 Antonis Antoniadis it builds
+<br />2013-06-13 kvo 2.0 added ContextAdder pipeline components
+<br />2013-02-14 kvo 2.0 start version BizTalk 2013

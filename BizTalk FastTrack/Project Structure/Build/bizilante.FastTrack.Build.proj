@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="Build">	
+	<Import Project="bizilante.FastTrack.Custom.targets"/>
+	<Import Project="bizilante.FastTrack.targets"/>
+	<Import Project="bizilante.FastTrack.Rules.targets"/>
+				
+	<Target Name="Build">
+
+		<!-- Set the new version -->
+		<CallTarget Targets="AssemblyVersioning"/>
+
+		<CallTarget Targets="CleanUp"/>
+		<CallTarget Targets="Setup"/>
+
+		<!-- Create the ReadMe.htm file -->
+		<CallTarget Targets="GenerateReadMe" />
+
+		<!-- Build -->
+		<MSBuild Projects ="$(SourceCodeRootFolder)\$(SolutionName)" Targets="Rebuild" Properties="Configuration=$(ConfigurationName);" />		
+
+		<!-- Deploy -->
+		<CallTarget Targets="Deployment"/>
+		<CallTarget Targets="Publish"/>
+		<CallTarget Targets="ApplyBindings" />			
+		<BizTalk.BuildGenerator.Tasks.StartApplication MessageBoxConnection="$(BizTalkManagementDatabaseConnectionString)" ApplicationName="$(ProductName)"/>
+		<CallTarget Targets="UnitTests" Condition="$(IncludeTests)" />
+	</Target>
+	
+	<Target Name="CleanUp">
+		<CallTarget Targets="BeforeCleanUp" />
+		<RemoveDir Directories="$(PackageDirectory)" ContinueOnError="true" />
+		<CallTarget ContinueOnError="false" Targets="StopApplication"/>
+		<CallTarget Targets="RemoveRules" ContinueOnError="true" />
+		<CallTarget Targets="RemoveApplication" ContinueOnError="true" />
+
+
+
+		
+
+		<CallTarget Targets="AfterCleanUp" />
+	</Target>
+	
+	<Target Name="Setup">
+		<CallTarget Targets="BeforeSetup" />
+		<MakeDir Directories="$(PackageDirectory)"/>
+
+
+
+
+
+		<CallTarget Targets="AfterSetup" />
+	</Target>
+
+	<Target Name="AssemblyVersioning">
+		<bizilante.BuildGenerator.Tasks.AssemblyInfo AssemblyInfoFiles="$(AssemblyInfoFiles)" AssemblyBuildNumberFormat="DirectSet" AssemblyFileMinorVersionType="AutoIncrement" AssemblyFileBuildNumberType="AutoIncrement" AssemblyFileRevisionType="AutoIncrement" AssemblyFileMajorVersion="$(MajorVersion)" AssemblyVersion="$(MajorVersion).$(MinorVersion).0.0">
+			<Output TaskParameter="MaxAssemblyFileVersion" PropertyName="ProductDescription"/>
+		</bizilante.BuildGenerator.Tasks.AssemblyInfo>
+		<PropertyGroup>		
+			<!-- Deployment Properties-->
+			<PackageLocation>$(PackageDirectory)\$(ProductName)_$(ConfigurationName)_$(ProductDescription)-FULL.msi</PackageLocation>
+		</PropertyGroup>
+		<Message Text="Description: $(ProductDescription)"/>
+	</Target>
+
+	<Target Name="Deployment">
+		<!-- We enable the generation of the bindings files in the BeforeDeployment target. -->
+		<!-- The condition makes this an optional step -->
+		<CallTarget Targets="BeforeDeployment" Condition="$(GenerateBindings)" />
+		<CallTarget Targets="AddApplication" />
+		<CallTarget Targets="DeployApplication" />
+		<!-- We need to be sure everything is in the GAC before starting the application or deploying the rules -->
+		<CallTarget Targets="InstallInGac" />
+		<CallTarget Targets="DeployRules"/>
+		<CallTarget Targets="AfterDeployment" />
+		<!-- ReadMe -->
+	    <Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\Setup\Resources\ReadMe.htm" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:File /Overwrite /Destination:"%%BTAD_InstallDir%%\ReadMe.htm"' />
+	</Target>
+
+	<Target Name='UnitTests'>
+		<CallTarget Targets="BeforeUnitTests" />
+		<Exec Command='"$(VS140COMNTOOLS)..\IDE\mstest.exe"  /testcontainer:"$(SourceCodeRootFolder)\Tests\bizilante.PipelineComponents.UnitTest\bin\$(ConfigurationName)\bizilante.PipelineComponents.UnitTest.dll"  /testcontainer:"$(SourceCodeRootFolder)\Tests\Common\bin\debug\bizilante.Common.UnitTest.dll"  /testcontainer:"$(SourceCodeRootFolder)\Tests\BaseClasses\bin\$(ConfigurationName)\bizilante.BaseClasses.UnitTests.dll"  /testsettings:"$(SourceCodeRootFolder)\$(ProductName).testsettings"' />
+		<CallTarget Targets="AfterUnitTests" />
+	</Target>
+
+	<!-- Targets used by Deployment -->
+	<Target Name="StopApplication">
+		<BizTalk.BuildGenerator.Tasks.StopApplication MessageBoxConnection="$(BizTalkManagementDatabaseConnectionString)" ApplicationName="$(ProductName)"/>
+	</Target>
+	
+	<Target Name="RemoveApplication">
+		<Exec Command="BTSTask RemoveApp -ApplicationName:$(ProductName) -Server:$(BizTalkDatabaseServerName) -Database:$(BizTalkManagementDatabaseName)" />
+	</Target>
+	
+	<Target Name="AddApplication">
+		<Exec Command='BTSTask AddApp -ApplicationName:$(ProductName) -Description:"$(ProductDescription)" -Server:$(BizTalkDatabaseServerName) -Database:$(BizTalkManagementDatabaseName)' />
+		
+	</Target>
+	
+	<Target Name="DeployApplication">
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\Tools\Microsoft.BizTalk.CAT.BestPractices.Framework\bin\$(ConfigurationName)\Microsoft.BizTalk.CAT.BestPractices.Framework.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"%%BTAD_InstallDir%%\Microsoft.BizTalk.CAT.BestPractices.Framework.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\BaseClasses\BTSHelper\bin\$(ConfigurationName)\bizilante.BaseClasses.BTSHelper.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"%%BTAD_InstallDir%%\bizilante.BaseClasses.BTSHelper.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\Pipeline Components\ContextAdder\ContextAdderHelper\bin\$(ConfigurationName)\bizilante.PipelineComponents.ContextAdderHelper.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"C:\Program Files (x86)\Microsoft BizTalk Server 2016\Pipeline Components\bizilante.PipelineComponents.ContextAdderHelper.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\BaseClasses\CustomFunctoids\bin\$(ConfigurationName)\bizilante.BaseClasses.CustomFunctoids.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"%%BTAD_InstallDir%%\bizilante.BaseClasses.CustomFunctoids.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\Components\Blogical.Shared.Functoids\bin\$(ConfigurationName)\Blogical.Shared.Functoids.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"%%BTAD_InstallDir%%\Blogical.Shared.Functoids.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\Components\eliasen.eu.BizTalk.Functoids\eliasen.eu.BizTalk.Functoids\bin\$(ConfigurationName)\eliasen.eu.BizTalk.Functoids.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"%%BTAD_InstallDir%%\eliasen.eu.BizTalk.Functoids.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\Tools\Microsoft.BizTalk.CAT.Samples.DynamicTransforms.Helpers\bin\$(ConfigurationName)\bizilante.BaseClasses.DynamicTransforms.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"%%BTAD_InstallDir%%\bizilante.BaseClasses.DynamicTransforms.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\BaseClasses\XMLNamespaceReplacer\bin\$(ConfigurationName)\bizilante.BaseClasses.XMLNamespaceReplacer.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"%%BTAD_InstallDir%%\bizilante.BaseClasses.XMLNamespaceReplacer.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\BaseClasses\XMLFilteredStream\bin\$(ConfigurationName)\bizilante.BaseClasses.XMLFilteredStream.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"%%BTAD_InstallDir%%\bizilante.BaseClasses.XMLFilteredStream.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\BaseClasses\TraceHelper\bin\$(ConfigurationName)\bizilante.BaseClasses.TraceHelper.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"%%BTAD_InstallDir%%\bizilante.BaseClasses.TraceHelper.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\BaseClasses\SQLDataHelper\bin\$(ConfigurationName)\bizilante.BaseClasses.SQLDataHelper.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"%%BTAD_InstallDir%%\bizilante.BaseClasses.SQLDataHelper.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\BaseClasses\Serialize\bin\$(ConfigurationName)\bizilante.BaseClasses.Serialize.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"%%BTAD_InstallDir%%\bizilante.BaseClasses.Serialize.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\BaseClasses\Rules\bin\$(ConfigurationName)\bizilante.BaseClasses.Rules.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"%%BTAD_InstallDir%%\bizilante.BaseClasses.Rules.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\BaseClasses\RawString\bin\$(ConfigurationName)\bizilante.BaseClasses.RawString.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"%%BTAD_InstallDir%%\bizilante.BaseClasses.RawString.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\BaseClasses\PipelineHelper\bin\$(ConfigurationName)\bizilante.BaseClasses.PipelinesHelper.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"%%BTAD_InstallDir%%\bizilante.BaseClasses.PipelinesHelper.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\BaseClasses\PipelineComponentHelper\bin\$(ConfigurationName)\bizilante.BaseClasses.PipelineComponentHelper.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"%%BTAD_InstallDir%%\bizilante.BaseClasses.PipelineComponentHelper.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\BaseClasses\OrchestrationHelper\bin\$(ConfigurationName)\bizilante.BaseClasses.OrchestrationHelper.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"%%BTAD_InstallDir%%\bizilante.BaseClasses.OrchestrationHelper.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\BaseClasses\Messages\bin\$(ConfigurationName)\bizilante.BaseClasses.Messages.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"%%BTAD_InstallDir%%\bizilante.BaseClasses.Messages.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\BaseClasses\EncodingTools\bin\$(ConfigurationName)\bizilante.BaseClasses.EncodingTools.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"%%BTAD_InstallDir%%\bizilante.BaseClasses.EncodingTools.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\BaseClasses\BTSLogger\bin\$(ConfigurationName)\bizilante.BaseClasses.BTSLoggers.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"%%BTAD_InstallDir%%\bizilante.BaseClasses.BTSLoggers.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\BaseClasses\FilteredStream\bin\$(ConfigurationName)\bizilante.BaseClasses.FilteredStream.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"%%BTAD_InstallDir%%\bizilante.BaseClasses.FilteredStream.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\BaseClasses\WMI\bin\$(ConfigurationName)\bizilante.BaseClasses.WMI.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"%%BTAD_InstallDir%%\bizilante.BaseClasses.WMI.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\BaseClasses\Utils\bin\$(ConfigurationName)\bizilante.BaseClasses.Utils.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"%%BTAD_InstallDir%%\bizilante.BaseClasses.Utils.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\Pipeline Components\ValidatorComp\bin\$(ConfigurationName)\bizilante.PipelineComponents.XmlValidatorComp.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"C:\Program Files (x86)\Microsoft BizTalk Server 2016\Pipeline Components\bizilante.PipelineComponents.XmlValidatorComp.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\Pipeline Components\bizilante.PipelineComponents.XmlEscapedWrapper\bin\$(ConfigurationName)\bizilante.PipelineComponents.XmlEscapedWrapper.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"C:\Program Files (x86)\Microsoft BizTalk Server 2016\Pipeline Components\bizilante.PipelineComponents.XmlEscapedWrapper.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\Pipeline Components\SetOperationName\bin\$(ConfigurationName)\bizilante.PipelineComponents.SetOperationName.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"C:\Program Files (x86)\Microsoft BizTalk Server 2016\Pipeline Components\bizilante.PipelineComponents.SetOperationName.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\Pipeline Components\XPathPropertyHandler\bin\$(ConfigurationName)\bizilante.PipelineComponents.XPathPropertyHandler.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"C:\Program Files (x86)\Microsoft BizTalk Server 2016\Pipeline Components\bizilante.PipelineComponents.XPathPropertyHandler.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\Pipeline Components\ContextAdder\ContextAdder\bin\$(ConfigurationName)\bizilante.PipelineComponents.ContextAdder.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"C:\Program Files (x86)\Microsoft BizTalk Server 2016\Pipeline Components\bizilante.PipelineComponents.ContextAdder.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\Pipeline Components\PropertyPromotor\bin\debug\bizilante.PipelineComponents.PropertyPromotor.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"C:\Program Files (x86)\Microsoft BizTalk Server 2016\Pipeline Components\bizilante.PipelineComponents.PropertyPromotor.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\Pipeline Components\bizilante.PipelineComponents.Archiving\bin\$(ConfigurationName)\bizilante.PipelineComponents.Archiving.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"C:\Program Files (x86)\Microsoft BizTalk Server 2016\Pipeline Components\bizilante.PipelineComponents.Archiving.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\Pipeline Components\bizilante.PipelineComponents.NamespaceTranslator\bin\$(ConfigurationName)\bizilante.PipelineComponents.NamespaceTranslator.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"C:\Program Files (x86)\Microsoft BizTalk Server 2016\Pipeline Components\bizilante.PipelineComponents.NamespaceTranslator.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\Pipeline Components\bizilante.PipelineComponents.ReadCData\bin\debug\bizilante.PipelineComponents.ReadCData.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:Assembly /Overwrite /Destination:"C:\Program Files (x86)\Microsoft BizTalk Server 2016\Pipeline Components\bizilante.PipelineComponents.ReadCData.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\Schemas\InvalidXml\bin\$(ConfigurationName)\bizilante.BizTalk.Schemas.InvalidXml.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:BizTalkAssembly /Overwrite /Destination:"%%BTAD_InstallDir%%\bizilante.BizTalk.Schemas.InvalidXml.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\Schemas\Archiving\bin\$(ConfigurationName)\bizilante.BizTalk.Schemas.Archiving.dll" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:BizTalkAssembly /Overwrite /Destination:"%%BTAD_InstallDir%%\bizilante.BizTalk.Schemas.Archiving.dll" /Options:GacOnImport,GacOnInstall' />
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\Setup\Resources\ReadMe.htm" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:File /Overwrite /Destination:"%%BTAD_InstallDir%%\Resources\ReadMe.htm"' />
+
+		<Exec Command='BTSTask AddResource /Source:"$(SourceCodeRootFolder)\Setup\SSO\BizTalk.Environment.xml" /ApplicationName:"$(ProductName)" /Type:System.BizTalk:File /Overwrite /Destination:"%%BTAD_InstallDir%%\Resources\SSO\BizTalk.Environment.xml"' />
+		<bizilante.BuildGenerator.SSO.Tasks.Import CompanyName="bizilante" NonEncryptedFile="$(SourceCodeRootFolder)\Setup\SSO\BizTalk.Environment.xml" />
+
+	</Target>
+	
+	<Target Name="ApplyBindings">
+		<CallTarget Targets="BeforeApplyBindings" />
+				
+		<CallTarget Targets="AfterApplyBindings" />
+	</Target>	
+	
+	<Target Name="Publish">
+		<CallTarget Targets="BeforePublish" />
+        <Exec Command='BTSTask ListApp -ApplicationName:$(ProductName) -ResourceSpec:"$(PackageDirectory)\Artifacts.xml"' />
+		<bizilante.BuildGenerator.Tasks.PrepareArtifacts FilePath="$(PackageDirectory)\Artifacts.xml" ApplicationName="$(ProductName)" />
+		<Exec Command='BTSTask ExportApp /ApplicationName:$(ProductName) /Package:"$(PackageLocation)" -ResourceSpec:"$(PackageDirectory)\Artifacts.xml"' />
+		<CallTarget Targets="AfterPublish" />
+	</Target>
+
+	<Target Name="GenerateReadMe">
+		<bizilante.BuildGenerator.Tasks.GenerateReadMe ApplicationName="$(ProductName)" Version="$(ProductDescription)" NotesPath="$(SourceCodeRootFolder)\ReleaseNotes.txt" ReadMePath="$(SourceCodeRootFolder)\Setup\Resources\ReadMe.htm" />
+	</Target>
+
+</Project>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Import Project="bizilante.FastTrack.properties"/>	
+	<Import Project="bizilante.FastTrack.Custom.properties"/>
+
+	<Target Name="BeforeCleanUp">
+		<!-- Add Custom Setup Here -->
+	</Target>
+	
+	<Target Name="AfterCleanUp">
+		<!-- Add Custom Setup Here -->
+	</Target>
+	
+	<Target Name="BeforeSetup">
+		<!-- Add Custom Setup Here -->
+	</Target>
+	
+	<Target Name="AfterSetup">
+		<!-- Add Custom Setup Here -->
+	</Target>
+	
+	<Target Name="BeforeDeployment">
+		<!-- Add Custom Setup Here -->
+				
+	</Target>
+	
+	<Target Name="AfterDeployment">
+		<!-- Add Custom Setup Here -->
+	</Target>
+	
+	<Target Name="BeforeUnitTests">
+		<!-- Add Custom Setup Here -->
+	</Target>
+	
+	<Target Name="AfterUnitTests">
+		<!-- Add Custom Setup Here -->
+	</Target>
+	
+	<Target Name="BeforePublishWebServices">
+		<!-- Add Custom Setup Here -->
+	</Target>
+	
+	<Target Name="AfterPublishWebServices">
+		<!-- Add Custom Setup Here -->
+	</Target>
+	
+	<Target Name="BeforeApplyBindings">
+		<!-- Add Custom Setup Here -->
+	</Target>
+	
+	<Target Name="AfterApplyBindings">
+		<!-- Add Custom Setup Here -->
+	</Target>
+	
+	<Target Name="BeforePublish">
+		<!-- Add Custom Setup Here -->
+	</Target>
+	
+	<Target Name="AfterPublish">
+		<!-- Add Custom Setup Here -->
+	</Target>
+	
+</Project>

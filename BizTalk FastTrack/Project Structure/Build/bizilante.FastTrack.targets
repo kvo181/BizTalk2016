@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<PropertyGroup>
+		<ProgramFiles32>$(MSBuildProgramFiles32)</ProgramFiles32>
+		<ProgramFiles32 Condition=" '' == '$(ProgramFiles32)'">$(ProgramFiles%28x86%29)</ProgramFiles32>
+		<ProgramFiles32 Condition=" '' == '$(ProgramFiles32)'">$(ProgramFiles)</ProgramFiles32>
+		<GacUtilPath>$(ProgramFiles32)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.1 Tools\</GacUtilPath>
+	</PropertyGroup>
+
+	<Target Name="RemoveFromGac">
+		<Exec Command='"$(GacUtilPath)gacutil" /u Microsoft.BizTalk.CAT.BestPractices.Framework' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.BaseClasses.BTSHelper' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.PipelineComponents.ContextAdderHelper' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.BaseClasses.CustomFunctoids' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u Blogical.Shared.Functoids' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u eliasen.eu.BizTalk.Functoids' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.BaseClasses.DynamicTransforms' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.BaseClasses.XMLNamespaceReplacer' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.BaseClasses.XMLFilteredStream' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.BaseClasses.TraceHelper' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.BaseClasses.SQLDataHelper' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.BaseClasses.Serialize' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.BaseClasses.Rules' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.BaseClasses.RawString' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.BaseClasses.PipelinesHelper' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.BaseClasses.PipelineComponentHelper' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.BaseClasses.OrchestrationHelper' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.BaseClasses.Messages' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.BaseClasses.EncodingTools' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.BaseClasses.BTSLoggers' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.BaseClasses.FilteredStream' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.BaseClasses.WMI' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.BaseClasses.Utils' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.PipelineComponents.XmlValidatorComp' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.PipelineComponents.XmlEscapedWrapper' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.PipelineComponents.SetOperationName' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.PipelineComponents.XPathPropertyHandler' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.PipelineComponents.ContextAdder' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.PipelineComponents.PropertyPromotor' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.PipelineComponents.Archiving' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.PipelineComponents.NamespaceTranslator' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.PipelineComponents.ReadCData' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.BizTalk.Schemas.InvalidXml' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /u bizilante.BizTalk.Schemas.Archiving' ContinueOnError="true"/>
+
+	</Target>
+	<Target Name="InstallInGac">
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\Tools\Microsoft.BizTalk.CAT.BestPractices.Framework\bin\$(ConfigurationName)\Microsoft.BizTalk.CAT.BestPractices.Framework.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\BaseClasses\BTSHelper\bin\$(ConfigurationName)\bizilante.BaseClasses.BTSHelper.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\Pipeline Components\ContextAdder\ContextAdderHelper\bin\$(ConfigurationName)\bizilante.PipelineComponents.ContextAdderHelper.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\BaseClasses\CustomFunctoids\bin\$(ConfigurationName)\bizilante.BaseClasses.CustomFunctoids.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\Components\Blogical.Shared.Functoids\bin\$(ConfigurationName)\Blogical.Shared.Functoids.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\Components\eliasen.eu.BizTalk.Functoids\eliasen.eu.BizTalk.Functoids\bin\$(ConfigurationName)\eliasen.eu.BizTalk.Functoids.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\Tools\Microsoft.BizTalk.CAT.Samples.DynamicTransforms.Helpers\bin\$(ConfigurationName)\bizilante.BaseClasses.DynamicTransforms.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\BaseClasses\XMLNamespaceReplacer\bin\$(ConfigurationName)\bizilante.BaseClasses.XMLNamespaceReplacer.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\BaseClasses\XMLFilteredStream\bin\$(ConfigurationName)\bizilante.BaseClasses.XMLFilteredStream.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\BaseClasses\TraceHelper\bin\$(ConfigurationName)\bizilante.BaseClasses.TraceHelper.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\BaseClasses\SQLDataHelper\bin\$(ConfigurationName)\bizilante.BaseClasses.SQLDataHelper.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\BaseClasses\Serialize\bin\$(ConfigurationName)\bizilante.BaseClasses.Serialize.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\BaseClasses\Rules\bin\$(ConfigurationName)\bizilante.BaseClasses.Rules.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\BaseClasses\RawString\bin\$(ConfigurationName)\bizilante.BaseClasses.RawString.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\BaseClasses\PipelineHelper\bin\$(ConfigurationName)\bizilante.BaseClasses.PipelinesHelper.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\BaseClasses\PipelineComponentHelper\bin\$(ConfigurationName)\bizilante.BaseClasses.PipelineComponentHelper.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\BaseClasses\OrchestrationHelper\bin\$(ConfigurationName)\bizilante.BaseClasses.OrchestrationHelper.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\BaseClasses\Messages\bin\$(ConfigurationName)\bizilante.BaseClasses.Messages.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\BaseClasses\EncodingTools\bin\$(ConfigurationName)\bizilante.BaseClasses.EncodingTools.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\BaseClasses\BTSLogger\bin\$(ConfigurationName)\bizilante.BaseClasses.BTSLoggers.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\BaseClasses\FilteredStream\bin\$(ConfigurationName)\bizilante.BaseClasses.FilteredStream.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\BaseClasses\WMI\bin\$(ConfigurationName)\bizilante.BaseClasses.WMI.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\BaseClasses\Utils\bin\$(ConfigurationName)\bizilante.BaseClasses.Utils.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\Pipeline Components\ValidatorComp\bin\$(ConfigurationName)\bizilante.PipelineComponents.XmlValidatorComp.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\Pipeline Components\bizilante.PipelineComponents.XmlEscapedWrapper\bin\$(ConfigurationName)\bizilante.PipelineComponents.XmlEscapedWrapper.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\Pipeline Components\SetOperationName\bin\$(ConfigurationName)\bizilante.PipelineComponents.SetOperationName.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\Pipeline Components\XPathPropertyHandler\bin\$(ConfigurationName)\bizilante.PipelineComponents.XPathPropertyHandler.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\Pipeline Components\ContextAdder\ContextAdder\bin\$(ConfigurationName)\bizilante.PipelineComponents.ContextAdder.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\Pipeline Components\PropertyPromotor\bin\debug\bizilante.PipelineComponents.PropertyPromotor.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\Pipeline Components\bizilante.PipelineComponents.Archiving\bin\$(ConfigurationName)\bizilante.PipelineComponents.Archiving.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\Pipeline Components\bizilante.PipelineComponents.NamespaceTranslator\bin\$(ConfigurationName)\bizilante.PipelineComponents.NamespaceTranslator.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\Pipeline Components\bizilante.PipelineComponents.ReadCData\bin\debug\bizilante.PipelineComponents.ReadCData.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\Schemas\InvalidXml\bin\$(ConfigurationName)\bizilante.BizTalk.Schemas.InvalidXml.dll" /f' ContinueOnError="true"/>
+		<Exec Command='"$(GacUtilPath)gacutil" /i "$(SourceCodeRootFolder)\Schemas\Archiving\bin\$(ConfigurationName)\bizilante.BizTalk.Schemas.Archiving.dll" /f' ContinueOnError="true"/>
+
+	</Target>
+
+</Project>

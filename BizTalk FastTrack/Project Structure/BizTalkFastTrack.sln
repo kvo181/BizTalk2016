@@ -1,0 +1,507 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PipelineComponents", "PipelineComponents", "{1BC3BF78-CDE3-48DF-B432-59709B434827}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1117FCD3-B4BA-4101-906C-CFB17BC97BE3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{40C13366-2FA3-4B48-98F8-61B6AACC68BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BaseClasses", "BaseClasses", "{392C0040-B7FE-4B23-840B-0C1C68950103}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Schemas", "Schemas", "{C6FBD4F6-5128-480E-B333-76E3BF927CB4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{B9A0F87C-5937-4A6A-A7A6-95FE4961DA71}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_SolutionItems", "_SolutionItems", "{F3C068F9-3E8E-4007-8ABB-B44155D262D1}"
+	ProjectSection(SolutionItems) = preProject
+		ReleaseNotes.txt = ReleaseNotes.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{BF9DD2EF-861A-4435-B330-31600F70947A}"
+	ProjectSection(SolutionItems) = preProject
+		Build\bizilante.FastTrack.Build.Debug.cmd = Build\bizilante.FastTrack.Build.Debug.cmd
+		Build\bizilante.FastTrack.Build.proj = Build\bizilante.FastTrack.Build.proj
+		Build\bizilante.FastTrack.Build.Quick.Debug.cmd = Build\bizilante.FastTrack.Build.Quick.Debug.cmd
+		Build\bizilante.FastTrack.Build.Release.cmd = Build\bizilante.FastTrack.Build.Release.cmd
+		Build\bizilante.FastTrack.Custom.properties = Build\bizilante.FastTrack.Custom.properties
+		Build\bizilante.FastTrack.Custom.targets = Build\bizilante.FastTrack.Custom.targets
+		Build\bizilante.FastTrack.GenerateBindings.cmd = Build\bizilante.FastTrack.GenerateBindings.cmd
+		Build\bizilante.FastTrack.properties = Build\bizilante.FastTrack.properties
+		Build\bizilante.FastTrack.RemoveFromGac.cmd = Build\bizilante.FastTrack.RemoveFromGac.cmd
+		Build\bizilante.FastTrack.Rules.targets = Build\bizilante.FastTrack.Rules.targets
+		Build\bizilante.FastTrack.targets = Build\bizilante.FastTrack.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Functoids", "Functoids", "{E24804B0-D398-45B2-9A21-3686B06A7523}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Setup", "Setup", "{1E791CDC-647F-4540-925F-CDBB685CE36F}"
+	ProjectSection(SolutionItems) = preProject
+		Setup\bizilante.Key.snk = Setup\bizilante.Key.snk
+		Setup\BizTalkAssemblyInfo.cs = Setup\BizTalkAssemblyInfo.cs
+		Setup\config.xml = Setup\config.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BAM", "BAM", "{B1D70C36-2699-44A5-8F28-51AE959C4DEF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SSO", "SSO", "{C9E403FF-5797-49AB-A3A4-3FF4ABBC97EE}"
+	ProjectSection(SolutionItems) = preProject
+		Setup\SSO\BizTalk.Environment.sso = Setup\SSO\BizTalk.Environment.sso
+		Setup\SSO\BizTalk.Environment.xml = Setup\SSO\BizTalk.Environment.xml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.PipelineComponents.ReadCData", "Pipeline Components\bizilante.PipelineComponents.ReadCData\bizilante.PipelineComponents.ReadCData.csproj", "{53802FA4-AD11-4953-AA07-8C2FD9078419}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.PipelineComponents.UnitTests", "Tests\bizilante.PipelineComponents.UnitTest\bizilante.PipelineComponents.UnitTests.csproj", "{CB7F737E-6CD3-4256-9A22-A3D2A2E068BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.PipelineComponents.NamespaceTranslator", "Pipeline Components\bizilante.PipelineComponents.NamespaceTranslator\bizilante.PipelineComponents.NamespaceTranslator.csproj", "{8F68C6F7-B681-4A60-85F6-7E5F9532FE97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.PipelineComponents.Archiving", "Pipeline Components\bizilante.PipelineComponents.Archiving\bizilante.PipelineComponents.Archiving.csproj", "{3EA41845-3D55-4E96-B8F8-25E04FDBE2F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eliasen.eu.BizTalk.Functoids", "Components\eliasen.eu.BizTalk.Functoids\eliasen.eu.BizTalk.Functoids\eliasen.eu.BizTalk.Functoids.csproj", "{04168954-1607-4C63-9A87-55E7E0CA5D81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blogical.Shared.Functoids", "Components\Blogical.Shared.Functoids\Blogical.Shared.Functoids.csproj", "{2053A412-A4EF-438C-BCED-776EA0EA9FC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.PipelineComponents.PropertyPromotor", "Pipeline Components\PropertyPromotor\bizilante.PipelineComponents.PropertyPromotor.csproj", "{E38CFA02-038E-4262-A5F0-6354C65F5E5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.PipelineComponents.ContextAdderHelper", "Pipeline Components\ContextAdder\ContextAdderHelper\bizilante.PipelineComponents.ContextAdderHelper.csproj", "{2D573AD2-F4B0-4527-91D7-BC43C843B5C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.PipelineComponents.ContextAdder", "Pipeline Components\ContextAdder\ContextAdder\bizilante.PipelineComponents.ContextAdder.csproj", "{0A6DC456-5CB4-41B3-B0FA-8EEAE820A7EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.BizTalk.Schemas.Archiving", "Schemas\Archiving\bizilante.BizTalk.Schemas.Archiving.btproj", "{2FD0DF1F-E8F1-4EB9-8DF0-169A6271EF36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.BizTalk.Common.UnitTests", "Tests\Common\bizilante.BizTalk.Common.UnitTests.csproj", "{79E76CE9-F206-4D23-8ABF-6A4CF74280F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.BizTalk.CAT.Samples.DynamicTransforms.Helpers", "Tools\Microsoft.BizTalk.CAT.Samples.DynamicTransforms.Helpers\Microsoft.BizTalk.CAT.Samples.DynamicTransforms.Helpers.csproj", "{D8B78494-7199-4010-B951-3B96F388100C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.BizTalk.CAT.BestPractices.Framework", "Tools\Microsoft.BizTalk.CAT.BestPractices.Framework\Microsoft.BizTalk.CAT.BestPractices.Framework.csproj", "{13E20AE8-9515-4B37-B71B-3DFC70C9B831}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.BizTalk.BaseClasses.UnitTests", "Tests\BaseClasses\bizilante.BizTalk.BaseClasses.UnitTests.csproj", "{7C79F23B-B5AE-468B-AEBF-A5E52CF0D80C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.BizTalk.BaseClasses.Utils", "BaseClasses\Utils\bizilante.BizTalk.BaseClasses.Utils.csproj", "{A934F31D-39BB-4F86-A613-9C6169E6E821}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.BizTalk.BaseClasses.WMI", "BaseClasses\WMI\bizilante.BizTalk.BaseClasses.WMI.csproj", "{32273C45-7203-409D-A4A4-2849D9E7B4D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.BizTalk.BaseClasses.CustomFunctoids", "BaseClasses\CustomFunctoids\bizilante.BizTalk.BaseClasses.CustomFunctoids.csproj", "{4B630251-F84E-48DB-BE90-6BA657F5ADE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.BizTalk.BaseClasses.FilteredStream", "BaseClasses\FilteredStream\bizilante.BizTalk.BaseClasses.FilteredStream.csproj", "{40A6EA7E-E969-44A0-8283-F68AE658C837}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.BaseClasses.BTSHelper", "BaseClasses\BTSHelper\bizilante.BaseClasses.BTSHelper.csproj", "{4500E83B-9CA5-43E9-9E5E-465CBD77F0B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.BizTalk.BaseClasses.BTSLoggers", "BaseClasses\BTSLogger\bizilante.BizTalk.BaseClasses.BTSLoggers.csproj", "{7FA58191-9A74-4B29-833D-431EB8E93D72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.BizTalk.BaseClasses.EncodingTools", "BaseClasses\EncodingTools\bizilante.BizTalk.BaseClasses.EncodingTools.csproj", "{FBD2F380-F247-45FE-9C46-F9F161FC4253}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.BizTalk.BaseClasses.Messages", "BaseClasses\Messages\bizilante.BizTalk.BaseClasses.Messages.csproj", "{222B498F-CF12-4F59-B34A-0E18176476E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.BizTalk.BaseClasses.OrchestrationHelper", "BaseClasses\OrchestrationHelper\bizilante.BizTalk.BaseClasses.OrchestrationHelper.csproj", "{E62A625A-0A52-4CDA-ADCA-19FF20EAD617}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.BizTalk.BaseClasses.PipelineComponentHelper", "BaseClasses\PipelineComponentHelper\bizilante.BizTalk.BaseClasses.PipelineComponentHelper.csproj", "{F619275E-A542-4680-B8BE-6D00204FF565}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.BizTalk.BaseClasses.PipelinesHelper", "BaseClasses\PipelineHelper\bizilante.BizTalk.BaseClasses.PipelinesHelper.csproj", "{3E3D9225-3FA7-4CCF-9455-0E855A0851D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.BizTalk.BaseClasses.RawString", "BaseClasses\RawString\bizilante.BizTalk.BaseClasses.RawString.csproj", "{EB6F02AF-5F6B-4F72-9EA8-B854EBA9BFEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.BizTalk.BaseClasses.Rules", "BaseClasses\Rules\bizilante.BizTalk.BaseClasses.Rules.csproj", "{AACBC2FC-4AA8-4798-A90B-F48DCFC4E0B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.BizTalk.BaseClasses.Serialize", "BaseClasses\Serialize\bizilante.BizTalk.BaseClasses.Serialize.csproj", "{133A7FBE-7358-45B1-A1A8-7286B7E59ADB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.BizTalk.BaseClasses.SQLDataHelper", "BaseClasses\SQLDataHelper\bizilante.BizTalk.BaseClasses.SQLDataHelper.csproj", "{0A3891A0-DCDA-4DB5-A017-F706DAB479B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.BizTalk.BaseClasses.TraceHelper", "BaseClasses\TraceHelper\bizilante.BizTalk.BaseClasses.TraceHelper.csproj", "{54E8189B-895A-4019-BFBA-766BB1285A0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.BizTalk.BaseClasses.XMLFilteredStream", "BaseClasses\XMLFilteredStream\bizilante.BizTalk.BaseClasses.XMLFilteredStream.csproj", "{847989F3-1D07-4845-8633-0AAFACF82EAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.BizTalk.BaseClasses.XMLNamespaceReplacer", "BaseClasses\XMLNamespaceReplacer\bizilante.BizTalk.BaseClasses.XMLNamespaceReplacer.csproj", "{97A5C9EA-B2DB-4060-8BCD-05796887D5E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.PipelineComponents.XPathPropertyHandler", "Pipeline Components\XPathPropertyHandler\bizilante.PipelineComponents.XPathPropertyHandler.csproj", "{D3FDCE85-8396-4227-A1E1-5A93E11933BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.PipelineComponents.SetOperationName", "Pipeline Components\SetOperationName\bizilante.PipelineComponents.SetOperationName.csproj", "{1E5C2DC1-3D62-413A-BFA6-209B39DFB66A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.PipelineComponents.XmlEscapedWrapper", "Pipeline Components\bizilante.PipelineComponents.XmlEscapedWrapper\bizilante.PipelineComponents.XmlEscapedWrapper.csproj", "{542B0DDD-4407-4FD7-8EE0-26244B3478AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.PipelineComponents.XmlValidatorComp", "Pipeline Components\ValidatorComp\bizilante.PipelineComponents.XmlValidatorComp.csproj", "{6D05FA03-8973-4E6C-A9C3-F45DED914444}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.BizTalk.Schemas.InvalidXml", "Schemas\InvalidXml\bizilante.BizTalk.Schemas.InvalidXml.btproj", "{A34A56B9-90C4-463C-8E99-17D33F96B534}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.PipelineComponents.ContextAccessor", "Pipeline Components\ContextAccessor\bizilante.PipelineComponents.ContextAccessor.csproj", "{036E50F4-BD3A-48B0-9BAA-1F349023ABA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bizilante.Functoids.ContextAccessor", "Components\ContextAccessor\bizilante.Functoids.ContextAccessor.csproj", "{A706C8B0-B355-42E9-85C7-F656D92FFE51}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53802FA4-AD11-4953-AA07-8C2FD9078419}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53802FA4-AD11-4953-AA07-8C2FD9078419}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53802FA4-AD11-4953-AA07-8C2FD9078419}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53802FA4-AD11-4953-AA07-8C2FD9078419}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB7F737E-6CD3-4256-9A22-A3D2A2E068BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB7F737E-6CD3-4256-9A22-A3D2A2E068BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB7F737E-6CD3-4256-9A22-A3D2A2E068BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F68C6F7-B681-4A60-85F6-7E5F9532FE97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F68C6F7-B681-4A60-85F6-7E5F9532FE97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F68C6F7-B681-4A60-85F6-7E5F9532FE97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F68C6F7-B681-4A60-85F6-7E5F9532FE97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EA41845-3D55-4E96-B8F8-25E04FDBE2F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EA41845-3D55-4E96-B8F8-25E04FDBE2F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EA41845-3D55-4E96-B8F8-25E04FDBE2F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EA41845-3D55-4E96-B8F8-25E04FDBE2F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04168954-1607-4C63-9A87-55E7E0CA5D81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04168954-1607-4C63-9A87-55E7E0CA5D81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04168954-1607-4C63-9A87-55E7E0CA5D81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04168954-1607-4C63-9A87-55E7E0CA5D81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2053A412-A4EF-438C-BCED-776EA0EA9FC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2053A412-A4EF-438C-BCED-776EA0EA9FC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2053A412-A4EF-438C-BCED-776EA0EA9FC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2053A412-A4EF-438C-BCED-776EA0EA9FC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E38CFA02-038E-4262-A5F0-6354C65F5E5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E38CFA02-038E-4262-A5F0-6354C65F5E5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E38CFA02-038E-4262-A5F0-6354C65F5E5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E38CFA02-038E-4262-A5F0-6354C65F5E5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D573AD2-F4B0-4527-91D7-BC43C843B5C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D573AD2-F4B0-4527-91D7-BC43C843B5C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D573AD2-F4B0-4527-91D7-BC43C843B5C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D573AD2-F4B0-4527-91D7-BC43C843B5C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A6DC456-5CB4-41B3-B0FA-8EEAE820A7EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A6DC456-5CB4-41B3-B0FA-8EEAE820A7EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A6DC456-5CB4-41B3-B0FA-8EEAE820A7EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A6DC456-5CB4-41B3-B0FA-8EEAE820A7EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FD0DF1F-E8F1-4EB9-8DF0-169A6271EF36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FD0DF1F-E8F1-4EB9-8DF0-169A6271EF36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FD0DF1F-E8F1-4EB9-8DF0-169A6271EF36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FD0DF1F-E8F1-4EB9-8DF0-169A6271EF36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79E76CE9-F206-4D23-8ABF-6A4CF74280F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79E76CE9-F206-4D23-8ABF-6A4CF74280F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79E76CE9-F206-4D23-8ABF-6A4CF74280F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79E76CE9-F206-4D23-8ABF-6A4CF74280F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8B78494-7199-4010-B951-3B96F388100C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8B78494-7199-4010-B951-3B96F388100C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8B78494-7199-4010-B951-3B96F388100C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8B78494-7199-4010-B951-3B96F388100C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13E20AE8-9515-4B37-B71B-3DFC70C9B831}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13E20AE8-9515-4B37-B71B-3DFC70C9B831}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13E20AE8-9515-4B37-B71B-3DFC70C9B831}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13E20AE8-9515-4B37-B71B-3DFC70C9B831}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C79F23B-B5AE-468B-AEBF-A5E52CF0D80C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C79F23B-B5AE-468B-AEBF-A5E52CF0D80C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C79F23B-B5AE-468B-AEBF-A5E52CF0D80C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C79F23B-B5AE-468B-AEBF-A5E52CF0D80C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A934F31D-39BB-4F86-A613-9C6169E6E821}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A934F31D-39BB-4F86-A613-9C6169E6E821}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A934F31D-39BB-4F86-A613-9C6169E6E821}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A934F31D-39BB-4F86-A613-9C6169E6E821}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32273C45-7203-409D-A4A4-2849D9E7B4D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32273C45-7203-409D-A4A4-2849D9E7B4D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32273C45-7203-409D-A4A4-2849D9E7B4D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32273C45-7203-409D-A4A4-2849D9E7B4D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B630251-F84E-48DB-BE90-6BA657F5ADE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B630251-F84E-48DB-BE90-6BA657F5ADE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B630251-F84E-48DB-BE90-6BA657F5ADE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B630251-F84E-48DB-BE90-6BA657F5ADE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40A6EA7E-E969-44A0-8283-F68AE658C837}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40A6EA7E-E969-44A0-8283-F68AE658C837}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40A6EA7E-E969-44A0-8283-F68AE658C837}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40A6EA7E-E969-44A0-8283-F68AE658C837}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4500E83B-9CA5-43E9-9E5E-465CBD77F0B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4500E83B-9CA5-43E9-9E5E-465CBD77F0B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4500E83B-9CA5-43E9-9E5E-465CBD77F0B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4500E83B-9CA5-43E9-9E5E-465CBD77F0B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FA58191-9A74-4B29-833D-431EB8E93D72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FA58191-9A74-4B29-833D-431EB8E93D72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FA58191-9A74-4B29-833D-431EB8E93D72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FA58191-9A74-4B29-833D-431EB8E93D72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBD2F380-F247-45FE-9C46-F9F161FC4253}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBD2F380-F247-45FE-9C46-F9F161FC4253}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBD2F380-F247-45FE-9C46-F9F161FC4253}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBD2F380-F247-45FE-9C46-F9F161FC4253}.Release|Any CPU.Build.0 = Release|Any CPU
+		{222B498F-CF12-4F59-B34A-0E18176476E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{222B498F-CF12-4F59-B34A-0E18176476E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{222B498F-CF12-4F59-B34A-0E18176476E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{222B498F-CF12-4F59-B34A-0E18176476E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E62A625A-0A52-4CDA-ADCA-19FF20EAD617}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E62A625A-0A52-4CDA-ADCA-19FF20EAD617}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E62A625A-0A52-4CDA-ADCA-19FF20EAD617}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E62A625A-0A52-4CDA-ADCA-19FF20EAD617}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F619275E-A542-4680-B8BE-6D00204FF565}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F619275E-A542-4680-B8BE-6D00204FF565}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F619275E-A542-4680-B8BE-6D00204FF565}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F619275E-A542-4680-B8BE-6D00204FF565}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E3D9225-3FA7-4CCF-9455-0E855A0851D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E3D9225-3FA7-4CCF-9455-0E855A0851D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E3D9225-3FA7-4CCF-9455-0E855A0851D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E3D9225-3FA7-4CCF-9455-0E855A0851D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB6F02AF-5F6B-4F72-9EA8-B854EBA9BFEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB6F02AF-5F6B-4F72-9EA8-B854EBA9BFEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB6F02AF-5F6B-4F72-9EA8-B854EBA9BFEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB6F02AF-5F6B-4F72-9EA8-B854EBA9BFEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AACBC2FC-4AA8-4798-A90B-F48DCFC4E0B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AACBC2FC-4AA8-4798-A90B-F48DCFC4E0B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AACBC2FC-4AA8-4798-A90B-F48DCFC4E0B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AACBC2FC-4AA8-4798-A90B-F48DCFC4E0B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{133A7FBE-7358-45B1-A1A8-7286B7E59ADB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{133A7FBE-7358-45B1-A1A8-7286B7E59ADB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{133A7FBE-7358-45B1-A1A8-7286B7E59ADB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{133A7FBE-7358-45B1-A1A8-7286B7E59ADB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A3891A0-DCDA-4DB5-A017-F706DAB479B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A3891A0-DCDA-4DB5-A017-F706DAB479B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A3891A0-DCDA-4DB5-A017-F706DAB479B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A3891A0-DCDA-4DB5-A017-F706DAB479B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54E8189B-895A-4019-BFBA-766BB1285A0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54E8189B-895A-4019-BFBA-766BB1285A0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54E8189B-895A-4019-BFBA-766BB1285A0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54E8189B-895A-4019-BFBA-766BB1285A0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{847989F3-1D07-4845-8633-0AAFACF82EAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{847989F3-1D07-4845-8633-0AAFACF82EAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{847989F3-1D07-4845-8633-0AAFACF82EAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{847989F3-1D07-4845-8633-0AAFACF82EAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97A5C9EA-B2DB-4060-8BCD-05796887D5E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97A5C9EA-B2DB-4060-8BCD-05796887D5E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97A5C9EA-B2DB-4060-8BCD-05796887D5E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97A5C9EA-B2DB-4060-8BCD-05796887D5E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3FDCE85-8396-4227-A1E1-5A93E11933BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3FDCE85-8396-4227-A1E1-5A93E11933BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3FDCE85-8396-4227-A1E1-5A93E11933BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3FDCE85-8396-4227-A1E1-5A93E11933BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E5C2DC1-3D62-413A-BFA6-209B39DFB66A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E5C2DC1-3D62-413A-BFA6-209B39DFB66A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E5C2DC1-3D62-413A-BFA6-209B39DFB66A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E5C2DC1-3D62-413A-BFA6-209B39DFB66A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{542B0DDD-4407-4FD7-8EE0-26244B3478AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{542B0DDD-4407-4FD7-8EE0-26244B3478AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{542B0DDD-4407-4FD7-8EE0-26244B3478AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{542B0DDD-4407-4FD7-8EE0-26244B3478AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D05FA03-8973-4E6C-A9C3-F45DED914444}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D05FA03-8973-4E6C-A9C3-F45DED914444}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D05FA03-8973-4E6C-A9C3-F45DED914444}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D05FA03-8973-4E6C-A9C3-F45DED914444}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A34A56B9-90C4-463C-8E99-17D33F96B534}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A34A56B9-90C4-463C-8E99-17D33F96B534}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A34A56B9-90C4-463C-8E99-17D33F96B534}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A34A56B9-90C4-463C-8E99-17D33F96B534}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A34A56B9-90C4-463C-8E99-17D33F96B534}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A34A56B9-90C4-463C-8E99-17D33F96B534}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{036E50F4-BD3A-48B0-9BAA-1F349023ABA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{036E50F4-BD3A-48B0-9BAA-1F349023ABA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{036E50F4-BD3A-48B0-9BAA-1F349023ABA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{036E50F4-BD3A-48B0-9BAA-1F349023ABA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A706C8B0-B355-42E9-85C7-F656D92FFE51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A706C8B0-B355-42E9-85C7-F656D92FFE51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A706C8B0-B355-42E9-85C7-F656D92FFE51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A706C8B0-B355-42E9-85C7-F656D92FFE51}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BF9DD2EF-861A-4435-B330-31600F70947A} = {F3C068F9-3E8E-4007-8ABB-B44155D262D1}
+		{1E791CDC-647F-4540-925F-CDBB685CE36F} = {F3C068F9-3E8E-4007-8ABB-B44155D262D1}
+		{B1D70C36-2699-44A5-8F28-51AE959C4DEF} = {1E791CDC-647F-4540-925F-CDBB685CE36F}
+		{C9E403FF-5797-49AB-A3A4-3FF4ABBC97EE} = {1E791CDC-647F-4540-925F-CDBB685CE36F}
+		{53802FA4-AD11-4953-AA07-8C2FD9078419} = {1BC3BF78-CDE3-48DF-B432-59709B434827}
+		{CB7F737E-6CD3-4256-9A22-A3D2A2E068BB} = {1117FCD3-B4BA-4101-906C-CFB17BC97BE3}
+		{8F68C6F7-B681-4A60-85F6-7E5F9532FE97} = {1BC3BF78-CDE3-48DF-B432-59709B434827}
+		{3EA41845-3D55-4E96-B8F8-25E04FDBE2F6} = {1BC3BF78-CDE3-48DF-B432-59709B434827}
+		{04168954-1607-4C63-9A87-55E7E0CA5D81} = {E24804B0-D398-45B2-9A21-3686B06A7523}
+		{2053A412-A4EF-438C-BCED-776EA0EA9FC9} = {E24804B0-D398-45B2-9A21-3686B06A7523}
+		{E38CFA02-038E-4262-A5F0-6354C65F5E5A} = {1BC3BF78-CDE3-48DF-B432-59709B434827}
+		{2D573AD2-F4B0-4527-91D7-BC43C843B5C1} = {1BC3BF78-CDE3-48DF-B432-59709B434827}
+		{0A6DC456-5CB4-41B3-B0FA-8EEAE820A7EC} = {1BC3BF78-CDE3-48DF-B432-59709B434827}
+		{2FD0DF1F-E8F1-4EB9-8DF0-169A6271EF36} = {C6FBD4F6-5128-480E-B333-76E3BF927CB4}
+		{79E76CE9-F206-4D23-8ABF-6A4CF74280F3} = {1117FCD3-B4BA-4101-906C-CFB17BC97BE3}
+		{D8B78494-7199-4010-B951-3B96F388100C} = {B9A0F87C-5937-4A6A-A7A6-95FE4961DA71}
+		{13E20AE8-9515-4B37-B71B-3DFC70C9B831} = {B9A0F87C-5937-4A6A-A7A6-95FE4961DA71}
+		{7C79F23B-B5AE-468B-AEBF-A5E52CF0D80C} = {1117FCD3-B4BA-4101-906C-CFB17BC97BE3}
+		{A934F31D-39BB-4F86-A613-9C6169E6E821} = {392C0040-B7FE-4B23-840B-0C1C68950103}
+		{32273C45-7203-409D-A4A4-2849D9E7B4D4} = {392C0040-B7FE-4B23-840B-0C1C68950103}
+		{4B630251-F84E-48DB-BE90-6BA657F5ADE0} = {E24804B0-D398-45B2-9A21-3686B06A7523}
+		{40A6EA7E-E969-44A0-8283-F68AE658C837} = {392C0040-B7FE-4B23-840B-0C1C68950103}
+		{4500E83B-9CA5-43E9-9E5E-465CBD77F0B0} = {392C0040-B7FE-4B23-840B-0C1C68950103}
+		{7FA58191-9A74-4B29-833D-431EB8E93D72} = {392C0040-B7FE-4B23-840B-0C1C68950103}
+		{FBD2F380-F247-45FE-9C46-F9F161FC4253} = {392C0040-B7FE-4B23-840B-0C1C68950103}
+		{222B498F-CF12-4F59-B34A-0E18176476E7} = {392C0040-B7FE-4B23-840B-0C1C68950103}
+		{E62A625A-0A52-4CDA-ADCA-19FF20EAD617} = {392C0040-B7FE-4B23-840B-0C1C68950103}
+		{F619275E-A542-4680-B8BE-6D00204FF565} = {392C0040-B7FE-4B23-840B-0C1C68950103}
+		{3E3D9225-3FA7-4CCF-9455-0E855A0851D4} = {392C0040-B7FE-4B23-840B-0C1C68950103}
+		{EB6F02AF-5F6B-4F72-9EA8-B854EBA9BFEF} = {392C0040-B7FE-4B23-840B-0C1C68950103}
+		{AACBC2FC-4AA8-4798-A90B-F48DCFC4E0B1} = {392C0040-B7FE-4B23-840B-0C1C68950103}
+		{133A7FBE-7358-45B1-A1A8-7286B7E59ADB} = {392C0040-B7FE-4B23-840B-0C1C68950103}
+		{0A3891A0-DCDA-4DB5-A017-F706DAB479B7} = {392C0040-B7FE-4B23-840B-0C1C68950103}
+		{54E8189B-895A-4019-BFBA-766BB1285A0F} = {392C0040-B7FE-4B23-840B-0C1C68950103}
+		{847989F3-1D07-4845-8633-0AAFACF82EAF} = {392C0040-B7FE-4B23-840B-0C1C68950103}
+		{97A5C9EA-B2DB-4060-8BCD-05796887D5E6} = {392C0040-B7FE-4B23-840B-0C1C68950103}
+		{D3FDCE85-8396-4227-A1E1-5A93E11933BE} = {1BC3BF78-CDE3-48DF-B432-59709B434827}
+		{1E5C2DC1-3D62-413A-BFA6-209B39DFB66A} = {1BC3BF78-CDE3-48DF-B432-59709B434827}
+		{542B0DDD-4407-4FD7-8EE0-26244B3478AF} = {1BC3BF78-CDE3-48DF-B432-59709B434827}
+		{6D05FA03-8973-4E6C-A9C3-F45DED914444} = {1BC3BF78-CDE3-48DF-B432-59709B434827}
+		{A34A56B9-90C4-463C-8E99-17D33F96B534} = {C6FBD4F6-5128-480E-B333-76E3BF927CB4}
+		{036E50F4-BD3A-48B0-9BAA-1F349023ABA6} = {1BC3BF78-CDE3-48DF-B432-59709B434827}
+		{A706C8B0-B355-42E9-85C7-F656D92FFE51} = {E24804B0-D398-45B2-9A21-3686B06A7523}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 40
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://kvo.visualstudio.com/defaultcollection
+		SccProjectUniqueName0 = Pipeline\u0020Components\\bizilante.PipelineComponents.ReadCData\\bizilante.PipelineComponents.ReadCData.csproj
+		SccProjectTopLevelParentUniqueName0 = BizTalkFastTrack.sln
+		SccProjectName0 = Pipeline\u0020Components/bizilante.PipelineComponents.ReadCData
+		SccLocalPath0 = Pipeline\u0020Components\\bizilante.PipelineComponents.ReadCData
+		SccProjectUniqueName1 = Tests\\bizilante.PipelineComponents.UnitTest\\bizilante.PipelineComponents.UnitTests.csproj
+		SccProjectTopLevelParentUniqueName1 = BizTalkFastTrack.sln
+		SccProjectName1 = Tests/bizilante.PipelineComponents.UnitTest
+		SccLocalPath1 = Tests\\bizilante.PipelineComponents.UnitTest
+		SccProjectUniqueName2 = Pipeline\u0020Components\\bizilante.PipelineComponents.NamespaceTranslator\\bizilante.PipelineComponents.NamespaceTranslator.csproj
+		SccProjectTopLevelParentUniqueName2 = BizTalkFastTrack.sln
+		SccProjectName2 = Pipeline\u0020Components/bizilante.PipelineComponents.NamespaceTranslator
+		SccLocalPath2 = Pipeline\u0020Components\\bizilante.PipelineComponents.NamespaceTranslator
+		SccProjectUniqueName3 = Pipeline\u0020Components\\bizilante.PipelineComponents.Archiving\\bizilante.PipelineComponents.Archiving.csproj
+		SccProjectTopLevelParentUniqueName3 = BizTalkFastTrack.sln
+		SccProjectName3 = Pipeline\u0020Components/bizilante.PipelineComponents.Archiving
+		SccLocalPath3 = Pipeline\u0020Components\\bizilante.PipelineComponents.Archiving
+		SccProjectUniqueName4 = Components\\eliasen.eu.BizTalk.Functoids\\eliasen.eu.BizTalk.Functoids\\eliasen.eu.BizTalk.Functoids.csproj
+		SccProjectTopLevelParentUniqueName4 = BizTalkFastTrack.sln
+		SccProjectName4 = Components/eliasen.eu.BizTalk.Functoids/eliasen.eu.BizTalk.Functoids
+		SccLocalPath4 = Components\\eliasen.eu.BizTalk.Functoids\\eliasen.eu.BizTalk.Functoids
+		SccProjectUniqueName5 = Components\\Blogical.Shared.Functoids\\Blogical.Shared.Functoids.csproj
+		SccProjectTopLevelParentUniqueName5 = BizTalkFastTrack.sln
+		SccProjectName5 = Components/Blogical.Shared.Functoids
+		SccLocalPath5 = Components\\Blogical.Shared.Functoids
+		SccProjectUniqueName6 = Pipeline\u0020Components\\PropertyPromotor\\bizilante.PipelineComponents.PropertyPromotor.csproj
+		SccProjectTopLevelParentUniqueName6 = BizTalkFastTrack.sln
+		SccProjectName6 = Pipeline\u0020Components/PropertyPromotor
+		SccLocalPath6 = Pipeline\u0020Components\\PropertyPromotor
+		SccProjectUniqueName7 = Pipeline\u0020Components\\ContextAdder\\ContextAdderHelper\\bizilante.PipelineComponents.ContextAdderHelper.csproj
+		SccProjectTopLevelParentUniqueName7 = BizTalkFastTrack.sln
+		SccProjectName7 = Pipeline\u0020Components/ContextAdder/ContextAdderHelper
+		SccLocalPath7 = Pipeline\u0020Components\\ContextAdder\\ContextAdderHelper
+		SccProjectUniqueName8 = Pipeline\u0020Components\\ContextAdder\\ContextAdder\\bizilante.PipelineComponents.ContextAdder.csproj
+		SccProjectTopLevelParentUniqueName8 = BizTalkFastTrack.sln
+		SccProjectName8 = Pipeline\u0020Components/ContextAdder/ContextAdder
+		SccLocalPath8 = Pipeline\u0020Components\\ContextAdder\\ContextAdder
+		SccProjectUniqueName9 = Schemas\\Archiving\\bizilante.BizTalk.Schemas.Archiving.btproj
+		SccProjectTopLevelParentUniqueName9 = BizTalkFastTrack.sln
+		SccProjectName9 = Schemas/Archiving
+		SccLocalPath9 = Schemas\\Archiving
+		SccProjectUniqueName10 = Tests\\Common\\bizilante.BizTalk.Common.UnitTests.csproj
+		SccProjectTopLevelParentUniqueName10 = BizTalkFastTrack.sln
+		SccProjectName10 = Tests/Common
+		SccLocalPath10 = Tests\\Common
+		SccProjectUniqueName11 = Tools\\Microsoft.BizTalk.CAT.Samples.DynamicTransforms.Helpers\\Microsoft.BizTalk.CAT.Samples.DynamicTransforms.Helpers.csproj
+		SccProjectTopLevelParentUniqueName11 = BizTalkFastTrack.sln
+		SccProjectName11 = Tools/Microsoft.BizTalk.CAT.Samples.DynamicTransforms.Helpers
+		SccLocalPath11 = Tools\\Microsoft.BizTalk.CAT.Samples.DynamicTransforms.Helpers
+		SccProjectUniqueName12 = Tools\\Microsoft.BizTalk.CAT.BestPractices.Framework\\Microsoft.BizTalk.CAT.BestPractices.Framework.csproj
+		SccProjectTopLevelParentUniqueName12 = BizTalkFastTrack.sln
+		SccProjectName12 = Tools/Microsoft.BizTalk.CAT.BestPractices.Framework
+		SccLocalPath12 = Tools\\Microsoft.BizTalk.CAT.BestPractices.Framework
+		SccProjectUniqueName13 = Tests\\BaseClasses\\bizilante.BizTalk.BaseClasses.UnitTests.csproj
+		SccProjectTopLevelParentUniqueName13 = BizTalkFastTrack.sln
+		SccProjectName13 = Tests/BaseClasses
+		SccLocalPath13 = Tests\\BaseClasses
+		SccProjectUniqueName14 = BaseClasses\\WMI\\bizilante.BizTalk.BaseClasses.WMI.csproj
+		SccProjectTopLevelParentUniqueName14 = BizTalkFastTrack.sln
+		SccProjectName14 = BaseClasses/WMI
+		SccLocalPath14 = BaseClasses\\WMI
+		SccProjectUniqueName15 = BaseClasses\\CustomFunctoids\\bizilante.BizTalk.BaseClasses.CustomFunctoids.csproj
+		SccProjectTopLevelParentUniqueName15 = BizTalkFastTrack.sln
+		SccProjectName15 = BaseClasses/CustomFunctoids
+		SccLocalPath15 = BaseClasses\\CustomFunctoids
+		SccProjectUniqueName16 = BaseClasses\\FilteredStream\\bizilante.BizTalk.BaseClasses.FilteredStream.csproj
+		SccProjectTopLevelParentUniqueName16 = BizTalkFastTrack.sln
+		SccProjectName16 = BaseClasses/FilteredStream
+		SccLocalPath16 = BaseClasses\\FilteredStream
+		SccProjectUniqueName17 = BaseClasses\\BTSHelper\\bizilante.BaseClasses.BTSHelper.csproj
+		SccProjectTopLevelParentUniqueName17 = BizTalkFastTrack.sln
+		SccProjectName17 = BaseClasses/BTSHelper
+		SccLocalPath17 = BaseClasses\\BTSHelper
+		SccProjectUniqueName18 = BaseClasses\\BTSLogger\\bizilante.BizTalk.BaseClasses.BTSLoggers.csproj
+		SccProjectTopLevelParentUniqueName18 = BizTalkFastTrack.sln
+		SccProjectName18 = BaseClasses/BTSLogger
+		SccLocalPath18 = BaseClasses\\BTSLogger
+		SccProjectUniqueName19 = BaseClasses\\EncodingTools\\bizilante.BizTalk.BaseClasses.EncodingTools.csproj
+		SccProjectTopLevelParentUniqueName19 = BizTalkFastTrack.sln
+		SccProjectName19 = BaseClasses/EncodingTools
+		SccLocalPath19 = BaseClasses\\EncodingTools
+		SccProjectUniqueName20 = BaseClasses\\Messages\\bizilante.BizTalk.BaseClasses.Messages.csproj
+		SccProjectTopLevelParentUniqueName20 = BizTalkFastTrack.sln
+		SccProjectName20 = BaseClasses/Messages
+		SccLocalPath20 = BaseClasses\\Messages
+		SccProjectUniqueName21 = BaseClasses\\OrchestrationHelper\\bizilante.BizTalk.BaseClasses.OrchestrationHelper.csproj
+		SccProjectTopLevelParentUniqueName21 = BizTalkFastTrack.sln
+		SccProjectName21 = BaseClasses/OrchestrationHelper
+		SccLocalPath21 = BaseClasses\\OrchestrationHelper
+		SccProjectUniqueName22 = BaseClasses\\PipelineComponentHelper\\bizilante.BizTalk.BaseClasses.PipelineComponentHelper.csproj
+		SccProjectTopLevelParentUniqueName22 = BizTalkFastTrack.sln
+		SccProjectName22 = BaseClasses/PipelineComponentHelper
+		SccLocalPath22 = BaseClasses\\PipelineComponentHelper
+		SccProjectUniqueName23 = BaseClasses\\PipelineHelper\\bizilante.BizTalk.BaseClasses.PipelinesHelper.csproj
+		SccProjectTopLevelParentUniqueName23 = BizTalkFastTrack.sln
+		SccProjectName23 = BaseClasses/PipelineHelper
+		SccLocalPath23 = BaseClasses\\PipelineHelper
+		SccProjectUniqueName24 = BaseClasses\\RawString\\bizilante.BizTalk.BaseClasses.RawString.csproj
+		SccProjectTopLevelParentUniqueName24 = BizTalkFastTrack.sln
+		SccProjectName24 = BaseClasses/RawString
+		SccLocalPath24 = BaseClasses\\RawString
+		SccProjectUniqueName25 = BaseClasses\\Rules\\bizilante.BizTalk.BaseClasses.Rules.csproj
+		SccProjectTopLevelParentUniqueName25 = BizTalkFastTrack.sln
+		SccProjectName25 = BaseClasses/Rules
+		SccLocalPath25 = BaseClasses\\Rules
+		SccProjectUniqueName26 = BaseClasses\\Serialize\\bizilante.BizTalk.BaseClasses.Serialize.csproj
+		SccProjectTopLevelParentUniqueName26 = BizTalkFastTrack.sln
+		SccProjectName26 = BaseClasses/Serialize
+		SccLocalPath26 = BaseClasses\\Serialize
+		SccProjectUniqueName27 = BaseClasses\\SQLDataHelper\\bizilante.BizTalk.BaseClasses.SQLDataHelper.csproj
+		SccProjectTopLevelParentUniqueName27 = BizTalkFastTrack.sln
+		SccProjectName27 = BaseClasses/SQLDataHelper
+		SccLocalPath27 = BaseClasses\\SQLDataHelper
+		SccProjectUniqueName28 = BaseClasses\\TraceHelper\\bizilante.BizTalk.BaseClasses.TraceHelper.csproj
+		SccProjectTopLevelParentUniqueName28 = BizTalkFastTrack.sln
+		SccProjectName28 = BaseClasses/TraceHelper
+		SccLocalPath28 = BaseClasses\\TraceHelper
+		SccProjectUniqueName29 = BaseClasses\\XMLFilteredStream\\bizilante.BizTalk.BaseClasses.XMLFilteredStream.csproj
+		SccProjectTopLevelParentUniqueName29 = BizTalkFastTrack.sln
+		SccProjectName29 = BaseClasses/XMLFilteredStream
+		SccLocalPath29 = BaseClasses\\XMLFilteredStream
+		SccProjectUniqueName30 = BaseClasses\\XMLNamespaceReplacer\\bizilante.BizTalk.BaseClasses.XMLNamespaceReplacer.csproj
+		SccProjectTopLevelParentUniqueName30 = BizTalkFastTrack.sln
+		SccProjectName30 = BaseClasses/XMLNamespaceReplacer
+		SccLocalPath30 = BaseClasses\\XMLNamespaceReplacer
+		SccProjectUniqueName31 = Pipeline\u0020Components\\XPathPropertyHandler\\bizilante.PipelineComponents.XPathPropertyHandler.csproj
+		SccProjectTopLevelParentUniqueName31 = BizTalkFastTrack.sln
+		SccProjectName31 = Pipeline\u0020Components/XPathPropertyHandler
+		SccLocalPath31 = Pipeline\u0020Components\\XPathPropertyHandler
+		SccProjectUniqueName32 = Pipeline\u0020Components\\bizilante.PipelineComponents.XmlEscapedWrapper\\bizilante.PipelineComponents.XmlEscapedWrapper.csproj
+		SccProjectTopLevelParentUniqueName32 = BizTalkFastTrack.sln
+		SccProjectName32 = Pipeline\u0020Components/bizilante.PipelineComponents.XmlEscapedWrapper
+		SccLocalPath32 = Pipeline\u0020Components\\bizilante.PipelineComponents.XmlEscapedWrapper
+		SccProjectUniqueName33 = Pipeline\u0020Components\\ValidatorComp\\bizilante.PipelineComponents.XmlValidatorComp.csproj
+		SccProjectTopLevelParentUniqueName33 = BizTalkFastTrack.sln
+		SccProjectName33 = Pipeline\u0020Components/ValidatorComp
+		SccLocalPath33 = Pipeline\u0020Components\\ValidatorComp
+		SccProjectUniqueName34 = Schemas\\InvalidXml\\bizilante.BizTalk.Schemas.InvalidXml.btproj
+		SccProjectTopLevelParentUniqueName34 = BizTalkFastTrack.sln
+		SccProjectName34 = Schemas/InvalidXml
+		SccLocalPath34 = Schemas\\InvalidXml
+		SccProjectUniqueName35 = Pipeline\u0020Components\\SetOperationName\\bizilante.PipelineComponents.SetOperationName.csproj
+		SccProjectTopLevelParentUniqueName35 = BizTalkFastTrack.sln
+		SccProjectName35 = Pipeline\u0020Components/SetOperationName
+		SccLocalPath35 = Pipeline\u0020Components\\SetOperationName
+		SccProjectUniqueName36 = Pipeline\u0020Components\\ContextAccessor\\bizilante.PipelineComponents.ContextAccessor.csproj
+		SccProjectTopLevelParentUniqueName36 = BizTalkFastTrack.sln
+		SccProjectName36 = Pipeline\u0020Components/ContextAccessor
+		SccLocalPath36 = Pipeline\u0020Components\\ContextAccessor
+		SccProjectUniqueName37 = Components\\ContextAccessor\\bizilante.Functoids.ContextAccessor.csproj
+		SccProjectTopLevelParentUniqueName37 = BizTalkFastTrack.sln
+		SccProjectName37 = Components/ContextAccessor
+		SccLocalPath37 = Components\\ContextAccessor
+		SccLocalPath38 = .
+		SccProjectUniqueName39 = BaseClasses\\Utils\\bizilante.BizTalk.BaseClasses.Utils.csproj
+		SccProjectTopLevelParentUniqueName39 = BizTalkFastTrack.sln
+		SccProjectName39 = BaseClasses/Utils
+		SccLocalPath39 = BaseClasses\\Utils
+	EndGlobalSection
+EndGlobal
